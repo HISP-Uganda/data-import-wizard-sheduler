@@ -3,7 +3,8 @@ import isReachable from "is-reachable";
 import rq from "request-promise";
 
 import dotenv from "dotenv";
-import {encodeData, groupEntities, nest} from "./utils";
+import { encodeData, groupEntities, nest } from "./utils";
+import winston from './winston';
 
 const URL = require('url').URL;
 
@@ -32,7 +33,7 @@ export const searchTrackedEntities = async (uniqueIds, uniqueAttribute) => {
     const results = await Promise.all(all);
 
     const ids = results.map(r => {
-        const {trackedEntityInstances} = r;
+        const { trackedEntityInstances } = r;
         return trackedEntityInstances.map(t => {
             return t.trackedEntityInstance;
         })
@@ -59,7 +60,7 @@ export const searchTrackedEntities = async (uniqueIds, uniqueAttribute) => {
     const results1 = await Promise.all(all1);
 
     for (let instance of results1) {
-        const {trackedEntityInstances} = instance;
+        const { trackedEntityInstances } = instance;
         foundEntities = [...foundEntities, ...trackedEntityInstances];
     }
 
@@ -188,7 +189,7 @@ export const searchedInstances = (uniqueAttribute, trackedEntityInstances) => {
 export const updateDHISEvents = (eventsUpdate) => {
     const events = eventsUpdate.map(event => {
         return event.dataValues.map(dataValue => {
-            return {event: {...event, dataValues: [dataValue]}, dataElement: dataValue.dataElement};
+            return { event: { ...event, dataValues: [dataValue] }, dataElement: dataValue.dataElement };
         });
     });
     return _.flatten(events).map(ev => {
@@ -218,7 +219,7 @@ export const createProgram = async (processed) => {
                 const instancesResults = await postData(trackedEntityUrl, {
                     trackedEntityInstances: tei
                 });
-                console.log(instancesResults);
+                processResponse(instancesResults, 'trackedEntityInstance');
             }
         }
     } catch (e) {
@@ -232,7 +233,7 @@ export const createProgram = async (processed) => {
                 const instancesResults = await postData(trackedEntityUrl, {
                     trackedEntityInstances: tei
                 });
-                console.log(instancesResults);
+                processResponse(instancesResults, 'trackedEntityInstance');
             }
         }
     } catch (e) {
@@ -246,7 +247,8 @@ export const createProgram = async (processed) => {
                 const instancesResults = await postData(enrollmentUrl, {
                     enrollments
                 });
-                console.log(instancesResults);
+                processResponse(instancesResults, 'enrollment');
+
             }
         }
     } catch (e) {
@@ -260,7 +262,8 @@ export const createProgram = async (processed) => {
                 const instancesResults = await postData(eventUrl, {
                     events
                 });
-                console.log(instancesResults);
+                processResponse(instancesResults, 'events');
+
             }
         }
     } catch (e) {
@@ -273,9 +276,8 @@ export const createProgram = async (processed) => {
 
             for (const events of chunkedEvents) {
                 const eventsResults = await Promise.all(updateDHISEvents(events));
-                console.log(eventsResults);
+                winston.log('info', JSON.stringify(eventsResults));
             }
-
         }
     } catch (e) {
         console.log(e);
@@ -376,7 +378,50 @@ export const pullData = (mapping) => {
 export const getValidationRules = async () => {
     const url = getDHIS2Url() + '/validationRules.json';
 
-    const data = await getUpstreamData(url, {paging: false, fields: '*'});
+    const data = await getUpstreamData(url, { paging: false, fields: '*' });
 
     return data;
+}
+
+
+export const processDataSetResponses = (response) => {
+    if (response['status'] === 'SUCCESS' || response['status'] === 'WARNING') {
+        const { imported, deleted, updated, ignored } = response['importCount'];
+        winston.log('info', ' imported: ' + imported + ', updated: ' + updated + ', deleted: ' + deleted);
+        if (response['conflicts']) {
+            response['conflicts'].forEach(c => {
+                winston.log('warn', 'conflict found, object: ' + c.object + ', message: ' + c.value);
+            });
+        }
+    } else if (response['httpStatusCode'] === 500) {
+        winston.log('error', JSON.stringify(response, null, 2));
+    }
+}
+
+export const processResponse = (response, type) => {
+    if (response) {
+        if (response['httpStatusCode'] === 200) {
+            const { importSummaries } = response['response'];
+            importSummaries.forEach(importSummary => {
+                const { importCount, reference } = importSummary;
+                winston.log('info', type + ' with id, ' + reference + ' imported: ' + importCount.imported + ', updated: ' + importCount.updated + ', deleted: ' + importCount.deleted);
+            });
+        } else if (response['httpStatusCode'] === 409) {
+            _.forEach(response['response']['importSummaries'], (s) => {
+                _.forEach(s['conflicts'], (conflict) => {
+                    winston.log('warn', type + ' conflict found, object: ' + conflict.object + ', message: ' + conflict.value);
+                });
+            });
+        } else if (response['httpStatusCode'] === 500) {
+            winston.log('error', JSON.stringify(response, null, 2));
+        }
+    }
+
+};
+
+export const processEventUpdate = (successes) => {
+    console.log(successes);
+    successes.forEach(s => {
+        processDataSetResponses(s,'event');
+    })
 }

@@ -1,6 +1,7 @@
 import moment from 'moment';
-import {scheduleJob} from "node-schedule";
+import { scheduleJob } from "node-schedule";
 import parser from "cron-parser";
+
 import {
     createProgram,
     getData,
@@ -12,7 +13,9 @@ import {
     pullOrganisationUnits,
     replaceParam,
     searchedInstances,
-    searchTrackedEntities
+    searchTrackedEntities,
+    processDataSetResponses,
+    processResponse
 } from "./data-utils";
 import {
     enumerateDates,
@@ -22,7 +25,7 @@ import {
     programUniqueAttribute,
     programUniqueColumn
 } from "./utils";
-
+import winston from './winston';
 class Schedule {
     /**
      * class constructor
@@ -77,27 +80,31 @@ class Schedule {
             const interval = parser.parseExpression(schedule);
             if (mapping) {
                 if (data.type === 'tracker') {
-                    const program = mapping.value;
-                    const data = await getData(program);
-                    const uniqueColumn = programUniqueColumn(program);
-                    const uniqueIds = getUniqueIds(data, uniqueColumn);
-                    const uniqueAttribute = programUniqueAttribute(program);
-                    const instances = await searchTrackedEntities(uniqueIds, uniqueAttribute);
-                    const tracker = isTracker(mapping);
-                    const trackedEntityInstances = searchedInstances(uniqueAttribute, instances);
-                    const processed = processProgramData(data, program, uniqueColumn, trackedEntityInstances, tracker);
-                    await createProgram(processed);
+                    try {
+                        const program = mapping.value;
+                        const data = await getData(program);
+                        const uniqueColumn = programUniqueColumn(program);
+                        const uniqueIds = getUniqueIds(data, uniqueColumn);
+                        const uniqueAttribute = programUniqueAttribute(program);
+                        const instances = await searchTrackedEntities(uniqueIds, uniqueAttribute);
+                        const tracker = isTracker(mapping);
+                        const trackedEntityInstances = searchedInstances(uniqueAttribute, instances);
+                        const processed = processProgramData(data, program, uniqueColumn, trackedEntityInstances, tracker);
+                        await createProgram(processed);
+                    } catch (e) {
+                        winston.log('error', e.message);
+                    }
                 } else if (data.type === 'aggregate') {
                     const dataSet = mapping.value;
                     const templateType = dataSet.templateType.value + '';
                     if (templateType === '4') {
                         const orgUnits = await pullOrganisationUnits(dataSet);
-                        const param = {param: 'orgUnit'};
+                        const param = { param: 'orgUnit' };
 
                         if (dataSet.multiplePeriods) {
                             if (dataSet.startPeriod && dataSet.endPeriod && dataSet.addition && dataSet.additionFormat) {
                                 const periods = enumerateDates(dataSet.startPeriod, dataSet.endPeriod, dataSet.addition, dataSet.additionFormat);
-                                const pp = {param: 'period'};
+                                const pp = { param: 'period' };
                                 for (const p of periods) {
                                     pp.value = p;
                                     replaceParam(dataSet.params, pp);
@@ -129,9 +136,10 @@ class Schedule {
                                     const data = makeData(result.dataValues, dataSet);
                                     const processed = processDataSet(data, dataSet);
                                     const url = getDHIS2Url();
-                                    await postData(url + '/dataValueSets', {dataValues: processed});
+                                    const response = await postData(url + '/dataValueSets', { dataValues: processed });
+                                    processDataSetResponses(response);
                                 } catch (e) {
-                                    console.log(e.message)
+                                    winston.log('error', e.message);
                                 }
                             }
                         }
@@ -149,11 +157,13 @@ class Schedule {
 
                             const url = getDHIS2Url();
 
-                            await postData(url + '/dataValueSets', {dataValues: processed});
+                            const response = await postData(url + '/dataValueSets', { dataValues: processed });
+                            processDataSetResponses(response)
                         } catch (e) {
-                            console.log(e.message);
+                            winston.log('error', e.message);
                         }
                     } else if (templateType === '6') {
+                        winston.log('info', 'We are here');
                         console.log('We are here');
                     }
                 }
@@ -161,7 +171,7 @@ class Schedule {
 
             this.data = {
                 ...this.data,
-                [data.name]: {...this.data.name, next: interval.next().toString(), last: moment().toString()}
+                [data.name]: { ...this.data.name, next: interval.next().toString(), last: moment().toString() }
             }
         });
 
@@ -198,7 +208,7 @@ class Schedule {
         let schedule = this.findOne(id);
         if (schedule) {
             const index = this.schedules.indexOf(schedule);
-            schedule = {...schedule, ...data};
+            schedule = { ...schedule, ...data };
             schedule.modifiedDate = moment.now();
             this.schedules.splice(index, 1, schedule);
             return schedule;
