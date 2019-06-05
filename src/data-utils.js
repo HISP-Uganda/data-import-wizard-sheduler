@@ -3,8 +3,9 @@ import isReachable from "is-reachable";
 import rq from "request-promise";
 
 import dotenv from "dotenv";
-import { encodeData, groupEntities, nest } from "./utils";
+import {encodeData, groupEntities, nest, searchOrgUnit} from "./utils";
 import winston from './winston';
+import moment from "moment";
 
 const URL = require('url').URL;
 
@@ -33,7 +34,7 @@ export const searchTrackedEntities = async (uniqueIds, uniqueAttribute) => {
     const results = await Promise.all(all);
 
     const ids = results.map(r => {
-        const { trackedEntityInstances } = r;
+        const {trackedEntityInstances} = r;
         return trackedEntityInstances.map(t => {
             return t.trackedEntityInstance;
         })
@@ -60,7 +61,7 @@ export const searchTrackedEntities = async (uniqueIds, uniqueAttribute) => {
     const results1 = await Promise.all(all1);
 
     for (let instance of results1) {
-        const { trackedEntityInstances } = instance;
+        const {trackedEntityInstances} = instance;
         foundEntities = [...foundEntities, ...trackedEntityInstances];
     }
 
@@ -175,10 +176,10 @@ export const getData = async (mapping, params) => {
                 json: true
             });
         } else {
-            // winston.log('error', 'Url specified in the mapping not reachable');
+            winston.log('error', 'Url specified in the mapping not reachable');
         }
     } catch (e) {
-        // winston.log('error', e.toString());
+        winston.log('error', e.message);
     }
 };
 
@@ -189,7 +190,7 @@ export const searchedInstances = (uniqueAttribute, trackedEntityInstances) => {
 export const updateDHISEvents = (eventsUpdate) => {
     const events = eventsUpdate.map(event => {
         return event.dataValues.map(dataValue => {
-            return { event: { ...event, dataValues: [dataValue] }, dataElement: dataValue.dataElement };
+            return {event: {...event, dataValues: [dataValue]}, dataElement: dataValue.dataElement};
         });
     });
     return _.flatten(events).map(ev => {
@@ -212,7 +213,7 @@ export const createProgram = async (processed) => {
     const enrollmentUrl = getDHIS2Url() + '/enrollments';
 
     try {
-        if (newTrackedEntityInstances.length > 0) {
+        if (newTrackedEntityInstances && newTrackedEntityInstances.length > 0) {
             const chunkedTEI = _.chunk(newTrackedEntityInstances, 250);
 
             for (const tei of chunkedTEI) {
@@ -223,11 +224,11 @@ export const createProgram = async (processed) => {
             }
         }
     } catch (e) {
-        console.log(e);
+        winston.log('error', e.message);
     }
 
     try {
-        if (trackedEntityInstancesUpdate.length > 0) {
+        if (trackedEntityInstancesUpdate && trackedEntityInstancesUpdate.length > 0) {
             const chunkedTEI = _.chunk(trackedEntityInstancesUpdate, 250);
             for (const tei of chunkedTEI) {
                 const instancesResults = await postData(trackedEntityUrl, {
@@ -237,25 +238,24 @@ export const createProgram = async (processed) => {
             }
         }
     } catch (e) {
-        console.log(e);
+        winston.log('error', e.message);
     }
 
     try {
-        if (newEnrollments.length > 0) {
+        if (newEnrollments && newEnrollments.length > 0) {
             const chunkedEnrollments = _.chunk(newEnrollments, 250);
             for (const enrollments of chunkedEnrollments) {
                 const instancesResults = await postData(enrollmentUrl, {
                     enrollments
                 });
                 processResponse(instancesResults, 'enrollment');
-
             }
         }
     } catch (e) {
-        console.log(e);
+        winston.log('error', e.message);
     }
     try {
-        if (newEvents.length > 0) {
+        if (newEvents && newEvents.length > 0) {
             const chunkedEvents = _.chunk(newEvents, 250);
 
             for (const events of chunkedEvents) {
@@ -267,11 +267,11 @@ export const createProgram = async (processed) => {
             }
         }
     } catch (e) {
-        console.log(e);
+        winston.log('error', e.message);
     }
 
     try {
-        if (eventsUpdate.length > 0) {
+        if (eventsUpdate && eventsUpdate.length > 0) {
             const chunkedEvents = _.chunk(eventsUpdate, 250);
 
             for (const events of chunkedEvents) {
@@ -280,7 +280,7 @@ export const createProgram = async (processed) => {
             }
         }
     } catch (e) {
-        console.log(e);
+        winston.log('error', e.message);
     }
 };
 
@@ -300,7 +300,7 @@ export const pullOrganisationUnits = async (mapping) => {
             }
         }
     } catch (e) {
-        console.log(e);
+        winston.log('error', e.message);
     }
 
     return [];
@@ -371,6 +371,7 @@ export const pullData = (mapping) => {
             });
 
         } catch (e) {
+            winston.log('error', e.message);
         }
     }
 };
@@ -378,15 +379,15 @@ export const pullData = (mapping) => {
 export const getValidationRules = async () => {
     const url = getDHIS2Url() + '/validationRules.json';
 
-    const data = await getUpstreamData(url, { paging: false, fields: '*' });
+    const data = await getUpstreamData(url, {paging: false, fields: '*'});
 
     return data;
-}
+};
 
 
 export const processDataSetResponses = (response) => {
     if (response['status'] === 'SUCCESS' || response['status'] === 'WARNING') {
-        const { imported, deleted, updated, ignored } = response['importCount'];
+        const {imported, deleted, updated, ignored} = response['importCount'];
         winston.log('info', ' imported: ' + imported + ', updated: ' + updated + ', deleted: ' + deleted);
         if (response['conflicts']) {
             response['conflicts'].forEach(c => {
@@ -396,14 +397,14 @@ export const processDataSetResponses = (response) => {
     } else if (response['httpStatusCode'] === 500) {
         winston.log('error', JSON.stringify(response, null, 2));
     }
-}
+};
 
 export const processResponse = (response, type) => {
     if (response) {
         if (response['httpStatusCode'] === 200) {
-            const { importSummaries } = response['response'];
+            const {importSummaries} = response['response'];
             importSummaries.forEach(importSummary => {
-                const { importCount, reference } = importSummary;
+                const {importCount, reference} = importSummary;
                 winston.log('info', type + ' with id, ' + reference + ' imported: ' + importCount.imported + ', updated: ' + importCount.updated + ', deleted: ' + importCount.deleted);
             });
         } else if (response['httpStatusCode'] === 409) {
@@ -420,8 +421,117 @@ export const processResponse = (response, type) => {
 };
 
 export const processEventUpdate = (successes) => {
-    console.log(successes);
     successes.forEach(s => {
-        processDataSetResponses(s,'event');
+        processDataSetResponses(s, 'event');
     })
-}
+};
+
+
+export const findEventsByDates = async (program, uploadedData) => {
+    const {orgUnitColumn, id, organisationUnits, orgUnitStrategy, programStages} = program;
+    const {eventDateColumn, eventDateIdentifiesEvent} = programStages[0];
+    if (orgUnitColumn && uploadedData && id && eventDateColumn && eventDateIdentifiesEvent) {
+        let eventDates = uploadedData.map(d => {
+            const ou = searchOrgUnit(d[orgUnitColumn.value], orgUnitStrategy, organisationUnits);
+            return {
+                eventDate: moment(d[eventDateColumn.value]).format('YYYY-MM-DD'),
+                orgUnit: ou ? ou.id : undefined
+            };
+        }).filter(e => {
+            return e.orgUnit && e.eventDate
+        });
+
+        eventDates = _.uniq(eventDates);
+        try {
+            const all = eventDates.map(e => {
+
+                const params = {
+                    program: id,
+                    startDate: e.eventDate,
+                    endDate: e.eventDate,
+                    pageSize: 1,
+                    orgUnit: e.orgUnit,
+                    fields: 'event,eventDate,program,programStage,orgUnit,dataValues[dataElement,value]'
+                };
+                return rq({
+                    url: getDHIS2Url() + '/events.json',
+                    qs: params,
+                    json: true
+                });
+            });
+            const data = await Promise.all(all);
+            const processed = data.filter(response => {
+                return response.events.length > 0;
+            }).map(response => {
+                const event = response.events[0];
+                return [moment(event.eventDate).format('YYYY-MM-DD'), event]
+            });
+
+            return _.fromPairs(processed);
+        } catch (e) {
+            winston.log('error', e.message);
+            return {};
+        }
+    }
+};
+
+export const elementsWhichAreIdentifies = (programStageDataElements) => {
+    return programStageDataElements.filter(psde => {
+        return psde.dataElement.identifiesEvent;
+    });
+};
+
+
+export const findEventsByElements = async (program, uploadedData) => {
+    const {d2, id, orgUnitColumn, organisationUnits, orgUnitStrategy, programStages} = program;
+    const {programStageDataElements} = programStages[0];
+    const ele = elementsWhichAreIdentifies(programStageDataElements);
+    if (d2 && uploadedData && id && ele.length > 0) {
+        const elements = ele.map(e => {
+            return e.dataElement.id;
+        });
+
+
+        let values = uploadedData.map(d => {
+            return ele.map(e => {
+                const ou = searchOrgUnit(d[orgUnitColumn.value], orgUnitStrategy, organisationUnits);
+                return {value: d[e.column.value], de: e.dataElement.id, orgUnit: ou ? ou.id : null};
+            });
+        }).filter(f => _.every(f, v => {
+            return v.value !== null && v.value !== undefined && v.value !== '' && v.orgUnit
+        }));
+
+        values = _.uniqBy(values, v => {
+            return JSON.stringify(v);
+        });
+
+        try {
+            const all = values.map((e, i) => {
+                const filter = e.map(v => {
+                    return `filter=${v.de}:EQ:${v.value}`
+                }).join('&');
+                return rq({
+                    url: `${getDHIS2Url()}/events.json?program=${id}&orgUnit=${e[0].orgUnit}&pageSize=1&fields=event,eventDate,program,programStage,orgUnit,dataValues[dataElement,value]&${filter}`,
+                    qs: params,
+                    json: true
+                })
+            });
+            const data = await Promise.all(all);
+            const processed = data.filter(response => {
+                return response.events && response.events.length > 0;
+            }).map(response => {
+                const event = response.events[0];
+                const es = event.dataValues.filter(d => {
+                    return elements.indexOf(d.dataElement) !== -1 && d.value;
+                }).map(s => s.value).join('@');
+                return [es, event]
+            });
+
+            return _.fromPairs(processed);
+        } catch (e) {
+            winston.log('error', e.message);
+            return {}
+        }
+
+    }
+};

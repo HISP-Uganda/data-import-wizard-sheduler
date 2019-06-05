@@ -39,7 +39,7 @@ export const enumerateDates = (startDate, endDate, addition, format) => {
     const currDate = moment(startDate).startOf(addition);
     const lastDate = moment(endDate).startOf(addition);
     dates.push(currDate.clone().format(format));
-    while (currDate.add(1, addition).diff(lastDate) < 0) {
+    while (currDate.add(1, addition).diff(lastDate) <= 0) {
         dates.push(currDate.clone().format(format));
     }
     return dates;
@@ -435,6 +435,12 @@ export const searchOrgUnit = (val, orgUnitStrategy, organisationUnits) => {
     }
 };
 
+export const searchSourceOrgUnits = (orgUnit, organisationUnits) => {
+    return organisationUnits.find(u => {
+        return u.name === orgUnit;
+    })
+};
+
 export const getLocation = (href) => {
     const match = href.match(/^(https?:)\/\/(([^:/?#]*)(?::([0-9]+))?)([/]?[^?#]*)(\?[^#]*|)(#.*|)$/);
     return match && {
@@ -590,7 +596,7 @@ export const groupEntities = (attribute, trackedEntityInstances,) => {
 };
 
 
-export const processProgramData = (data, program, uniqueColumn, instances, isTracker) => {
+export const processProgramData = (data, program, uniqueColumn, instances) => {
 
     let eventsUpdate = [];
     let trackedEntityInstancesUpdate = [];
@@ -616,7 +622,8 @@ export const processProgramData = (data, program, uniqueColumn, instances, isTra
         createEntities,
         createNewEnrollments,
         orgUnitStrategy,
-        orgUnitColumn
+        orgUnitColumn,
+        sourceOrganisationUnits
     } = program;
 
 
@@ -771,7 +778,7 @@ export const processProgramData = (data, program, uniqueColumn, instances, isTra
                     allAttributes = [...allAttributes, attributes];
                 }
 
-                if (isTracker && enrollmentDateColumn && incidentDateColumn) {
+                if (enrollmentDateColumn && incidentDateColumn) {
                     const enrollmentDate = moment(d[enrollmentDateColumn.value], 'YYYY-MM-DD');
                     const incidentDate = moment(d[incidentDateColumn.value], 'YYYY-MM-DD');
 
@@ -783,7 +790,7 @@ export const processProgramData = (data, program, uniqueColumn, instances, isTra
                     }
                 }
 
-                if (orgUnitColumn !== '') {
+                if (orgUnitColumn && orgUnitColumn !== '') {
                     orgUnits = [...orgUnits, d[orgUnitColumn.value]]
                 }
             });
@@ -935,83 +942,75 @@ export const processProgramData = (data, program, uniqueColumn, instances, isTra
                         row: client.client
                     }]
                 } else if (orgUnits.length === 1) {
-                    orgUnit = searchOrgUnit(orgUnits[0], program.orgUnitStrategy, program.organisationUnits);
-                    if (orgUnit) {
-                        if (isTracker) {
-                            const trackedEntityInstance = generateUid();
+                    // orgUnit = searchOrgUnit(orgUnits[0], program.orgUnitStrategy, program.organisationUnits);
+                    orgUnit = searchSourceOrgUnits(orgUnits[0], sourceOrganisationUnits);
+                    if (orgUnit && orgUnit.mapping) {
+                        const foundOrgUnitId = orgUnit.mapping.value;
+                        const trackedEntityInstance = generateUid();
 
-                            if (createEntities) {
-                                let tei = {
-                                    orgUnit: orgUnit.id,
-                                    attributes: allAttributes[0],
-                                    trackedEntityInstance
-                                };
+                        if (createEntities) {
+                            let tei = {
+                                orgUnit: foundOrgUnitId,
+                                attributes: allAttributes[0],
+                                trackedEntityInstance
+                            };
 
-                                if (trackedEntityType) {
-                                    tei = {
-                                        ...tei,
-                                        trackedEntityType: trackedEntityType.id
-                                    }
-                                } else if (trackedEntity && trackedEntity.id) {
-                                    tei = {
-                                        ...tei,
-                                        trackedEntity: trackedEntity.id
-                                    }
+                            if (trackedEntityType) {
+                                tei = {
+                                    ...tei,
+                                    trackedEntityType: trackedEntityType.id
                                 }
-                                newTrackedEntityInstances = [...newTrackedEntityInstances, tei];
-                            }
-
-                            if (createNewEnrollments) {
-
-                                let enrollment = {
-                                    orgUnit: orgUnit.id,
-                                    program: id,
-                                    trackedEntityInstance,
-                                    ...enrollmentDates[0],
-                                    enrollment: generateUid()
-                                };
-
-                                newEnrollments = [...newEnrollments, enrollment];
-
-                            }
-
-                            _.forOwn(groupedEvents, (evs, stage) => {
-                                const stageEventFilters = identifierElements[stage];
-                                const stageInfo = _.find(programStages, {
-                                    id: stage
-                                });
-                                const {
-                                    repeatable,
-                                    createNewEvents
-                                } = stageInfo;
-                                evs = evs.map(e => {
-                                    return {
-                                        ...e,
-                                        orgUnit: orgUnit.id,
-                                        event: generateUid(),
-                                        trackedEntityInstance
-                                    }
-                                });
-
-                                evs = removeDuplicates(evs, stageEventFilters);
-
-                                if (createNewEvents) {
-                                    if (!repeatable) {
-                                        newEvents = [...newEvents, _.maxBy(evs, 'eventDate')];
-                                    } else {
-                                        newEvents = [...newEvents, ...evs]
-                                    }
+                            } else if (trackedEntity && trackedEntity.id) {
+                                tei = {
+                                    ...tei,
+                                    trackedEntity: trackedEntity.id
                                 }
+                            }
+                            newTrackedEntityInstances = [...newTrackedEntityInstances, tei];
+                        }
+
+                        if (createNewEnrollments) {
+
+                            let enrollment = {
+                                orgUnit: foundOrgUnitId,
+                                program: id,
+                                trackedEntityInstance,
+                                ...enrollmentDates[0],
+                                enrollment: generateUid()
+                            };
+
+                            newEnrollments = [...newEnrollments, enrollment];
+
+                        }
+
+                        _.forOwn(groupedEvents, (evs, stage) => {
+                            const stageEventFilters = identifierElements[stage];
+                            const stageInfo = _.find(programStages, {
+                                id: stage
                             });
-                        } else if (!isTracker) {
-                            events = events.map(e => {
+                            const {
+                                repeatable,
+                                createNewEvents
+                            } = stageInfo;
+                            evs = evs.map(e => {
                                 return {
                                     ...e,
-                                    orgUnit: orgUnit.id
+                                    orgUnit: foundOrgUnitId,
+                                    event: generateUid(),
+                                    trackedEntityInstance
                                 }
                             });
-                            newEvents = [...newEvents, ...events];
-                        }
+
+                            evs = removeDuplicates(evs, stageEventFilters);
+
+                            if (createNewEvents) {
+                                if (!repeatable) {
+                                    newEvents = [...newEvents, _.maxBy(evs, 'eventDate')];
+                                } else {
+                                    newEvents = [...newEvents, ...evs]
+                                }
+                            }
+                        });
                     } else {
                         errors = [...errors, {
                             error: 'Organisation unit ' + orgUnits[0] + ' not found using strategy ' +
@@ -1039,4 +1038,208 @@ export const processProgramData = (data, program, uniqueColumn, instances, isTra
         duplicates,
         errors
     }
+};
+
+export const searchSavedEvent = (programStages, event, eventByDate, eventsByDataElement) => {
+    const programStage = programStages[0];
+
+    const {eventDateIdentifiesEvent, programStageDataElements} = programStage;
+
+
+    const identifiesEvents = programStageDataElements.filter(psde => {
+        return psde.dataElement.identifiesEvent && psde.column;
+    }).map(e => e.dataElement.id);
+
+    const value = event.dataValues.filter(dv => {
+        return identifiesEvents.indexOf(dv.dataElement) !== -1
+    }).map(dv => dv.value).join('@');
+
+    if (eventDateIdentifiesEvent && identifiesEvents.length > 0) {
+        const ev1 = eventByDate[event.eventDate];
+
+        const ev2 = eventsByDataElement[value];
+
+        if (ev1 && ev2) {
+            const differingElements = _.differenceWith(event['dataValues'], ev2['dataValues'], (a, b) => {
+                return a.dataElement === b.dataElement && a.value + '' === b.value + '';
+            });
+            if (differingElements.length > 0) {
+                return {
+                    ...ev2,
+                    update: true,
+                    dataValues: differingElements
+                };
+            }
+            return null;
+        } else {
+            return {...event, update: false};
+        }
+    } else if (eventDateIdentifiesEvent) {
+        const ev1 = eventByDate[event.eventDate];
+        if (ev1) {
+            const differingElements = _.differenceWith(event['dataValues'], ev1['dataValues'], (a, b) => {
+                return a.dataElement === b.dataElement && a.value + '' === b.value + '';
+            });
+
+            if (differingElements.length > 0) {
+                return {
+                    ...ev1,
+                    update: true,
+                    dataValues: differingElements
+                };
+            }
+            return null;
+        } else {
+            return {...event, update: false};
+        }
+
+    } else if (identifiesEvents.length > 0) {
+        const ev2 = eventsByDataElement[value];
+        if (ev2) {
+            const differingElements = _.differenceWith(event['dataValues'], ev2['dataValues'], (a, b) => {
+                return a.dataElement === b.dataElement && a.value + '' === b.value + '';
+            });
+
+            if (differingElements.length > 0) {
+                return {
+                    ...ev2,
+                    update: true,
+                    dataValues: differingElements
+                };
+            }
+            return null;
+        } else {
+            return {...event, update: false};
+        }
+    } else {
+        return {...event, update: false}
+    }
+};
+
+export const processEvents = (program, data, uniqueDatesData, uniqueDataElementData) => {
+    const {
+        id,
+        programStages,
+        dataSource,
+        orgUnitColumn,
+        orgUnitStrategy,
+        sourceOrganisationUnits
+    } = program;
+
+    const stage = programStages[0];
+    let conflicts = [];
+    let errors = [];
+    const events = data.map((d, i) => {
+        let eventDate;
+        let coordinate = null;
+        let orgUnit;
+        if (stage.eventDateColumn && (stage.createNewEvents || stage.updateEvents) && dataSource === 2) {
+            const date = moment(d[stage.eventDateColumn.value]);
+            if (date.isValid()) {
+                eventDate = date.format('YYYY-MM-DD');
+            }
+        } else if (stage.eventDateColumn && (stage.createNewEvents || stage.updateEvents)) {
+            const date = moment(d[stage.eventDateColumn.value], 'YYYY-MM-DD');
+            if (date.isValid()) {
+                eventDate = date.format('YYYY-MM-DD');
+            }
+        }
+
+        if (stage.latitudeColumn && stage.longitudeColumn) {
+            coordinate = {
+                latitude: d[stage.latitudeColumn.value],
+                longitude: d[stage.longitudeColumn.value]
+            };
+        }
+
+        const mapped = stage.programStageDataElements.filter(e => {
+            return e.column && e.column.value
+        });
+
+        if (orgUnitColumn && orgUnitColumn !== '') {
+            orgUnit = searchSourceOrgUnits(d[orgUnitColumn.value], sourceOrganisationUnits);
+        }
+
+        if (eventDate && mapped.length > 0) {
+            const dataValues = mapped.map(e => {
+                const value = d[e.column.value];
+                const type = e.dataElement.valueType;
+                const optionsSet = e.dataElement.optionSet;
+                const validatedValue = validateValue(type, value, optionsSet);
+
+                if (value !== '' && validatedValue !== null) {
+                    return {
+                        dataElement: e.dataElement.id,
+                        value: validatedValue
+                    }
+                } else if (value !== undefined) {
+                    conflicts = [...conflicts, {
+                        error: optionsSet === null ? 'Invalid value ' + value + ' for value type ' + type : 'Invalid value: ' + value + ', expected: ' + _.map(optionsSet.options, o => {
+                            return o.code
+                        }).join(','),
+                        row: i + 2,
+                        column: e.column.value
+                    }];
+
+                    return null;
+                } else {
+                    return null;
+                }
+            }).filter(e => e !== null);
+
+            if (!orgUnit) {
+                errors = [...errors, {
+                    error: 'Organisation unit ' + d[orgUnitColumn.value] + ' not found using strategy ' + orgUnitStrategy.value,
+                    row: i + 2
+                }]
+            }
+
+            let event = {
+                dataValues,
+                eventDate,
+                orgUnit: orgUnit && orgUnit.mapping? orgUnit.mapping.value : null,
+                programStage: stage.id,
+                program: id,
+                event: generateUid()
+            };
+
+            if (coordinate) {
+                event = {
+                    ...event,
+                    coordinate
+                }
+            }
+            if (stage.completeEvents) {
+                event = {
+                    ...event,
+                    ...{
+                        status: 'COMPLETED',
+                        completedDate: event['eventDate']
+                    }
+                }
+            }
+            return event;
+        }
+
+        return null;
+    }).filter(e => e !== null && e.orgUnit !== null).map(ev => {
+        return searchSavedEvent(programStages, ev, uniqueDatesData, uniqueDataElementData)
+    });
+    const eventsUpdate = events.filter(e => e !== null && e.update === true).map(e => {
+        return _.omit(e, 'update');
+    });
+    const newEvents = events.filter(e => e !== null && e.update === false).map(e => {
+        return _.omit(e, 'update');
+    });
+
+    return {eventsUpdate, newEvents, conflicts, errors}
+};
+
+export const partialParamSearch = (search, params) => {
+    const foundParam = _.findIndex(params, v => {
+        return typeof v.value === 'string' && v.value.indexOf(search) !== -1
+    });
+
+    return foundParam !== -1;
+
 };

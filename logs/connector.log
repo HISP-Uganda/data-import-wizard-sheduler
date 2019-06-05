@@ -87,3 +87,574 @@
 2019-05-15 17:11:21 info:  imported: NaN, updated: NaN, deleted: NaN
 2019-05-15 17:12:16 info:  imported: NaN, updated: NaN, deleted: NaN
 2019-05-15 17:20:46 error: [{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"WaEe7DE56Fu"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"WaEe7DE56Fu"}}]
+2019-05-15 17:34:55 error: Error: read ECONNRESET
+2019-05-15 17:35:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-05-15 17:35:05 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-05-15 17:35:10 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-05-15 17:35:15 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-05-15 17:35:20 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-05-15 17:35:25 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-05-15 17:35:30 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-05-15 17:35:35 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-05-15 17:35:40 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-05-15 17:35:45 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-05-15 17:35:50 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-05-15 17:35:55 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-05-15 17:36:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-05-15 17:36:05 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-05-15 17:36:10 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 07:07:03 error: Cannot read property 'filter' of undefined
+2019-06-03 07:08:03 error: Cannot read property 'filter' of undefined
+2019-06-03 07:09:03 error: Cannot read property 'filter' of undefined
+2019-06-03 07:14:01 info: trackedEntityInstance with id, pXu76WnI57I imported: 0, updated: 1, deleted: 0
+2019-06-03 07:14:01 info: trackedEntityInstance with id, dfMrxPXSmka imported: 0, updated: 1, deleted: 0
+2019-06-03 07:14:07 info: [{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"TCl8R9qWxRo"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"TCl8R9qWxRo"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"LfDem3t4H4J"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"LfDem3t4H4J"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"nc3lYYC74nX"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"nc3lYYC74nX"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"SbO6DBaQ5Gf"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"SbO6DBaQ5Gf"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"oNiuOXWLtbL"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"kmFybs6sbwk"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"kmFybs6sbwk"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"h73gHVC9V5m"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"h73gHVC9V5m"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"SaiQlXRaWKF"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"SaiQlXRaWKF"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"mbJ2rCdt7og"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"mbJ2rCdt7og"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"iMYtnA0cHO2"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"iMYtnA0cHO2"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"KJoGtBXaTNP"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"KJoGtBXaTNP"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"rSPs8v2cpHk"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"rSPs8v2cpHk"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"JrEzUBLa3H4"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"JrEzUBLa3H4"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"RhoMIil3CNi"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"RhoMIil3CNi"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"aJ6qHa5471p"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"aJ6qHa5471p"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"soZm3qbXPew"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"soZm3qbXPew"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"JpOmNJt1wFb"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"JpOmNJt1wFb"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"dvRHqLWiLKb"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"dvRHqLWiLKb"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"JcE2qfSNt8Y"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"JcE2qfSNt8Y"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"eis8o8h906X"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"eis8o8h906X"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"hdkySSMeSXp"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"hdkySSMeSXp"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"AMeDH1ChOJh"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"AMeDH1ChOJh"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"BsjOtSfXtZN"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"BsjOtSfXtZN"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"iVLg14MFOn3"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"iVLg14MFOn3"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"hsYRUE2FQoU"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"jBmJXkM8yzs"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"jBmJXkM8yzs"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"Gw1u4VFcxIk"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"JDI8Djk18N5"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"qIY4G1ZobCz"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"qIY4G1ZobCz"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"MWyWIwIoseu"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"MWyWIwIoseu"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"H5SSgAB8QSP"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"H5SSgAB8QSP"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"szTXeX152K8"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"szTXeX152K8"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"XyHOnGRp74u"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"XyHOnGRp74u"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"KzBLIArYyl1"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"KzBLIArYyl1"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"h46BRdPL7RI"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"h46BRdPL7RI"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"j4Y5cEYENQq"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"j4Y5cEYENQq"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"SDrsXd2Agqe"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"SDrsXd2Agqe"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"WTjFygEkeH6"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"ZhKGIR1trZL"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"ZhKGIR1trZL"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"ehizEgLmm4T"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"ehizEgLmm4T"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"mdDdw4Xpm1F"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"mdDdw4Xpm1F"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"oDOCqxTyVfR"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"oDOCqxTyVfR"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"FVet9U6XozO"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"FVet9U6XozO"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"D2LvDVFJ68r"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"D2LvDVFJ68r"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"MXarrXqLbRh"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"MXarrXqLbRh"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"URUPEKyRB7y"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"URUPEKyRB7y"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"W1eHYRkCctc"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"W1eHYRkCctc"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"TsRtDALK5Fz"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"TsRtDALK5Fz"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"u8ves9mqcUA"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"u8ves9mqcUA"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"yRfzdWI4QcF"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"yRfzdWI4QcF"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"x1H7nPXj1B7"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"x1H7nPXj1B7"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"ixcnqUI3OxN"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"ixcnqUI3OxN"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"RtezvMxypA9"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"RtezvMxypA9"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"EMLmHchZoNg"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"EMLmHchZoNg"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"Gkiru1TyDxm"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"Gkiru1TyDxm"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"BUR1VNc9hth"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"BUR1VNc9hth"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"GqaHlPC3doz"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"GqaHlPC3doz"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"zCtoAiLACx9"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"zCtoAiLACx9"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"HRxLJcjB8Hj"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"HRxLJcjB8Hj"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"y72W7AELpzI"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"kBpMDRO6FfQ"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"kBpMDRO6FfQ"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"ZBJ1XqiP6hs"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"PsI0J3r9dom"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"PsI0J3r9dom"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"FuFPTA0NIGo"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"FuFPTA0NIGo"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"J23i2reAhIg"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"J23i2reAhIg"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"DVdB6KXiZDz"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"DVdB6KXiZDz"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"uCrhy9CJPvL"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"uCrhy9CJPvL"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"NsnBD1lBNNV"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"sVe5YC2nAsh"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"sVe5YC2nAsh"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"ulGcTU46USH"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"ulGcTU46USH"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"T7P9ZeNHhyk"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"T7P9ZeNHhyk"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"xYyy5K1FWFb"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"xYyy5K1FWFb"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"cMbzM1YJm3M"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"cMbzM1YJm3M"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"gZfqbZjiimj"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"gZfqbZjiimj"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"VgzRp7RmiZj"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"VgzRp7RmiZj"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"HMg2nERYLU8"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"HMg2nERYLU8"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"HuVEhNy64QR"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"HuVEhNy64QR"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"W1NNa4iSgnP"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"W1NNa4iSgnP"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"xxH5zAKiYQ4"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"xxH5zAKiYQ4"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"tZKtOCJF7Ko"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"tZKtOCJF7Ko"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"Ne8huGCnz5k"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"Ne8huGCnz5k"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"kwbr32fFBhr"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"kwbr32fFBhr"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"LG7yhsrhTkN"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"LG7yhsrhTkN"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"ysm5bW0cyGe"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"ysm5bW0cyGe"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"l1i1ADJCMdm"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"l1i1ADJCMdm"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"eHvcrH8lhSn"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"eHvcrH8lhSn"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"nymZbSG5pKE"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"nymZbSG5pKE"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"VBDB29Cu4Ej"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"VBDB29Cu4Ej"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"jOTDHkD5xxx"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"jOTDHkD5xxx"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"jg8a86O6TOH"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"bKnn2rB06p9"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"bKnn2rB06p9"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"hoNuHidqNQ8"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"hoNuHidqNQ8"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"Xe6zGqN0KeP"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"Xe6zGqN0KeP"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"lfeLGZNywMX"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"lfeLGZNywMX"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"BwwnWfjpl7S"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"BwwnWfjpl7S"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"fuS12M3VUTO"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"fuS12M3VUTO"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"T8oXMBvb6PF"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"T8oXMBvb6PF"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"y9JllYrQdct"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"y9JllYrQdct"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"QSVkTygLK6G"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"SgZO0YilBnd"}}]
+2019-06-03 07:15:02 info: [{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"LfDem3t4H4J"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"nc3lYYC74nX"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"SbO6DBaQ5Gf"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"kmFybs6sbwk"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"SaiQlXRaWKF"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"mbJ2rCdt7og"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"iMYtnA0cHO2"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"aJ6qHa5471p"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"soZm3qbXPew"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"AMeDH1ChOJh"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"BsjOtSfXtZN"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"iVLg14MFOn3"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"MWyWIwIoseu"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"XyHOnGRp74u"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"KzBLIArYyl1"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"h46BRdPL7RI"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"j4Y5cEYENQq"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"SDrsXd2Agqe"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"ZhKGIR1trZL"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"mdDdw4Xpm1F"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"oDOCqxTyVfR"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"FVet9U6XozO"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"MXarrXqLbRh"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"URUPEKyRB7y"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"W1eHYRkCctc"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"yRfzdWI4QcF"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"x1H7nPXj1B7"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"ixcnqUI3OxN"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"RtezvMxypA9"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"kBpMDRO6FfQ"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"uCrhy9CJPvL"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"ulGcTU46USH"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"xYyy5K1FWFb"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"cMbzM1YJm3M"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"HuVEhNy64QR"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"xxH5zAKiYQ4"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"Ne8huGCnz5k"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"LG7yhsrhTkN"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"nymZbSG5pKE"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"VBDB29Cu4Ej"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"jOTDHkD5xxx"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"bKnn2rB06p9"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"hoNuHidqNQ8"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"BwwnWfjpl7S"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"fuS12M3VUTO"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"T8oXMBvb6PF"}}]
+2019-06-03 18:52:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 18:53:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 18:54:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 18:55:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 18:56:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 18:57:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 18:58:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 18:59:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:00:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:01:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:02:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:03:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:04:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:05:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:06:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:07:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:08:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:09:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:10:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:11:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:12:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:13:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:14:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:15:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:16:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:17:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:18:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:19:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:20:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:21:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:22:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:23:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:24:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:25:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:26:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:27:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:28:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:29:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:30:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:31:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:32:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:33:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:34:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:35:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:36:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:37:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:38:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:39:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:40:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:41:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:42:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:43:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:44:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:45:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:46:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:47:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:48:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:49:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:50:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:51:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:52:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:53:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:54:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:55:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:56:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:57:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:58:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 19:59:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:00:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:01:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:02:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:03:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:04:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:05:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:06:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:07:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:08:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:09:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:10:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:11:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:12:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:13:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:14:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:15:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:16:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:17:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:18:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:19:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:20:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:21:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:22:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:23:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:24:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:25:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:26:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:27:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:28:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:29:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:30:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:31:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:32:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:33:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:34:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:35:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:36:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:37:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:38:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:39:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:40:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:41:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:42:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:43:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:44:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:45:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:46:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:47:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:48:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:49:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:50:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:51:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:52:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:53:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:54:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:55:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:56:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:57:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:58:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 20:59:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:00:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:01:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:02:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:03:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:04:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:05:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:06:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:07:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:08:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:09:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:10:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:11:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:12:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:13:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:14:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:15:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:16:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:17:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:18:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:19:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:20:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:21:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:22:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:23:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:24:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:25:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:26:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:27:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:28:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:29:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:30:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:31:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:32:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:33:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:34:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:35:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:36:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:37:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:38:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:39:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:40:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:41:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:42:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:43:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:44:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:45:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:46:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:47:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:48:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:49:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:50:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:51:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:52:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:53:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:54:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:55:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:56:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:57:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:58:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 21:59:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:00:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:01:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:02:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:03:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:04:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:05:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:06:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:07:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:08:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:09:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:10:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:11:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:12:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:13:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:14:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:15:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:16:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:17:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:18:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:19:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:20:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:21:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:22:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:23:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:24:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:25:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:26:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:27:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:28:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:29:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:30:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:31:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:32:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:33:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:34:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:35:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:36:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:37:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:38:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:39:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:40:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:41:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:42:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:43:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:44:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:45:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:46:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:47:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:48:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:49:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:50:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:51:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:52:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:53:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:54:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:55:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:56:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:57:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:58:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-03 22:59:00 error: Error: connect ECONNREFUSED 127.0.0.1:8080
+2019-06-05 09:18:12 info: events with id, cSM2uA2P8TR imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, vRQVQA6ZnTo imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, Yg0Y9l296Is imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, Aoy0RWI4IEU imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, nRKJwGhlCkt imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, xBW47UeTwBs imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, qtP9Ve238ou imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, dJ1TT52wClf imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, s68htzt2MFv imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, fdfNodVFXMO imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, kVpk9nWjmsX imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, rB4Vh07TthX imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, Zi2lLbGNDjV imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, papGyg2cPxk imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, ZoJY8ViQUkL imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, Br81FmE1Kzh imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, Q4HI4WBRfRD imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, yrdn6gJ1sb9 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, pCdFv6MarEt imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, sTdRsK9ars2 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, gqSxK3ZypZq imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, iy7iOEFoMtx imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, Q8Uzdqqp8Ye imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, oQE1prU1mhh imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, kkKpprouCVS imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, hsD6B7wR8Ga imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, BiNJAaf1QVB imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, zN9QieTmZ4t imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, EbRVnJoJ3iX imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, TzQkR7n76VA imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, J6n51XKQgQw imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, nafuTNtiAk1 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, VDXMkbHfMfz imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, NJOMuAXoRLM imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, BNXCQZdl21i imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, wlYYdQDBku7 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, LOLOV2s1ZqM imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, PlW6VEqpMuO imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, p9m1ZTqhZiq imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, Ibq6GnZG2OG imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, chBX4ut5ZEc imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, zG1PLz4iLxJ imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, tdYpHWAHEuZ imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, M7hBqrH46YR imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, banUVnqGUcH imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, xl2TiFmX4wL imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, z3jyDx1ZlIo imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, JYPXU57gDLL imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, OYdfq0p9p7D imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, s4GK01g2lm9 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, sgA8HDyY7No imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, c95H6TCkjp1 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, W2nEjk8D9PR imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, NQ5AU9LgNrw imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, cd9kyF3hduP imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, QOWnAGFxHAL imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, aqvkZ3uCs2U imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, cgxMpIEgSEw imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, O9V6lZZl4ij imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, uLzC5k60yaL imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, gdvnXoz337j imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, fXLr3a32g8f imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, wyUi9J3sdVv imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, cyy7k9vnXzz imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, SgpKPk7PEol imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, RbEeYmZlsX5 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, YZik6mzIpcb imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, bp9z3xcBE2s imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, OyROsMsjsfR imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, UmNZ2UJfvW7 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, MAQf116TNIO imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, rQdwKydE6r0 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, eD8g4OeLzTl imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, xsb1J7rXWVj imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, Lsf2Ez2vkce imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, yTFetcmwoTQ imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, eUaJGbHzPeo imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, R5h59qfLTLz imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, vPksvdPrfJg imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, YfzoR7AoCpb imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, ypQez1jp4RX imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, sy1ixxxWFDT imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, VQHjIouuEJh imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, Pa4gCFl33Aw imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, nUC6Pk3TAaP imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, ilTQg8i9psO imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, OMuv1eDJoWZ imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, fhgwZNmgdGY imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, fmyUxQlf8Zs imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, mf1rmaKZ9ej imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, C7s21UOj3IQ imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, pZ6sj8Cuhso imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, bhBihDQ9jUn imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, qJ9ATrOXtrI imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, BZpSD9nA9c7 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, nC2zEpQeDIC imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, de2dpAp1wg0 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, O9OpeaPDI0T imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, T98R9al7s3w imported: 1, updated: 0, deleted: 0
+2019-06-05 09:18:12 info: events with id, ln1ooehohx9 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, Bjbq3H0578y imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, IZbfDmJEwjm imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, R1V8SVd2nma imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, Lo8iCoSQK2K imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, oPrjN0AjJyr imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, kSqwYiAOWAk imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, O6gYoaLXH0v imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, T2E6jnL5OQz imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, U3xPb2ESZSQ imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, pZPoqj2hB1D imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, FJHBG60w57l imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, G83X5WUYkgR imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, pwJAOqPWKRn imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, IGgtRNgVLml imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, DJTWnEGIil4 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, mak7ewxK2fr imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, XsxLgeXaKlM imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, KqvT2AJQ0NB imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, PsWzwfasBV7 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, zbCzjWbokGe imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, pTD5YWnjwKV imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, wZG1gILpmgw imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, UofCnJ1OFYo imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, GfKMyL99vYy imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, K1tDKvMQCeU imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, n2dGXKD2Wgp imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, pbeyzUm6NmI imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, Qj7dM9e5pY4 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, yZwd0cV908N imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, Fg3tTueKGEc imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, mx9vS9soRKd imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, gnlNQaOLquW imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, RZ2NcJ6cyrG imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, e2QXwvcmSKP imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, mLpgGcbZWQR imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, fq6curTbeQG imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, YHWgmreuRrw imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, oWc5DKlX1LA imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, Z74hAlVHAgp imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, QCZmQ1LAmlm imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, Mv05BbTlAOZ imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, K6E5Pq0LTOa imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, FKQpOixxcLZ imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, Y6nSBCEkzMQ imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, sGdR2x76YF9 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, Op4gJFPFaOC imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, R7GBGmjLli5 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, TPjbJznsbO2 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, q85yBuAwGrT imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, CgqXsLtsPHK imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, MzVJ2y0Qgzu imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, mEFMwP63OtF imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, tgIjG3YttLb imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, c6c2dLqwoYm imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, FzpdIenRwag imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, fedOPVCpfJB imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, N4MNHnfqKvu imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, iCRAeP17kIa imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, aV6YU8xIGEk imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, Y7etZTU5c81 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, FV1OwgtB7RB imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, kKRZmJCQbil imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, oT845vCggJi imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, r4auyrg8QrT imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, Z46lodFowgQ imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, R9C2xtjadhe imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, otO4ADjJ411 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, YR5uJXywW42 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, bvxBFvYl7kC imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, IW5S2fPQ7c3 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, CvTBNUD6aH8 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, rZOhmXLQQxw imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, cULqF8j0eaT imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, tQ8HcplYHuf imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, YVsPLwM378X imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, GZwDfAaUvLz imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, YIxeNCRpxjp imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, i3Jx2Y4jpuI imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, qgxc2YpdbTd imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, PVwctFqq78L imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, n0US0dGLOOk imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, YNYJ4kcrfOY imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, LumyxYpaibc imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, CQccdkm8oxQ imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, KdkjswaHNLb imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, lztUCM2iCDd imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, abT6CQJKYbC imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, HC6gZSdi1nR imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, vH41vF1EJoH imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, fY4MIZHDMhS imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, hzwRJh2Ahju imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, rlLU2yyjXd3 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, qnSLU47TyAr imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, bqIhODCJOZw imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, y7qrdIr11Ww imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, C9OqY0PMsaL imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, px57YJXYHeq imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, YT2KdvwZeTV imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, rGZMSkRzjsy imported: 1, updated: 0, deleted: 0
+2019-06-05 09:19:06 info: events with id, EwMFMx4DHWK imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, p94sR0l9HpL imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, gsQB8n7KZqW imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, TAJodS9NKVS imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, YHC3TBc1sS4 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, ULXAGB3Lv2e imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, AjNapLSQaW6 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, Fc9gBrc7gEI imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, eubHAmWXNUj imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, KxUkgM1tzkN imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, bt7ReWR8csb imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, a4LdTICVYLY imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, BuhIbRlhvuv imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, SkUfYvs1Kbz imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, LU2i3gBGP23 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, Dn1xmD85x3s imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, VPK7Qy7DTxo imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, hVYIL6AFfLi imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, JFLExFd9i7m imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, sf2CxqR5WlG imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, adIjs6yAxZa imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, Sz1KCU22k82 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, we35KdQNYOi imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, ZL7akH2r7MU imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, KaTlH9aFj93 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, JKJJPiEOhzF imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, dDyDBCOGYIv imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, TFP3lyE9BRR imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, r5a7CGGy1Ch imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, VmAfTo3co5M imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, S1pi6hxH0jq imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, FCWupUslBoE imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, PkRQDz0T28l imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, nJ7XhR0zYTt imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, GNc0WTdJ0c3 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, Xq245LLops2 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, oucfI8pIOrk imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, BEZvNuQQFZ0 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, PosSu0pCdR4 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, zk7aBouNmRV imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, WP0IFubfoR5 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, eFkQ8hvl5g0 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, Obd6bxlJHjY imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, VgJoQWcjWrD imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, wjth8Cb9XUs imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, rMl7zpzQld8 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, FZtLxOUDkOr imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, hhlCfRv0Nek imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, hlRmUuurjzh imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, aAL9Dkq0ldF imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, x4VSSEvzS0X imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, DALJWUJBL8D imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, FtNM99FqswH imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, CZ7SZQZfUZG imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, Oa8RCTt6Kbx imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, dg7FAaN2Ncn imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, tYOm0aAf7JU imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, AVmWQbE3orV imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, klA5OxgOFkQ imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, dtPk2lzIkka imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, D7msEiM8Clv imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, VOXg2zIi3FM imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, ZNn1n9tnPTi imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, Axl4OrUSYXO imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, bZ8EzyM86fu imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, XW3bxBePJMe imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, saIQTPDW1i8 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, JX3FiKY6FFD imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, C18izSLdSf1 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, UwoOYJDhPID imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, pbS6zdHGwSR imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, duNfQgW7CMe imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, DdKSygMMsmg imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, rZr3rHJgv1Z imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, Chd7r8PsiDt imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, u8PsV4XgtgI imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, CQNCUYNMyjA imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, gWxDiH1PgyV imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, Gwo4L9Ls5WE imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, isjlFKGIVj9 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, dl5dYIIHYsv imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, IJrxvCQlvgI imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, PxtZs4k7d1j imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, lLmLorN8RKC imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, ItED5bp13pX imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, p8eKnFC0yxS imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, fv2B0JUtvj2 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, nZfdiX4ChoU imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, djnj2zA86kB imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, QACzo7AJ9b2 imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, CANSELd5k3U imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, ITuoiMJjGeC imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, C3g6ARoe6cW imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, X7L1jwnk8Me imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, BtpBdfjOseJ imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, LK6kviczUTH imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, rFJmP51h97O imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, HGe7ZNlSnSu imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, TXld8xhTHKc imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, S590HpU9C8V imported: 1, updated: 0, deleted: 0
+2019-06-05 09:20:08 info: events with id, pJq8TYvDFEg imported: 1, updated: 0, deleted: 0
