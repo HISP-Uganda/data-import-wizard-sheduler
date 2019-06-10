@@ -376,14 +376,6 @@ export const pullData = (mapping) => {
     }
 };
 
-export const getValidationRules = async () => {
-    const url = getDHIS2Url() + '/validationRules.json';
-
-    const data = await getUpstreamData(url, {paging: false, fields: '*'});
-
-    return data;
-};
-
 
 export const processDataSetResponses = (response) => {
     if (response['status'] === 'SUCCESS' || response['status'] === 'WARNING') {

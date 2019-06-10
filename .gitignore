@@ -32,3 +32,4 @@ datim.json
 arua.json
 test.json
 worker*
+logs/connector.log

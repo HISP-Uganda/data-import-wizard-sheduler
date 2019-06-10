@@ -1,6 +1,7 @@
 import moment from 'moment';
 import {scheduleJob} from "node-schedule";
 import parser from "cron-parser";
+import _ from 'lodash';
 
 import {
     createProgram,
@@ -15,10 +16,10 @@ import {
     searchedInstances,
     searchTrackedEntities,
     processDataSetResponses,
-    processResponse, findEventsByDates, findEventsByElements
+    findEventsByDates,
+    findEventsByElements
 } from "./data-utils";
 import {
-    enumerateDates,
     isTracker,
     processDataSet, processEvents,
     processProgramData,
@@ -76,6 +77,8 @@ class Schedule {
 
         const interval1 = parser.parseExpression(schedule);
 
+        const name = data.name;
+
         const job = scheduleJob(data.name, schedule, async () => {
             const mapping = data.value;
             const interval = parser.parseExpression(schedule);
@@ -83,11 +86,37 @@ class Schedule {
                 if (data.type === 'tracker') {
                     try {
                         const program = mapping.value;
-                        const data = await getData(program);
+                        const params = program.params;
+
+                        const startParam = params.find(p => p.isPeriod && p.periodType === '1');
+                        const endParam = params.find(p => p.isPeriod && p.periodType === '2');
+
+                        let currentParam = {};
+
+                        const current = this.data[name];
+
+                        if (current && startParam && endParam) {
+                            const start = current.last;
+                            const end = moment().format('YYYY-MM-DD HH:mm:ss');
+
+                            currentParam = {...currentParam, [startParam.param]: start, [endParam.param]: end};
+                        } else if (startParam && endParam && !_.isEmpty(startParam.value) && !_.isEmpty(endParam.value)) {
+                            const start = moment(startParam.value).format('YYYY-MM-DD HH:mm:ss');
+                            const end = moment(endParam.value).format('YYYY-MM-DD HH:mm:ss');
+
+                            currentParam = {...currentParam, [startParam.param]: start, [endParam.param]: end};
+                        } else if (startParam && !_.isEmpty(startParam.value)) {
+                            const start = moment(startParam.value).format('YYYY-MM-DD HH:mm:ss');
+                            currentParam = {...currentParam, [startParam.param]: start};
+
+
+                        } else if (endParam && !_.isEmpty(endParam.value)) {
+                            const end = moment(endParam.value).format('YYYY-MM-DD HH:mm:ss');
+                            currentParam = {...currentParam, [endParam.param]: end};
+                        }
+                        const data = await getData(program, currentParam);
                         const tracker = isTracker(program);
-
                         let processed = {};
-
                         if (tracker) {
                             const uniqueColumn = programUniqueColumn(program);
                             const uniqueIds = getUniqueIds(data, uniqueColumn);
@@ -113,27 +142,6 @@ class Schedule {
 
                         if (dataSet.multiplePeriods) {
                             winston.log('info', 'Multiple periods not supported');
-                            /*if (dataSet.startPeriod && dataSet.endPeriod && dataSet.addition && dataSet.additionFormat) {
-                                const periods = enumerateDates(dataSet.startPeriod, dataSet.endPeriod, dataSet.addition, dataSet.additionFormat);
-                                const pp = {param: 'period'};
-                                for (const p of periods) {
-                                    pp.value = p;
-                                    replaceParam(dataSet.params, pp);
-                                    const all = orgUnits.map(ou => {
-                                        param.value = ou.id;
-                                        replaceParam(dataSet.params, param);
-                                        return pullData(dataSet).then(d => {
-                                            console.log(d)
-                                        });
-                                    });
-
-                                    const results = await Promise.all(all);
-
-                                    console.log(results);
-                                }
-
-                            } else {
-                            }*/
                         } else {
                             const all = orgUnits.map(ou => {
                                 param.value = ou.id;
@@ -182,7 +190,11 @@ class Schedule {
 
             this.data = {
                 ...this.data,
-                [data.name]: {...this.data.name, next: interval.next().toString(), last: moment().toString()}
+                [data.name]: {
+                    ...this.data.name,
+                    next: interval.next().toString(),
+                    last: moment().format('YYYY-MM-DD HH:mm:ss')
+                }
             }
         });
 

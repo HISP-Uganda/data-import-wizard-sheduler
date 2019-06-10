@@ -1,6 +1,7 @@
 import _ from "lodash";
 import moment from "moment";
 import {generateUid} from "./uid";
+// import * as alasql from 'alasql';
 
 export const nest = function (seq, keys) {
     if (!keys.length)
@@ -70,10 +71,29 @@ export const processOrganisationUnits = (dataSet) => {
     return {};
 };
 
+export const allDataElementsTypes = (forms) => {
+
+    const elements = forms.map(form => {
+        return form.dataElements.map(de => {
+            return [de.id, de.valueType];
+        })
+    });
+
+    const flattened = _.flatten(elements);
+
+    return _.fromPairs(flattened)
+
+};
+
+export const validate = (elements, element, value) => {
+    const type = elements[element];
+    return validText(type, value);
+};
+
 
 export const processDataSet = (data, dataSet) => {
     let dataValues = [];
-
+    let errors = [];
     let dataSetUnits = processOrganisationUnits(dataSet);
 
     const {
@@ -89,11 +109,11 @@ export const processDataSet = (data, dataSet) => {
         organisation,
         organisationCell,
         attributeCombosInExcel,
+        sourceOrganisationUnits,
         rows,
         cell2
     } = dataSet;
-
-
+    const elements = allDataElementsTypes(forms);
     if (templateType.value !== '2') {
         forms.forEach(f => {
             if (templateType.value === '1' || templateType.value === '4' || templateType.value === '6') {
@@ -112,10 +132,10 @@ export const processDataSet = (data, dataSet) => {
                                 return {
                                     period: d[periodColumn.value],
                                     value: d[dataValueColumn.value],
-                                    orgUnit: d[orgUnitColumn.value] ? d[orgUnitColumn.value].toLocaleLowerCase() : null,
+                                    orgUnit: d[orgUnitColumn.value] ? d[orgUnitColumn.value] : null,
                                     dataElement: element.id,
                                     attributeValue: rowData,
-                                    categoryOptionCombo: d[categoryOptionComboColumn.value] ? d[categoryOptionComboColumn.value].toLocaleLowerCase() : null
+                                    categoryOptionCombo: d[categoryOptionComboColumn.value] ? d[categoryOptionComboColumn.value].toLowerCase() : null
                                 }
                             });
                             validatedData = [...validatedData, ...groupedData];
@@ -129,21 +149,39 @@ export const processDataSet = (data, dataSet) => {
                     if (templateType.value === '1' || templateType.value === '4' || templateType.value === '6') {
                         _.forOwn(coc.mapping, (mapping, dataElement) => {
                             const filtered = data.filter(v => {
-                                return mapping && mapping.value && v.categoryOptionCombo === mapping.value.toLocaleLowerCase() && v.dataElement === dataElement;
+                                return mapping && mapping.value && v.categoryOptionCombo === mapping.value.toLowerCase() && v.dataElement === dataElement;
                             });
                             filtered.forEach(d => {
                                 const attribute = findAttributeCombo(dataSet, d.attributeValue, false);
                                 if (d['orgUnit'] && attribute) {
-                                    const orgUnit = dataSetUnits[d['orgUnit']];
-                                    if (orgUnit) {
+                                    const orgUnit = searchSourceOrgUnits(d['orgUnit'], sourceOrganisationUnits);
+                                    if (orgUnit && orgUnit.mapping) {
                                         dataValues = [...dataValues, {
                                             dataElement,
                                             value: d['value'],
                                             period: d['period'],
                                             attributeOptionCombo: attribute.id,
                                             categoryOptionCombo: coc.id,
-                                            orgUnit
+                                            orgUnit: orgUnit.mapping.value
                                         }];
+                                    } else {
+                                        if (orgUnit) {
+                                            errors = [...errors, {
+                                                error: `Organisation unit ${d['orgUnit']} not mapped`,
+                                            }]
+                                        }
+                                    }
+                                } else {
+                                    if (!d['orgUnit']) {
+                                        errors = [...errors, {
+                                            error: 'Organisation unit empty',
+                                        }]
+                                    }
+
+                                    if (!attribute) {
+                                        errors = [...errors, {
+                                            error: `Attribute with value ${d.attributeValue} not found`,
+                                        }]
                                     }
                                 }
                             });
@@ -159,7 +197,6 @@ export const processDataSet = (data, dataSet) => {
                                 period = p.toString();
                             }
 
-
                             if (!organisationUnitInExcel) {
                                 orgUnit = organisation.value
                             } else {
@@ -168,7 +205,7 @@ export const processDataSet = (data, dataSet) => {
                                 if (foundOU) {
                                     orgUnit = foundOU;
                                 } else {
-                                    // NotificationManager.error(`Organisation unit ${ou} not found`);
+                                    errors = [...errors, {error: `Organisation unit ${ou} not found`}]
                                 }
                             }
 
@@ -196,6 +233,10 @@ export const processDataSet = (data, dataSet) => {
                                     attributeOptionCombo: found.id,
                                     orgUnit
                                 }]
+                            } else {
+                                errors = [...errors, {
+                                    error: `Attribute with value not found`,
+                                }]
                             }
 
 
@@ -211,7 +252,6 @@ export const processDataSet = (data, dataSet) => {
                                 const attribute = findAttributeCombo(dataSet, [], false);
                                 if (attribute) {
                                     const orgUnit = units[d['ou']];
-                                    // const orgUnit = d['ou'];
                                     if (orgUnit) {
                                         dataValues = [...dataValues, {
                                             dataElement,
@@ -221,7 +261,15 @@ export const processDataSet = (data, dataSet) => {
                                             categoryOptionCombo: coc.id,
                                             orgUnit
                                         }];
+                                    } else {
+                                        errors = [...errors, {
+                                            error: `Organisation ${d['ou']} not found`,
+                                        }]
                                     }
+                                } else {
+                                    errors = [...errors, {
+                                        error: `Attribute with value not found`,
+                                    }]
                                 }
                             });
                         });
@@ -230,16 +278,12 @@ export const processDataSet = (data, dataSet) => {
             }
         });
     } else if (templateType.value === '2') {
-        let periodMissing = false;
-        let valueMissing = false;
-        let orgUnitMissing = false;
         rows.forEach(i => {
             const rowData = categoryCombo.categories.map(category => {
                 const optionCell = category.mapping.value + i;
                 const optionValue = data[optionCell];
                 return optionValue ? optionValue.v : undefined;
             });
-
             const found = findAttributeCombo(dataSet, rowData, false);
             if (found) {
                 _.forOwn(cell2, v => {
@@ -248,59 +292,65 @@ export const processDataSet = (data, dataSet) => {
                     const vCell = v.value.column + i;
                     const ouVal = data[oCell];
                     const periodVal = data[pCell];
-                    const ou = ouVal ? ouVal['v'].toLowerCase() : '';
+                    const ou = ouVal ? ouVal['v'] : '';
                     const period = periodVal ? periodVal['v'] : null;
                     const val = data[vCell];
                     const value = val ? val.v : null;
 
-                    const orgUnit = dataSetUnits[ou];
-                    if (orgUnit && value && period) {
-                        dataValues = [...dataValues, {
-                            orgUnit,
-                            period,
-                            value,
-                            dataElement: v.value.dataElement,
-                            attributeOptionCombo: found.id,
-                            categoryOptionCombo: v.value.categoryOptionCombo
-                        }];
+                    const orgUnit = searchSourceOrgUnits(ou, sourceOrganisationUnits);
+                    if (orgUnit && orgUnit.mapping && value && period) {
+                        if (validate(elements, v.value.dataElement, value)) {
+                            dataValues = [...dataValues, {
+                                orgUnit: orgUnit.mapping.value,
+                                period,
+                                value,
+                                dataElement: v.value.dataElement,
+                                attributeOptionCombo: found.id,
+                                categoryOptionCombo: v.value.categoryOptionCombo
+                            }];
+                        } else {
+                            errors = [...errors, {
+                                error: `Value ${value} on cell ${vCell} not valid expected ${elements[v.value.dataElement]}`,
+                            }]
+                        }
                     } else {
                         if (!orgUnit) {
-                            orgUnitMissing = true;
+                            errors = [...errors, {
+                                error: `Organisation unit ${ou} on cell ${oCell} not found`,
+                            }]
+                        }
+                        if (orgUnit) {
+                            errors = [...errors, {
+                                error: `Organisation unit ${ou} on cell ${oCell} not mapped`,
+                            }]
                         }
                         if (!period) {
-                            periodMissing = true;
+                            errors = [...errors, {
+                                error: `Period missing`,
+                            }]
                         }
 
                         if (!value) {
-                            valueMissing = true;
+                            errors = [...errors, {
+                                error: `Value missing`,
+                            }]
                         }
                     }
 
                 });
             }
         });
-
-        if (orgUnitMissing) {
-            // NotificationManager.warning(`Some rows are missing organisation units, will be ignored`);
-        }
-        if (periodMissing) {
-            // NotificationManager.warning(`Some rows are missing periods, will be ignored`);
-        }
-
-        if (valueMissing) {
-            // NotificationManager.warning(`Some rows are missing values, will be ignored`);
-        }
     }
     dataValues = dataValues.filter(dv => {
         return dv.orgUnit && dv.period
     });
-
     // if (dataValues.length > 0) {
-    //     return alasql('SELECT orgUnit,dataElement,attributeOptionCombo,categoryOptionCombo,period,SUM(`value`) AS `value` FROM ? GROUP BY orgUnit,dataElement,attributeOptionCombo,categoryOptionCombo,period', [dataValues]);
+    //     dataValues = alasql('SELECT orgUnit,dataElement,attributeOptionCombo,categoryOptionCombo,period,SUM(`value`) AS `value` FROM ? GROUP BY orgUnit,dataElement,attributeOptionCombo,categoryOptionCombo,period', [dataValues]);
     // }
-
-
-    return dataValues
+    return {
+        dataValues,
+        errors
+    }
 
 };
 
@@ -388,11 +438,6 @@ export const validateValue = (dataType, value, optionSet) => {
             return moment(value).format('HH:mm');
         }
         return value;
-        /*const numeric = /^(-?0|-?[1-9]\d*)(\.\d+)?$/;
-        const int = /^(0|-?[1-9]\d*)$/;
-        const posInt = /^[1-9]\d*$/;
-        const posOrZero = /(^0$)|(^[1-9]\d*$)/;
-        const neg = /^-[1-9]\d*$/;*/
     }
     return null;
 };
@@ -623,7 +668,8 @@ export const processProgramData = (data, program, uniqueColumn, instances) => {
         createNewEnrollments,
         orgUnitStrategy,
         orgUnitColumn,
-        sourceOrganisationUnits
+        sourceOrganisationUnits,
+        incidentDateProvided
     } = program;
 
 
@@ -686,7 +732,6 @@ export const processProgramData = (data, program, uniqueColumn, instances) => {
                         }).map(e => e.dataElement.id),
                         event: stage.eventDateIdentifiesEvent
                     };
-                    // Coordinates
                     let coordinate = null;
                     if (stage.latitudeColumn && stage.longitudeColumn) {
                         coordinate = {
@@ -778,11 +823,18 @@ export const processProgramData = (data, program, uniqueColumn, instances) => {
                     allAttributes = [...allAttributes, attributes];
                 }
 
-                if (enrollmentDateColumn && incidentDateColumn) {
+                if (enrollmentDateColumn && incidentDateProvided) {
                     const enrollmentDate = moment(d[enrollmentDateColumn.value], 'YYYY-MM-DD');
-                    const incidentDate = moment(d[incidentDateColumn.value], 'YYYY-MM-DD');
 
-                    if (enrollmentDate.isValid() && incidentDate.isValid()) {
+                    let incidentDate;
+
+                    if (incidentDateProvided && incidentDateColumn) {
+                        incidentDate = moment(d[incidentDateColumn.value], 'YYYY-MM-DD');
+                    } else if (!incidentDateProvided) {
+                        incidentDate = enrollmentDate
+                    }
+
+                    if (enrollmentDate.isValid() && incidentDate && incidentDate.isValid()) {
                         enrollmentDates = [...enrollmentDates, {
                             enrollmentDate: enrollmentDate.format('YYYY-MM-DD'),
                             incidentDate: incidentDate.format('YYYY-MM-DD')
@@ -795,7 +847,6 @@ export const processProgramData = (data, program, uniqueColumn, instances) => {
                 }
             });
             let groupedEvents = _.groupBy(events, 'programStage');
-
             if (client.previous.length > 1) {
                 duplicates = [...duplicates, {identifier: client.client}]
             } else if (client.previous.length === 1) {
@@ -808,7 +859,6 @@ export const processProgramData = (data, program, uniqueColumn, instances) => {
                         if (nAttributes.length > 0) {
                             const mergedAttributes = _.unionBy(allAttributes[0], p['attributes'], 'attribute');
                             let tei;
-
                             if (trackedEntityType) {
                                 tei = {
                                     ..._.pick(p, ['orgUnit', 'trackedEntityInstance', 'trackedEntityType']),
@@ -839,6 +889,7 @@ export const processProgramData = (data, program, uniqueColumn, instances) => {
                         let enroll = {
                             program: id,
                             orgUnit: p['orgUnit'],
+                            enrollment: generateUid(),
                             trackedEntityInstance: p['trackedEntityInstance'],
                             ...enrollmentDates[0]
                         };
@@ -942,7 +993,6 @@ export const processProgramData = (data, program, uniqueColumn, instances) => {
                         row: client.client
                     }]
                 } else if (orgUnits.length === 1) {
-                    // orgUnit = searchOrgUnit(orgUnits[0], program.orgUnitStrategy, program.organisationUnits);
                     orgUnit = searchSourceOrgUnits(orgUnits[0], sourceOrganisationUnits);
                     if (orgUnit && orgUnit.mapping) {
                         const foundOrgUnitId = orgUnit.mapping.value;
@@ -1197,7 +1247,7 @@ export const processEvents = (program, data, uniqueDatesData, uniqueDataElementD
             let event = {
                 dataValues,
                 eventDate,
-                orgUnit: orgUnit && orgUnit.mapping? orgUnit.mapping.value : null,
+                orgUnit: orgUnit && orgUnit.mapping ? orgUnit.mapping.value : null,
                 programStage: stage.id,
                 program: id,
                 event: generateUid()
