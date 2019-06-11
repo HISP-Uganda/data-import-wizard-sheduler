@@ -9,7 +9,7 @@ import cors from "cors";
 
 
 const app = express();
-app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.json({limit: '100mb'}));
 app.use(cors());
 app.post('/api/v1/schedules', Schedule.create);
 app.get('/api/v1/schedules', Schedule.getAll);
