@@ -11,21 +11,16 @@ import cors from "cors";
 const app = express();
 app.use(bodyParser.json({limit: '100mb'}));
 app.use(cors());
-app.post('/api/v1/schedules', Schedule.create);
-app.get('/api/v1/schedules', Schedule.getAll);
-app.get('/api/v1/info', Schedule.info);
-app.post('/api/v1/stop', Schedule.stop);
-app.get('/api/v1/schedules/:id', Schedule.getOne);
-app.put('/api/v1/schedules/:id', Schedule.update);
-app.delete('/api/v1/schedules/:id', Schedule.delete);
+app.post('/schedules', Schedule.create);
+app.get('/schedules', Schedule.getAll);
+app.get('/info', Schedule.info);
+app.post('/stop', Schedule.stop);
+app.get('/schedules/:id', Schedule.getOne);
+app.post('/proxy', Schedule.getData);
+app.put('/schedules/:id', Schedule.update);
+app.delete('/schedules/:id', Schedule.delete);
 
 app.listen(3001);
 
 console.log('Server running at http://localhost:3001/');
-
-// getValidationRules().then(data => {
-//     const {validationRules} = data;
-//
-//     console.log(validationRules);
-// });
 

@@ -5,23 +5,26 @@ import _ from 'lodash';
 
 import {
     createProgram,
+    findEventsByDates,
+    findEventsByElements,
     getData,
-    getDHIS2Url,
+    getDHIS2Url, getPeriodFormat, getSchedule,
     getUniqueIds,
-    makeData,
-    postData,
+    getUpstreamData,
+    makeData, postAxios,
+    processDataSetResponses,
     pullData,
     pullOrganisationUnits,
     replaceParam,
+    replaceParamByValue,
     searchedInstances,
     searchTrackedEntities,
-    processDataSetResponses,
-    findEventsByDates,
-    findEventsByElements
+    whatToComplete
 } from "./data-utils";
 import {
     isTracker,
-    processDataSet, processEvents,
+    processDataSet,
+    processEvents,
     processProgramData,
     programUniqueAttribute,
     programUniqueColumn
@@ -43,42 +46,11 @@ class Schedule {
      * @returns {object} reflection object
      */
     create(data) {
-        let schedule = '*/5 * * * * *';
-
-        switch (data.schedule) {
-            case 'Every5s':
-                schedule = '*/5 * * * * *';
-                break;
-            case 'Minutely':
-                schedule = '* * * * *';
-                break;
-            case 'Hourly':
-                schedule = '0 * * * *';
-                break;
-            case 'Daily':
-                schedule = '0 0 * * *';
-                break;
-            case 'Weekly':
-                schedule = '0 0 * * 0';
-                break;
-            case 'Monthly':
-                schedule = '0 0 1 * *';
-                break;
-            case 'Quarterly':
-                schedule = '0 0 1 */3 *';
-                break;
-            case 'SixMonthly':
-                schedule = '0 0 1 */6 *';
-                break;
-            case 'Yearly':
-                schedule = '0 0 1 1 *';
-
-        }
-
+        const daysToAdd = data.additionalDays === 0 ? 1 : data.additionalDays;
+        let schedule = getSchedule(data.schedule);
+        let format = getPeriodFormat(data.schedule);
         const interval1 = parser.parseExpression(schedule);
-
         const name = data.name;
-
         const job = scheduleJob(data.name, schedule, async () => {
             const mapping = data.value;
             const interval = parser.parseExpression(schedule);
@@ -114,7 +86,7 @@ class Schedule {
                             const end = moment(endParam.value).format('YYYY-MM-DD HH:mm:ss');
                             currentParam = {...currentParam, [endParam.param]: end};
                         }
-                        const data = await getData(program, currentParam);
+                        const {data} = await getData(program, currentParam);
                         const tracker = isTracker(program);
                         let processed = {};
                         if (tracker) {
@@ -136,48 +108,61 @@ class Schedule {
                 } else if (data.type === 'aggregate') {
                     const dataSet = mapping.value;
                     const templateType = dataSet.templateType.value + '';
+                    const currentDate = moment().subtract(daysToAdd, 'days');
+
+
+                    if (!format) {
+                        format = getPeriodFormat(dataSet.periodType);
+                    }
+                    const period = currentDate.format(format);
+
                     if (templateType === '4') {
+                        const periodParam = {param: 'period', value: period};
                         const orgUnits = await pullOrganisationUnits(dataSet);
                         const param = {param: 'orgUnit'};
-
                         if (dataSet.multiplePeriods) {
                             winston.log('info', 'Multiple periods not supported');
                         } else {
                             const all = orgUnits.map(ou => {
                                 param.value = ou.id;
                                 replaceParam(dataSet.params, param);
+                                replaceParam(dataSet.params, periodParam);
                                 return pullData(dataSet);
                             });
                             const results = await Promise.all(all);
-
                             for (const result of results) {
+                                const {data: {dataValues}} = result;
                                 try {
-                                    const data = makeData(result.dataValues, dataSet);
-                                    const processed = processDataSet(data, dataSet);
+                                    const foundData = makeData(dataValues, dataSet);
+                                    const processed = processDataSet(foundData, dataSet);
+                                    const completeDataSetRegistrations = whatToComplete(processed, mapping.id);
                                     const url = getDHIS2Url();
-                                    const response = await postData(url + '/dataValueSets', {dataValues: processed});
-                                    processDataSetResponses(response);
+                                    console.log(processed);
+                                    const response = await postAxios(url + '/dataValueSets', {dataValues: processed.dataValues});
+                                    processDataSetResponses(response.data);
+                                    await postAxios(url + '/completeDataSetRegistrations', {completeDataSetRegistrations});
                                 } catch (e) {
                                     winston.log('error', e.message);
                                 }
                             }
                         }
                     } else if (templateType === '5') {
+                        const periodParam = {param: 'dimension', value: `pe:${period}`};
                         try {
-                            const data = await pullData(dataSet);
+                            replaceParamByValue(dataSet.params, periodParam, 'pe:');
+                            const {data} = await pullData(dataSet);
                             const headers = data.headers.map(h => h['name']);
                             const found = data.rows.map(r => {
                                 return Object.assign.apply({}, headers.map((v, i) => ({
                                     [v]: r[i]
                                 })));
                             });
-
                             const processed = processDataSet(found, dataSet);
-
+                            const completeDataSetRegistrations = whatToComplete(processed, mapping.id);
                             const url = getDHIS2Url();
-
-                            const response = await postData(url + '/dataValueSets', {dataValues: processed});
-                            processDataSetResponses(response)
+                            const response = await postAxios(url + '/dataValueSets', {dataValues: processed.dataValues});
+                            processDataSetResponses(response.data);
+                            await postAxios(url + '/completeDataSetRegistrations', {completeDataSetRegistrations});
                         } catch (e) {
                             winston.log('error', e.message);
                         }
@@ -187,7 +172,6 @@ class Schedule {
                     }
                 }
             }
-
             this.data = {
                 ...this.data,
                 [data.name]: {
@@ -244,7 +228,6 @@ class Schedule {
         let s = this.findOne(schedule);
         s.stop();
         s.stopped = true;
-        console.log('stopped');
         return s;
     }
 
@@ -263,6 +246,10 @@ class Schedule {
             this.schedules.splice(index, 1);
         }
         return {};
+    }
+
+    getData(url, params, username, password) {
+        return getUpstreamData(url, params, {username, password})
     }
 }
 

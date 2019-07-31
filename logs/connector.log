@@ -3953,3 +3953,147 @@
 2019-06-10 13:43:50 error: _ is not defined
 2019-06-10 13:43:55 error: _ is not defined
 2019-06-10 13:44:00 error: _ is not defined
+2019-06-13 16:32:56 info: trackedEntityInstance with id, dfMrxPXSmka imported: 0, updated: 1, deleted: 0
+2019-06-13 16:32:57 info: [{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"y72W7AELpzI"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"y72W7AELpzI"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"lfeLGZNywMX"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"lfeLGZNywMX"}}]
+2019-06-13 16:44:52 info: [{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"y72W7AELpzI"}},{"httpStatus":"OK","httpStatusCode":200,"status":"OK","message":"Import was successful.","response":{"responseType":"ImportSummary","status":"SUCCESS","importCount":{"imported":0,"updated":1,"ignored":0,"deleted":0},"reference":"lfeLGZNywMX"}}]
+2019-07-31 11:53:39 error: alasql is not a function
+2019-07-31 11:53:39 error: alasql is not a function
+2019-07-31 11:53:39 error: alasql is not a function
+2019-07-31 11:53:39 error: alasql is not a function
+2019-07-31 11:53:39 error: alasql is not a function
+2019-07-31 11:53:39 error: alasql is not a function
+2019-07-31 11:53:39 error: alasql is not a function
+2019-07-31 11:53:39 error: alasql is not a function
+2019-07-31 11:53:39 error: alasql is not a function
+2019-07-31 11:53:39 error: alasql is not a function
+2019-07-31 11:53:39 error: alasql is not a function
+2019-07-31 11:53:39 error: alasql is not a function
+2019-07-31 11:53:39 error: alasql is not a function
+2019-07-31 11:53:43 error: alasql is not a function
+2019-07-31 11:53:43 error: alasql is not a function
+2019-07-31 11:53:43 error: alasql is not a function
+2019-07-31 11:53:43 error: alasql is not a function
+2019-07-31 11:53:43 error: alasql is not a function
+2019-07-31 11:53:43 error: alasql is not a function
+2019-07-31 11:53:43 error: alasql is not a function
+2019-07-31 11:53:43 error: alasql is not a function
+2019-07-31 11:53:43 error: alasql is not a function
+2019-07-31 11:53:43 error: alasql is not a function
+2019-07-31 11:53:43 error: alasql is not a function
+2019-07-31 11:53:44 error: alasql is not a function
+2019-07-31 11:53:44 error: alasql is not a function
+2019-07-31 12:02:29 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:02:29 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:29 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:29 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:29 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:30 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:02:30 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:30 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:30 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:30 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:36 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:02:36 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:36 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:36 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:36 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:46 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:02:46 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:46 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:46 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:46 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:46 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:02:46 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:46 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:46 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:02:46 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:03:01 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:03:01 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:03:01 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:03:01 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:03:01 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:03:03 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:03:03 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:03:03 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:03:03 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:03:03 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:03:03 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:03:03 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:03:03 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:03:03 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:03:03 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:03:08 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:03:08 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:03:08 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:03:08 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:03:08 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:01 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:08:01 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:01 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:01 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:01 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:06 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:08:06 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:06 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:06 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:06 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:11 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:08:11 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:11 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:11 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:11 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:16 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:08:16 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:16 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:16 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:16 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:21 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:08:21 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:21 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:21 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:21 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:26 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:08:26 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:26 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:26 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:26 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:31 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:08:31 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:31 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:31 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:31 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:36 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:08:36 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:36 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:36 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:36 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:41 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:08:41 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:41 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:41 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:41 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:46 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:08:46 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:46 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:46 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:46 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:51 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:08:51 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:51 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:51 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:51 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:56 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:08:56 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:56 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:56 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:08:56 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:09:01 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:09:01 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:09:01 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:09:01 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:09:01 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:09:06 info:  imported: 0, updated: 0, deleted: 0
+2019-07-31 12:09:06 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:09:06 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:09:06 warn: conflict found, object: hEFKSsPV5et, message: Category option combo not found or not accessible for writing data
+2019-07-31 12:09:06 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data

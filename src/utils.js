@@ -1,7 +1,6 @@
 import _ from "lodash";
 import moment from "moment";
 import {generateUid} from "./uid";
-// import * as alasql from 'alasql';
 
 export const nest = function (seq, keys) {
     if (!keys.length)
@@ -616,6 +615,8 @@ export const searchEvent = (enrollmentEvents, stageEventFilters, stage, e) => {
             return item.programStage === stage &&
                 moment(item.eventDate, 'YYYY-MM-DD').format('YYYY-MM-DD') ===
                 moment(e.eventDate, 'YYYY-MM-DD').format('YYYY-MM-DD')
+        } else {
+            return true
         }
     });
 };
@@ -823,7 +824,7 @@ export const processProgramData = (data, program, uniqueColumn, instances) => {
                     allAttributes = [...allAttributes, attributes];
                 }
 
-                if (enrollmentDateColumn && incidentDateProvided) {
+                if (enrollmentDateColumn) {
                     const enrollmentDate = moment(d[enrollmentDateColumn.value], 'YYYY-MM-DD');
 
                     let incidentDate;
