@@ -46,8 +46,8 @@ class Schedule {
      * @returns {object} reflection object
      */
     create(data) {
-        const daysToAdd = data.additionalDays === 0 ? 1 : data.additionalDays;
-        let schedule = getSchedule(data.schedule);
+        const daysToAdd = data.additionalDays === 0 && data.schedule !== 'Weekly' ? 1 : data.additionalDays;
+        let schedule = getSchedule(data.schedule, daysToAdd);
         let format = getPeriodFormat(data.schedule);
         const interval1 = parser.parseExpression(schedule);
         const name = data.name;
