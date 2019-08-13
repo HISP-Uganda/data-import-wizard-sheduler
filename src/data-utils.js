@@ -171,7 +171,7 @@ export const putAxios = async (url, query) => {
 
 
 export const getUpstreamData = async (url, params, login) => {
-    return  axios.get(url, {
+    return axios.get(url, {
         params,
         auth: login
     })
@@ -584,7 +584,7 @@ export const getPeriodFormat = (periodType) => {
     }
 };
 
-export const getSchedule = (schedule) => {
+export const getSchedule = (schedule, daysToAdd) => {
     switch (schedule) {
         case 'Every5s':
             return '*/5 * * * * *';
