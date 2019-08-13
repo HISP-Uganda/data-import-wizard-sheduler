@@ -171,18 +171,10 @@ export const putAxios = async (url, query) => {
 
 
 export const getUpstreamData = async (url, params, login) => {
-    const reachable = await isReachable(url, {
-        timeout: 15000
-    });
-
-    if (reachable) {
-        return await axios.get(url, {
-            params,
-            auth: login
-        })
-    } else {
-        console.log('reacher')
-    }
+    return  axios.get(url, {
+        params,
+        auth: login
+    })
 };
 
 export const getData = async (mapping, params) => {
@@ -603,7 +595,7 @@ export const getSchedule = (schedule) => {
         case 'Daily':
             return '0 0 * * *';
         case 'Weekly':
-            return '0 0 * * 0';
+            return `0 0 * * ${daysToAdd}`;
         case 'Monthly':
             return `0 0 ${daysToAdd} * *`;
         case 'BiMonthly':

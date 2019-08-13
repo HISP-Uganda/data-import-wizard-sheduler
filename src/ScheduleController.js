@@ -86,7 +86,8 @@ const ScheduleController = {
             const {data} = await Schedule.getData(url, params, username, password);
             return res.status(200).send(data);
         } catch (e) {
-            return res.status(e.statusCode).send({message: e.message});
+            console.log(e.message)
+            return res.status(500).send({message: e.message});
         }
     }
 };
