@@ -1,6 +1,5 @@
 // import alasql from 'alasql';
 // import {getValidationRules} from "./data-utils";
-
 // const dataValues = require('./datavalues.json');
 import express from 'express';
 import Schedule from './ScheduleController';
@@ -9,7 +8,7 @@ import cors from "cors";
 
 
 const app = express();
-app.use(bodyParser.json({limit: '100mb'}));
+app.use(bodyParser.json({ limit: '100mb' }));
 app.use(cors());
 app.post('/schedules', Schedule.create);
 app.get('/schedules', Schedule.getAll);

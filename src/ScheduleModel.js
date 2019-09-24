@@ -1,5 +1,5 @@
 import moment from 'moment';
-import {scheduleJob} from "node-schedule";
+import { scheduleJob } from "node-schedule";
 import parser from "cron-parser";
 import _ from 'lodash';
 
@@ -8,10 +8,12 @@ import {
     findEventsByDates,
     findEventsByElements,
     getData,
-    getDHIS2Url, getPeriodFormat, getSchedule,
+    getDHIS2Url,
+    getPeriodFormat,
+    getSchedule,
     getUniqueIds,
     getUpstreamData,
-    makeData, postAxios,
+    postAxios,
     processDataSetResponses,
     pullData,
     pullOrganisationUnits,
@@ -71,22 +73,22 @@ class Schedule {
                             const start = current.last;
                             const end = moment().format('YYYY-MM-DD HH:mm:ss');
 
-                            currentParam = {...currentParam, [startParam.param]: start, [endParam.param]: end};
+                            currentParam = { ...currentParam, [startParam.param]: start, [endParam.param]: end };
                         } else if (startParam && endParam && !_.isEmpty(startParam.value) && !_.isEmpty(endParam.value)) {
                             const start = moment(startParam.value).format('YYYY-MM-DD HH:mm:ss');
                             const end = moment(endParam.value).format('YYYY-MM-DD HH:mm:ss');
 
-                            currentParam = {...currentParam, [startParam.param]: start, [endParam.param]: end};
+                            currentParam = { ...currentParam, [startParam.param]: start, [endParam.param]: end };
                         } else if (startParam && !_.isEmpty(startParam.value)) {
                             const start = moment(startParam.value).format('YYYY-MM-DD HH:mm:ss');
-                            currentParam = {...currentParam, [startParam.param]: start};
+                            currentParam = { ...currentParam, [startParam.param]: start };
 
 
                         } else if (endParam && !_.isEmpty(endParam.value)) {
                             const end = moment(endParam.value).format('YYYY-MM-DD HH:mm:ss');
-                            currentParam = {...currentParam, [endParam.param]: end};
+                            currentParam = { ...currentParam, [endParam.param]: end };
                         }
-                        const {data} = await getData(program, currentParam);
+                        const { data } = await getData(program, currentParam);
                         const tracker = isTracker(program);
                         let processed = {};
                         if (tracker) {
@@ -117,9 +119,9 @@ class Schedule {
                     const period = currentDate.format(format);
 
                     if (templateType === '4') {
-                        const periodParam = {param: 'period', value: period};
+                        const periodParam = { param: 'period', value: period };
                         const orgUnits = await pullOrganisationUnits(dataSet);
-                        const param = {param: 'orgUnit'};
+                        const param = { param: 'orgUnit' };
                         if (dataSet.multiplePeriods) {
                             winston.log('info', 'Multiple periods not supported');
                         } else {
@@ -131,26 +133,24 @@ class Schedule {
                             });
                             const results = await Promise.all(all);
                             for (const result of results) {
-                                const {data: {dataValues}} = result;
+                                const { data: { dataValues } } = result;
                                 try {
-                                    const foundData = makeData(dataValues, dataSet);
-                                    const processed = processDataSet(foundData, dataSet);
+                                    const processed = processDataSet(dataValues, dataSet);
                                     const completeDataSetRegistrations = whatToComplete(processed, mapping.id);
                                     const url = getDHIS2Url();
-                                    console.log(processed);
-                                    const response = await postAxios(url + '/dataValueSets', {dataValues: processed.dataValues});
+                                    const response = await postAxios(url + '/dataValueSets', { dataValues: processed.dataValues });
                                     processDataSetResponses(response.data);
-                                    await postAxios(url + '/completeDataSetRegistrations', {completeDataSetRegistrations});
+                                    await postAxios(url + '/completeDataSetRegistrations', { completeDataSetRegistrations });
                                 } catch (e) {
                                     winston.log('error', e.message);
                                 }
                             }
                         }
                     } else if (templateType === '5') {
-                        const periodParam = {param: 'dimension', value: `pe:${period}`};
+                        const periodParam = { param: 'dimension', value: `pe:${period}` };
                         try {
                             replaceParamByValue(dataSet.params, periodParam, 'pe:');
-                            const {data} = await pullData(dataSet);
+                            const { data } = await pullData(dataSet);
                             const headers = data.headers.map(h => h['name']);
                             const found = data.rows.map(r => {
                                 return Object.assign.apply({}, headers.map((v, i) => ({
@@ -160,9 +160,9 @@ class Schedule {
                             const processed = processDataSet(found, dataSet);
                             const completeDataSetRegistrations = whatToComplete(processed, mapping.id);
                             const url = getDHIS2Url();
-                            const response = await postAxios(url + '/dataValueSets', {dataValues: processed.dataValues});
+                            const response = await postAxios(url + '/dataValueSets', { dataValues: processed.dataValues });
                             processDataSetResponses(response.data);
-                            await postAxios(url + '/completeDataSetRegistrations', {completeDataSetRegistrations});
+                            await postAxios(url + '/completeDataSetRegistrations', { completeDataSetRegistrations });
                         } catch (e) {
                             winston.log('error', e.message);
                         }
@@ -215,7 +215,7 @@ class Schedule {
         let schedule = this.findOne(id);
         if (schedule) {
             const index = this.schedules.indexOf(schedule);
-            schedule = {...schedule, ...data};
+            schedule = { ...schedule, ...data };
             schedule.modifiedDate = moment.now();
             this.schedules.splice(index, 1, schedule);
             return schedule;
@@ -249,7 +249,7 @@ class Schedule {
     }
 
     getData(url, params, username, password) {
-        return getUpstreamData(url, params, {username, password})
+        return getUpstreamData(url, params, { username, password })
     }
 }
 

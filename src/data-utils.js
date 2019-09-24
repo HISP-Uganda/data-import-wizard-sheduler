@@ -4,7 +4,7 @@ import rq from "request-promise-native";
 import axios from 'axios';
 
 import dotenv from "dotenv";
-import {encodeData, groupEntities, nest, searchOrgUnit} from "./utils";
+import { encodeData, groupEntities, nest, searchOrgUnit } from "./utils";
 import winston from './winston';
 import moment from "moment";
 
@@ -33,8 +33,8 @@ export const searchTrackedEntities = async (uniqueIds, uniqueAttribute) => {
 
     const results = await Promise.all(all);
 
-    const ids = results.map(({data}) => {
-        const {trackedEntityInstances} = data;
+    const ids = results.map(({ data }) => {
+        const { trackedEntityInstances } = data;
         return trackedEntityInstances.map(t => {
             return t.trackedEntityInstance;
         })
@@ -59,8 +59,8 @@ export const searchTrackedEntities = async (uniqueIds, uniqueAttribute) => {
 
     const results1 = await Promise.all(all1);
 
-    for (let {data} of results1) {
-        const {trackedEntityInstances} = data;
+    for (let { data } of results1) {
+        const { trackedEntityInstances } = data;
         foundEntities = [...foundEntities, ...trackedEntityInstances];
     }
 
@@ -116,7 +116,6 @@ export const getDHIS2Url1 = (uri) => {
             return e;
         }
     }
-
     return null
 };
 
@@ -124,7 +123,7 @@ export const createDHIS2Auth = () => {
     const username = process.env.DHIS2_USER;
     const password = process.env.DHIS2_PASS;
 
-    return {username, password}
+    return { username, password }
 };
 
 export const getDHIS2Url = () => {
@@ -207,7 +206,7 @@ export const searchedInstances = (uniqueAttribute, trackedEntityInstances) => {
 export const updateDHISEvents = (eventsUpdate) => {
     const events = eventsUpdate.map(event => {
         return event.dataValues.map(dataValue => {
-            return {event: {...event, dataValues: [dataValue]}, dataElement: dataValue.dataElement};
+            return { event: { ...event, dataValues: [dataValue] }, dataElement: dataValue.dataElement };
         });
     });
     return _.flatten(events).map(ev => {
@@ -234,7 +233,7 @@ export const createProgram = async (processed) => {
             const chunkedTEI = _.chunk(newTrackedEntityInstances, 250);
 
             for (const tei of chunkedTEI) {
-                const {data} = await postAxios(trackedEntityUrl, {
+                const { data } = await postAxios(trackedEntityUrl, {
                     trackedEntityInstances: tei
                 });
                 processResponse(data, 'trackedEntityInstance');
@@ -248,7 +247,7 @@ export const createProgram = async (processed) => {
         if (trackedEntityInstancesUpdate && trackedEntityInstancesUpdate.length > 0) {
             const chunkedTEI = _.chunk(trackedEntityInstancesUpdate, 250);
             for (const tei of chunkedTEI) {
-                const {data} = await postAxios(trackedEntityUrl, {
+                const { data } = await postAxios(trackedEntityUrl, {
                     trackedEntityInstances: tei
                 });
                 processResponse(data, 'trackedEntityInstance');
@@ -262,7 +261,7 @@ export const createProgram = async (processed) => {
         if (newEnrollments && newEnrollments.length > 0) {
             const chunkedEnrollments = _.chunk(newEnrollments, 250);
             for (const enrollments of chunkedEnrollments) {
-                const {data} = await postAxios(enrollmentUrl, {
+                const { data } = await postAxios(enrollmentUrl, {
                     enrollments
                 });
                 processResponse(data, 'enrollment');
@@ -276,7 +275,7 @@ export const createProgram = async (processed) => {
             const chunkedEvents = _.chunk(newEvents, 250);
 
             for (const events of chunkedEvents) {
-                const {data} = await postAxios(eventUrl, {
+                const { data } = await postAxios(eventUrl, {
                     events
                 });
                 processResponse(data, 'events');
@@ -292,7 +291,7 @@ export const createProgram = async (processed) => {
             const chunkedEvents = _.chunk(eventsUpdate, 250);
 
             for (const events of chunkedEvents) {
-                const {data} = await Promise.all(updateDHISEvents(events));
+                const { data } = await Promise.all(updateDHISEvents(events));
                 winston.log('info', JSON.stringify(data));
             }
         }
@@ -307,7 +306,7 @@ export const pullOrganisationUnits = async (mapping) => {
         const baseUrl = getDHIS2Url();
         if (baseUrl) {
             const url = baseUrl + '/organisationUnits.json';
-            const {data} = await axios.get(url, {
+            const { data } = await axios.get(url, {
                 auth: createDHIS2Auth(),
                 params: {
                     level: mapping.currentLevel.value,
@@ -386,7 +385,7 @@ export const pullData = (mapping) => {
             } else {
                 url = mapping.url;
                 if (mapping.username && mapping.password) {
-                    auth = {username: mapping.username, password: mapping.password}
+                    auth = { username: mapping.username, password: mapping.password }
                 }
             }
             return axios.get(param !== '' ? url + '?' + param : url, {
@@ -402,7 +401,7 @@ export const pullData = (mapping) => {
 
 export const processDataSetResponses = (response) => {
     if (response['status'] === 'SUCCESS' || response['status'] === 'WARNING') {
-        const {imported, deleted, updated, ignored} = response['importCount'];
+        const { imported, deleted, updated, ignored } = response['importCount'];
         winston.log('info', ' imported: ' + imported + ', updated: ' + updated + ', deleted: ' + deleted);
         if (response['conflicts']) {
             response['conflicts'].forEach(c => {
@@ -417,9 +416,9 @@ export const processDataSetResponses = (response) => {
 export const processResponse = (response, type) => {
     if (response) {
         if (response['httpStatusCode'] === 200) {
-            const {importSummaries} = response['response'];
+            const { importSummaries } = response['response'];
             importSummaries.forEach(importSummary => {
-                const {importCount, reference} = importSummary;
+                const { importCount, reference } = importSummary;
                 winston.log('info', type + ' with id, ' + reference + ' imported: ' + importCount.imported + ', updated: ' + importCount.updated + ', deleted: ' + importCount.deleted);
             });
         } else if (response['httpStatusCode'] === 409) {
@@ -443,8 +442,8 @@ export const processEventUpdate = (successes) => {
 
 
 export const findEventsByDates = async (program, uploadedData) => {
-    const {orgUnitColumn, id, organisationUnits, orgUnitStrategy, programStages} = program;
-    const {eventDateColumn, eventDateIdentifiesEvent} = programStages[0];
+    const { orgUnitColumn, id, organisationUnits, orgUnitStrategy, programStages } = program;
+    const { eventDateColumn, eventDateIdentifiesEvent } = programStages[0];
     if (orgUnitColumn && uploadedData && id && eventDateColumn && eventDateIdentifiesEvent) {
         let eventDates = uploadedData.map(d => {
             const ou = searchOrgUnit(d[orgUnitColumn.value], orgUnitStrategy, organisationUnits);
@@ -473,7 +472,7 @@ export const findEventsByDates = async (program, uploadedData) => {
                     auth: createDHIS2Auth()
                 });
             });
-            const {data} = await Promise.all(all);
+            const { data } = await Promise.all(all);
             const processed = data.filter(response => {
                 return response.events.length > 0;
             }).map(response => {
@@ -497,8 +496,8 @@ export const elementsWhichAreIdentifies = (programStageDataElements) => {
 
 
 export const findEventsByElements = async (program, uploadedData) => {
-    const {d2, id, orgUnitColumn, organisationUnits, orgUnitStrategy, programStages} = program;
-    const {programStageDataElements} = programStages[0];
+    const { d2, id, orgUnitColumn, organisationUnits, orgUnitStrategy, programStages } = program;
+    const { programStageDataElements } = programStages[0];
     const ele = elementsWhichAreIdentifies(programStageDataElements);
     if (d2 && uploadedData && id && ele.length > 0) {
         const elements = ele.map(e => {
@@ -509,7 +508,7 @@ export const findEventsByElements = async (program, uploadedData) => {
         let values = uploadedData.map(d => {
             return ele.map(e => {
                 const ou = searchOrgUnit(d[orgUnitColumn.value], orgUnitStrategy, organisationUnits);
-                return {value: d[e.column.value], de: e.dataElement.id, orgUnit: ou ? ou.id : null};
+                return { value: d[e.column.value], de: e.dataElement.id, orgUnit: ou ? ou.id : null };
             });
         }).filter(f => _.every(f, v => {
             return v.value !== null && v.value !== undefined && v.value !== '' && v.orgUnit
@@ -556,7 +555,7 @@ export const whatToComplete = (processed, dataSet) => {
     });
 
     return _.uniqWith(p, _.isEqual).map(p => {
-        return {dataSet: dataSet, organisationUnit: p.orgUnit, period: p.period}
+        return { dataSet: dataSet, organisationUnit: p.orgUnit, period: p.period }
     });
 };
 
