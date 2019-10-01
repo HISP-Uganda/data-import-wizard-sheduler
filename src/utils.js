@@ -11,14 +11,11 @@ export const nest = function (seq, keys) {
     });
 };
 
-export const findAttributeCombo = (dataSet, data, compareId) => {
-    return dataSet.categoryCombo.categoryOptionCombos.find(coc => {
+export const findAttributeCombo = (categoryCombo, data) => {
+    return categoryCombo.categoryOptionCombos.find(coc => {
         const attributeCombo = data.map(v => {
             const match = coc.categoryOptions.find(co => {
-                if (compareId) {
-                    return v !== undefined && co.id === v;
-                }
-                return v !== undefined && co.name === v;
+                return v !== undefined && (co.id === v || co.name === v);
             });
             return !!match;
         });
@@ -160,7 +157,7 @@ export const processDataSet = (data, dataSet) => {
                                 return mapping && mapping.value && v.categoryOptionCombo === mapping.value.toLowerCase() && v.dataElement === dataElement;
                             });
                             filtered.forEach(d => {
-                                const attribute = findAttributeCombo(dataSet, d.attributeValue, false);
+                                const attribute = findAttributeCombo(categoryCombo, d.attributeValue);
                                 if (d['orgUnit'] && attribute) {
                                     const orgUnit = searchSourceOrgUnits(d['orgUnit'], sourceOrganisationUnits);
                                     if (orgUnit && orgUnit.mapping) {
@@ -224,13 +221,13 @@ export const processDataSet = (data, dataSet) => {
                                     const value = data[category.mapping.value];
                                     return value ? value.v : undefined;
                                 });
-                                found = findAttributeCombo(dataSet, rowData, false);
+                                found = findAttributeCombo(categoryCombo, rowData);
 
                             } else {
                                 const rowData = categoryCombo.categories.map(category => {
                                     return category.mapping.value;
                                 });
-                                found = findAttributeCombo(dataSet, rowData, true);
+                                found = findAttributeCombo(categoryCombo, rowData);
                             }
                             if (found) {
                                 dataValues = [...dataValues, {
@@ -257,7 +254,7 @@ export const processDataSet = (data, dataSet) => {
                                 return mapping && mapping.value && v.dx === mapping.value;
                             });
                             filtered.forEach(d => {
-                                const attribute = findAttributeCombo(dataSet, [], false);
+                                const attribute = findAttributeCombo(categoryCombo, []);
                                 if (attribute) {
                                     const orgUnit = units[d['ou']];
                                     if (orgUnit) {
@@ -292,7 +289,7 @@ export const processDataSet = (data, dataSet) => {
                 const optionValue = data[optionCell];
                 return optionValue ? optionValue.v : undefined;
             });
-            const found = findAttributeCombo(dataSet, rowData, false);
+            const found = findAttributeCombo(categoryCombo, rowData);
             if (found) {
                 _.forOwn(cell2, v => {
                     const oCell = orgUnitColumn.value + i;
@@ -411,6 +408,13 @@ export const validText = (dataType, value) => {
         case 'INTEGER_ZERO_OR_POSITIVE':
         case 'AGE':
             return Number.isInteger(value) && value >= 0;
+        case 'COORDINATE':
+            try {
+                const c = JSON.parse(value);
+                return _.isArray(c) && c.length === 2
+            } catch (e) {
+                return false;
+            }
         default:
             return true
     }
@@ -676,7 +680,8 @@ export const processProgramData = (data, program, uniqueColumn, instances) => {
         orgUnitStrategy,
         orgUnitColumn,
         sourceOrganisationUnits,
-        incidentDateProvided
+        incidentDateProvided,
+        categoryCombo
     } = program;
 
     if (uniqueColumn) {
@@ -768,6 +773,12 @@ export const processProgramData = (data, program, uniqueColumn, instances) => {
                             }
                         });
 
+                        const rowData = categoryCombo.categories.map(category => {
+                            return d[category.mapping.value]
+                        });
+                        const found = findAttributeCombo(categoryCombo, rowData);
+
+
                         let event = {
                             dataValues,
                             eventDate,
@@ -792,6 +803,11 @@ export const processProgramData = (data, program, uniqueColumn, instances) => {
                                 }
                             }
                         }
+
+                        if (found) {
+                            event = { ...event, attributeOptionCombo: found.id }
+                        }
+
 
                         events = [...events, event];
                     }
@@ -853,6 +869,7 @@ export const processProgramData = (data, program, uniqueColumn, instances) => {
                 }
             });
             let groupedEvents = _.groupBy(events, 'programStage');
+            console.log(client.previous);
             if (client.previous.length > 1) {
                 duplicates = [...duplicates, { identifier: client.client }]
             } else if (client.previous.length === 1) {
@@ -1096,90 +1113,120 @@ export const processProgramData = (data, program, uniqueColumn, instances) => {
     }
 };
 
-export const searchSavedEvent = (programStages, event, eventByDate, eventsByDataElement) => {
+export const searchSavedEvent = (programStages, event, eventsData) => {
     const programStage = programStages[0];
-
-    const { eventDateIdentifiesEvent, programStageDataElements } = programStage;
-
-
+    const { eventDateIdentifiesEvent, programStageDataElements, updateEvents, createNewEvents } = programStage;
     const identifiesEvents = programStageDataElements.filter(psde => {
         return psde.dataElement.identifiesEvent && psde.column;
     }).map(e => e.dataElement.id);
 
-    const value = event.dataValues.filter(dv => {
+    const filtered = event.dataValues.filter(dv => {
         return identifiesEvents.indexOf(dv.dataElement) !== -1
-    }).map(dv => dv.value).join('@');
+    });
+
+    const value = _.orderBy(filtered, ['dataElement'], ['asc']).map(dv => dv.value).join('@');
+    const date = event.eventDate;
 
     if (eventDateIdentifiesEvent && identifiesEvents.length > 0) {
-        const ev1 = eventByDate[event.eventDate];
+        const currentEvent = eventsData[value + date];
+        if (currentEvent && updateEvents) {
+            const { event: ev2, many: many1 } = currentEvent;
+            if (ev2 && !many1) {
+                const differingElements = _.differenceWith(event['dataValues'], ev2['dataValues'], (a, b) => {
+                    return a.dataElement === b.dataElement && a.value + '' === b.value + '';
+                });
 
-        const ev2 = eventsByDataElement[value];
-
-        if (ev1 && ev2) {
-            const differingElements = _.differenceWith(event['dataValues'], ev2['dataValues'], (a, b) => {
-                return a.dataElement === b.dataElement && a.value + '' === b.value + '';
-            });
-            if (differingElements.length > 0) {
-                return {
-                    ...ev2,
-                    update: true,
-                    dataValues: differingElements
-                };
+                if (differingElements.length > 0 && updateEvents) {
+                    return {
+                        ...ev2,
+                        update: true,
+                        duplicates: false,
+                        dataValues: differingElements
+                    };
+                }
+                return null;
+            } else if (ev2 && many1) {
+                return { ...event, duplicates: true, value: value + date, update: false };
+            } else {
+                return { ...event, update: false, duplicates: false };
             }
-            return null;
+        } else if (createNewEvents) {
+            return { ...event, update: false, duplicates: false };
         } else {
-            return { ...event, update: false };
+            return null;
         }
     } else if (eventDateIdentifiesEvent) {
-        const ev1 = eventByDate[event.eventDate];
-        if (ev1) {
-            const differingElements = _.differenceWith(event['dataValues'], ev1['dataValues'], (a, b) => {
-                return a.dataElement === b.dataElement && a.value + '' === b.value + '';
-            });
+        const currentEvent = eventsData[date];
+        if (currentEvent && updateEvents) {
+            const { event: ev1, many: many1 } = currentEvent;
+            if (ev1 && !many1) {
+                const differingElements = _.differenceWith(event['dataValues'], ev1['dataValues'], (a, b) => {
+                    return a.dataElement === b.dataElement && a.value + '' === b.value + '';
+                });
 
-            if (differingElements.length > 0) {
-                return {
-                    ...ev1,
-                    update: true,
-                    dataValues: differingElements
-                };
+                if (differingElements.length > 0) {
+                    return {
+                        ...ev1,
+                        update: true,
+                        duplicates: false,
+                        dataValues: differingElements
+                    };
+                }
+                return null;
+            } else if (ev1 && many1) {
+                return { ...event, duplicates: true, value: date, update: false };
+            } else {
+                return { ...event, update: false, duplicates: false };
             }
-            return null;
+        } else if (createNewEvents) {
+            return { ...event, update: false, duplicates: false };
         } else {
-            return { ...event, update: false };
+            return null
         }
-
     } else if (identifiesEvents.length > 0) {
-        const ev2 = eventsByDataElement[value];
-        if (ev2) {
-            const differingElements = _.differenceWith(event['dataValues'], ev2['dataValues'], (a, b) => {
-                return a.dataElement === b.dataElement && a.value + '' === b.value + '';
-            });
+        const currentEvent = eventsData[value];
+        if (currentEvent && updateEvents) {
+            const { event: ev2, many: many1 } = currentEvent;
+            if (ev2 && !many1) {
+                const differingElements = _.differenceWith(event['dataValues'], ev2['dataValues'], (a, b) => {
+                    return a.dataElement === b.dataElement && a.value + '' === b.value + '';
+                });
 
-            if (differingElements.length > 0) {
-                return {
-                    ...ev2,
-                    update: true,
-                    dataValues: differingElements
-                };
+                if (differingElements.length > 0) {
+                    return {
+                        ...ev2,
+                        update: true,
+                        duplicates: false,
+                        dataValues: differingElements
+                    };
+                }
+                return null;
+            } else if (ev2 && many1) {
+                return { ...event, duplicates: true, value, update: false };
+            } else {
+                return { ...event, update: false, duplicates: false };
             }
-            return null;
+        } else if (createNewEvents) {
+            return { ...event, update: false, duplicates: false };
         } else {
-            return { ...event, update: false };
+            return null;
         }
+    } else if (createNewEvents) {
+        return { ...event, update: false, duplicates: false }
     } else {
-        return { ...event, update: false }
+        return null;
     }
 };
 
-export const processEvents = (program, data, uniqueDatesData, uniqueDataElementData) => {
+export const processEvents = (program, data, eventsData) => {
     const {
         id,
         programStages,
         dataSource,
         orgUnitColumn,
         orgUnitStrategy,
-        sourceOrganisationUnits
+        sourceOrganisationUnits,
+        categoryCombo
     } = program;
 
     const stage = programStages[0];
@@ -1250,14 +1297,24 @@ export const processEvents = (program, data, uniqueDatesData, uniqueDataElementD
                 }]
             }
 
+            const rowData = categoryCombo.categories.map(category => {
+                return d[category.mapping.value]
+            });
+            const found = findAttributeCombo(categoryCombo, rowData);
+
             let event = {
                 dataValues,
                 eventDate,
                 orgUnit: orgUnit && orgUnit.mapping ? orgUnit.mapping.value : null,
                 programStage: stage.id,
                 program: id,
-                event: generateUid()
+                event: generateUid(),
+                row: i + 2
             };
+
+            if (found) {
+                event = { ...event, attributeOptionCombo: found.id }
+            }
 
             if (coordinate) {
                 event = {
@@ -1278,13 +1335,25 @@ export const processEvents = (program, data, uniqueDatesData, uniqueDataElementD
         }
 
         return null;
-    }).filter(e => e !== null && e.orgUnit !== null).map(ev => {
-        return searchSavedEvent(programStages, ev, uniqueDatesData, uniqueDataElementData)
+    }).filter(e => e !== null && e.orgUnit !== null).map((ev) => {
+        const searched = searchSavedEvent(programStages, ev, eventsData);
+        return searched;
+    })
+
+    const foundConflicts = events.filter(e => e && e.duplicates === true).map(e => {
+        return {
+            error: `More than one event found with value ${e.value}, could not update all events expected to find one event`,
+            row: e.row,
+            column: ''
+        };
     });
-    const eventsUpdate = events.filter(e => e !== null && e.update === true).map(e => {
+
+    conflicts = [...conflicts, ...foundConflicts];
+
+    const eventsUpdate = events.filter(e => e && e.update === true && e.duplicates === false).map(e => {
         return _.omit(e, 'update');
     });
-    const newEvents = events.filter(e => e !== null && e.update === false).map(e => {
+    const newEvents = events.filter(e => e && e.update === false && e.duplicates === false).map(e => {
         return _.omit(e, 'update');
     });
 
