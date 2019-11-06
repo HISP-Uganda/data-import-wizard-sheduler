@@ -2,6 +2,8 @@ import moment from 'moment';
 import { scheduleJob } from "node-schedule";
 import parser from "cron-parser";
 import _ from 'lodash';
+import DataStore from 'nedb-promises';
+// import crypto from 'crypto';
 
 import {
     createProgram,
@@ -33,26 +35,105 @@ import {
 } from "./utils";
 import winston from './winston';
 
+// const ALGORITHM = 'aes-256-cbc';
+// const password = 'Password used to generate key';
+// const salt = 'salt';
+// const BLOCK_SIZE = 16;
+// const KEY_SIZE = 32;
+// const key = crypto.scryptSync(password, salt, KEY_SIZE);
+
+const dbFactory = (fileName) => DataStore.create({
+    // filename: `${isDev ? '.' : app.getAppPath('userData')}/data/${fileName}`,
+    filename: `./${fileName}`,
+    timestampData: true,
+    autoload: true,
+    // afterSerialization(plaintext) {
+    //     // Encryption
+
+    //     // Generate random IV.
+    //     const iv = crypto.randomBytes(BLOCK_SIZE)
+
+    //     // Create cipher from key and IV.
+    //     const cipher = crypto.createCipheriv(ALGORITHM, key, iv)
+
+    //     // Encrypt record and prepend with IV.
+    //     const ciphertext = Buffer.concat([iv, cipher.update(plaintext), cipher.final()])
+
+    //     // Encode encrypted record as Base64.
+    //     return ciphertext.toString('base64')
+    // },
+
+    // beforeDeserialization(ciphertext) {
+    //     // Decryption
+
+    //     // Decode encrypted record from Base64.
+    //     const ciphertextBytes = Buffer.from(ciphertext, 'base64')
+
+    //     // Get IV from initial bytes.
+    //     const iv = ciphertextBytes.slice(0, BLOCK_SIZE)
+
+    //     // Get encrypted data from remaining bytes.
+    //     const data = ciphertextBytes.slice(BLOCK_SIZE)
+
+    //     // Create decipher from key and IV.
+    //     const decipher = crypto.createDecipheriv(ALGORITHM, key, iv)
+
+    //     // Decrypt record.
+    //     const plaintextBytes = Buffer.concat([decipher.update(data), decipher.final()])
+
+    //     // Encode record as UTF-8.
+    //     return plaintextBytes.toString()
+    // }
+});
+
+let schedules = [];
+
+
+const db = {
+    schedules: dbFactory('schedules.db')
+};
+
 class Schedule {
+
+    schedules = [];
+    data = {}
+
     /**
      * class constructor
      * @param {object} data
      */
+
     constructor() {
-        this.schedules = [];
-        this.data = {};
+        this.loadPreviousSchedules()
     }
 
+    loadPreviousSchedules = async () => {
+        const s = await db.schedules.find({})
+        this.schedules = s.map(schedule => {
+            return this.create(schedule);
+        });
+    }
     /**
      *
      * @returns {object} reflection object
      */
-    create(data) {
+
+    async create(data) {
         const daysToAdd = data.additionalDays === 0 && data.schedule !== 'Weekly' ? 1 : data.additionalDays;
         let schedule = getSchedule(data.schedule, daysToAdd);
         let format = getPeriodFormat(data.schedule);
         const interval1 = parser.parseExpression(schedule);
         const name = data.name;
+        // const currentJob = this.findOne(name);
+
+        // if (currentJob) {
+        //     console.log('Canceling');
+        //     const index = this.schedules.indexOf(currentJob);
+        //     this.schedules.splice(index, 1);
+        //     currentJob.cancel();
+        // }
+
+        await this.delete(name)
         const job = scheduleJob(data.name, schedule, async () => {
             const mapping = data.value;
             const interval = parser.parseExpression(schedule);
@@ -187,6 +268,10 @@ class Schedule {
         job.next = interval1.next().toString();
         job.last = '';
         this.schedules = [...this.schedules, job];
+        const searched = await db.schedules.findOne({ name }).exec();
+        if (!searched) {
+            await db.schedules.insert(data);
+        }
         return job
     }
 
@@ -225,10 +310,14 @@ class Schedule {
     }
 
     stop(schedule) {
-        let s = this.findOne(schedule);
-        s.stop();
-        s.stopped = true;
-        return s;
+        if (s) {
+            let s = this.findOne(schedule);
+            s.stop();
+            s.stopped = true;
+            return s;
+        }
+
+        return {}
     }
 
     info() {
@@ -239,11 +328,13 @@ class Schedule {
      *
      * @param {uuid} id
      */
-    delete(id) {
+    async delete(id) {
         let schedule = this.findOne(id);
         if (schedule) {
             const index = this.schedules.indexOf(schedule);
             this.schedules.splice(index, 1);
+            schedule.cancel();
+            await db.schedules.remove({ name: id });
         }
         return {};
     }
