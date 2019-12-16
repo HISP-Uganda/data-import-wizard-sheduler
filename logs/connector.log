@@ -19489,3 +19489,29 @@
 2019-12-16 13:23:22 error: Cannot read property 'data' of undefined
 2019-12-16 13:24:17 error: Request failed with status code 500
 2019-12-16 13:24:17 error: Cannot read property 'data' of undefined
+2019-12-16 13:27:00 error: socket hang up
+2019-12-16 13:27:00 error: Cannot read property 'data' of undefined
+2019-12-16 13:28:00 error: socket hang up
+2019-12-16 13:28:00 error: Cannot read property 'data' of undefined
+2019-12-16 13:28:36 info: events with id, QiBWQQwIY6Q imported: 14, updated: 0, deleted: 0
+2019-12-16 13:28:36 info: events with id, oLuMVlTrczy imported: 7, updated: 0, deleted: 0
+2019-12-16 13:28:36 info: events with id, nsbwNzn9v39 imported: 11, updated: 0, deleted: 0
+2019-12-16 13:28:36 info: events with id, STuRwTXgP7j imported: 7, updated: 0, deleted: 0
+2019-12-16 13:28:36 info: events with id, DCy74vZKYsF imported: 7, updated: 0, deleted: 0
+2019-12-16 13:28:36 info: events with id, aZwRyQQ29hH imported: 11, updated: 0, deleted: 0
+2019-12-16 13:28:36 info: events with id, l1Z8wDnuf1B imported: 7, updated: 0, deleted: 0
+2019-12-16 13:28:36 info: events with id, rylBhmveQ5A imported: 11, updated: 0, deleted: 0
+2019-12-16 13:28:36 info: events with id, SdbwT6iVM7I imported: 11, updated: 0, deleted: 0
+2019-12-16 13:28:36 info: events with id, G2ID9ZUB0aO imported: 11, updated: 0, deleted: 0
+2019-12-16 13:28:36 info: events with id, CvVX44GF7xC imported: 7, updated: 0, deleted: 0
+2019-12-16 13:28:36 info: events with id, ZJld9NPi5vB imported: 11, updated: 0, deleted: 0
+2019-12-16 13:28:36 info: events with id, R8AXUnQgsXx imported: 11, updated: 0, deleted: 0
+2019-12-16 13:28:36 info: events with id, HdOLrqBU6yJ imported: 11, updated: 0, deleted: 0
+2019-12-16 13:28:36 info: events with id, KrM4mkLikUq imported: 11, updated: 0, deleted: 0
+2019-12-16 13:28:36 info: events with id, bxaXh1grjx7 imported: 11, updated: 0, deleted: 0
+2019-12-16 13:28:36 info: events with id, CwqdGq1bhvZ imported: 11, updated: 0, deleted: 0
+2019-12-16 13:28:36 error: object is not iterable (cannot read property Symbol(Symbol.iterator))
+2019-12-16 13:29:00 error: socket hang up
+2019-12-16 13:29:00 error: Cannot read property 'data' of undefined
+2019-12-16 13:52:00 error: socket hang up
+2019-12-16 13:52:00 error: Cannot read property 'data' of undefined

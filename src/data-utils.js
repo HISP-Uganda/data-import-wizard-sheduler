@@ -795,6 +795,8 @@ export const getSchedule = (schedule, daysToAdd) => {
             return '*/5 * * * * *';
         case 'Minutely':
             return '* * * * *';
+        case 'Every5m':
+            return '*/5 * * * *';
         case 'Hourly':
             return '0 * * * *';
         case 'Daily':
