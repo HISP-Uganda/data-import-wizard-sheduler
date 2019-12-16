@@ -34,3 +34,4 @@ test.json
 worker*
 logs/connector.log
 schedules.db
+logs*

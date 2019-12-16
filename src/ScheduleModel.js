@@ -7,8 +7,6 @@ import DataStore from 'nedb-promises';
 
 import {
     createProgram,
-    findEventsByDates,
-    findEventsByElements,
     getData,
     getDHIS2Url,
     getPeriodFormat,
@@ -23,7 +21,9 @@ import {
     replaceParamByValue,
     searchedInstances,
     searchTrackedEntities,
-    whatToComplete
+    whatToComplete,
+    findEvents,
+    withoutDuplicates
 } from "./data-utils";
 import {
     isTracker,
@@ -47,47 +47,9 @@ const dbFactory = (fileName) => DataStore.create({
     filename: `./${fileName}`,
     timestampData: true,
     autoload: true,
-    // afterSerialization(plaintext) {
-    //     // Encryption
-
-    //     // Generate random IV.
-    //     const iv = crypto.randomBytes(BLOCK_SIZE)
-
-    //     // Create cipher from key and IV.
-    //     const cipher = crypto.createCipheriv(ALGORITHM, key, iv)
-
-    //     // Encrypt record and prepend with IV.
-    //     const ciphertext = Buffer.concat([iv, cipher.update(plaintext), cipher.final()])
-
-    //     // Encode encrypted record as Base64.
-    //     return ciphertext.toString('base64')
-    // },
-
-    // beforeDeserialization(ciphertext) {
-    //     // Decryption
-
-    //     // Decode encrypted record from Base64.
-    //     const ciphertextBytes = Buffer.from(ciphertext, 'base64')
-
-    //     // Get IV from initial bytes.
-    //     const iv = ciphertextBytes.slice(0, BLOCK_SIZE)
-
-    //     // Get encrypted data from remaining bytes.
-    //     const data = ciphertextBytes.slice(BLOCK_SIZE)
-
-    //     // Create decipher from key and IV.
-    //     const decipher = crypto.createDecipheriv(ALGORITHM, key, iv)
-
-    //     // Decrypt record.
-    //     const plaintextBytes = Buffer.concat([decipher.update(data), decipher.final()])
-
-    //     // Encode record as UTF-8.
-    //     return plaintextBytes.toString()
-    // }
 });
 
 let schedules = [];
-
 
 const db = {
     schedules: dbFactory('schedules.db')
@@ -124,14 +86,6 @@ class Schedule {
         let format = getPeriodFormat(data.schedule);
         const interval1 = parser.parseExpression(schedule);
         const name = data.name;
-        // const currentJob = this.findOne(name);
-
-        // if (currentJob) {
-        //     console.log('Canceling');
-        //     const index = this.schedules.indexOf(currentJob);
-        //     this.schedules.splice(index, 1);
-        //     currentJob.cancel();
-        // }
 
         await this.delete(name)
         const job = scheduleJob(data.name, schedule, async () => {
@@ -169,7 +123,7 @@ class Schedule {
                             const end = moment(endParam.value).format('YYYY-MM-DD HH:mm:ss');
                             currentParam = { ...currentParam, [endParam.param]: end };
                         }
-                        const { data } = await getData(program, currentParam);
+                        let { data } = await getData(program, currentParam);
                         const tracker = isTracker(program);
                         let processed = {};
                         if (tracker) {
@@ -180,9 +134,9 @@ class Schedule {
                             const trackedEntityInstances = searchedInstances(uniqueAttribute, instances);
                             processed = processProgramData(data, program, uniqueColumn, trackedEntityInstances);
                         } else {
-                            const uniqueDatesData = await findEventsByDates(program, data);
-                            const uniqueDataElementData = await findEventsByElements(program, data);
-                            processed = processEvents(program, data, uniqueDatesData, uniqueDataElementData)
+                            data = withoutDuplicates(program, data);
+                            const previous = await findEvents(program, data);
+                            processed = processEvents(program, data, previous);
                         }
                         await createProgram(processed);
                     } catch (e) {

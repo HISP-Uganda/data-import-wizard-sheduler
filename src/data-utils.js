@@ -4,7 +4,7 @@ import rq from "request-promise-native";
 import axios from 'axios';
 
 import dotenv from "dotenv";
-import { encodeData, groupEntities, nest, searchOrgUnit } from "./utils";
+import { encodeData, groupEntities, nest, searchOrgUnit, isTracker } from "./utils";
 import winston from './winston';
 import moment from "moment";
 
@@ -440,6 +440,23 @@ export const processEventUpdate = (successes) => {
     })
 };
 
+export const searchOrganisation = (unit, sourceOrganisationUnits) => {
+    const ou = sourceOrganisationUnits.find(sou => unit === sou.name);
+    if (ou) {
+        return ou.mapping.value
+    }
+    return null;
+}
+
+export const convertRows2Events = (rows, programStageDataElements) => {
+    return rows.map(e => {
+        const { event, eventDate, program, programStage, orgUnit, ...rest } = e
+        const dataValues = programStageDataElements.map(psde => {
+            return { dataElement: psde.dataElement.id, value: rest[psde.dataElement.id] }
+        });
+        return { event, eventDate, program, programStage, orgUnit, dataValues }
+    })
+}
 
 export const findEventsByDates = async (program, uploadedData) => {
     const { orgUnitColumn, id, organisationUnits, orgUnitStrategy, programStages } = program;
@@ -494,6 +511,46 @@ export const elementsWhichAreIdentifies = (programStageDataElements) => {
     });
 };
 
+export const withoutDuplicates = (program, data) => {
+    if (!isTracker(program) && data) {
+        let filteredData = [];
+        const { programStageDataElements, eventDateIdentifiesEvent, eventDateColumn } = program.programStages[0];
+
+        const ele = elementsWhichAreIdentifies(programStageDataElements);
+        if (ele.length > 0 && eventDateIdentifiesEvent) {
+            const grped = _.groupBy(data, (v) => {
+                const ele = ele.map(e => {
+                    return v[e.column.value];
+                }).join('@');
+                return `${ele}${moment(v[eventDateColumn.value]).format('YYYY-MM-DD')}`
+            });
+            _.forOwn(grped, (v, k) => {
+                filteredData = [...filteredData, v[0]]
+            });
+            return filteredData;
+        } else if (ele.length) {
+            const grped = _.groupBy(data, (v) => {
+                return ele.map(e => {
+                    return v[e.column.value];
+                }).join('@');
+            });
+            _.forOwn(grped, (v, k) => {
+                filteredData = [...filteredData, v[0]]
+            });
+            return filteredData;
+        } else if (eventDateIdentifiesEvent) {
+            const grped = _.groupBy(thdata, (v) => {
+                return moment(v[eventDateColumn.value]).format('YYYY-MM-DD')
+            });
+            _.forOwn(grped, (v, k) => {
+                filteredData = [...filteredData, v[0]]
+            });
+            return filteredData;
+        }
+    }
+    return data
+}
+
 
 export const findEventsByElements = async (program, uploadedData) => {
     const { d2, id, orgUnitColumn, organisationUnits, orgUnitStrategy, programStages } = program;
@@ -547,6 +604,164 @@ export const findEventsByElements = async (program, uploadedData) => {
 
     }
 };
+
+export const findEvents = async (program, uploadedData) => {
+    let processed = []
+    const { orgUnitColumn, sourceOrganisationUnits, programStages } = program;
+    let eventDates;
+    let values;
+    let elements
+
+    const { programStageDataElements, eventDateColumn, eventDateIdentifiesEvent, id } = programStages[0];
+
+
+    const ele = elementsWhichAreIdentifies(programStageDataElements);
+    if (uploadedData) {
+        if (ele.length > 0) {
+            elements = ele.map(e => {
+                return e.dataElement.id;
+            });
+            values = uploadedData.map(d => {
+                return ele.map(e => {
+                    const ou = searchOrganisation(d[orgUnitColumn.value], sourceOrganisationUnits);
+                    return { value: d[e.column.value], de: e.dataElement.id, orgUnit: ou };
+                });
+            }).filter(f => _.every(f, v => {
+                return v.value !== null && v.value !== undefined && v.value !== '' && v.orgUnit
+            }));
+            values = _.uniqBy(values, v => {
+                return JSON.stringify(v);
+            });
+        }
+        if (eventDateColumn && eventDateIdentifiesEvent) {
+            eventDates = uploadedData.map(d => {
+                const ou = searchOrganisation(d[orgUnitColumn.value], sourceOrganisationUnits);
+                const date = moment(d[eventDateColumn.value]);
+                return {
+                    eventDate: date.isValid() ? date.format('YYYY-MM-DD') : null,
+                    orgUnit: ou
+                };
+            }).filter(e => {
+                return e.orgUnit && e.eventDate
+            });
+
+            eventDates = _.uniqBy(eventDates, v => {
+                return JSON.stringify(v);
+            });
+        }
+
+        if (eventDates && values && elements) {
+            const minDate = _.min(eventDates).eventDate;
+            const maxDate = _.max(eventDates).eventDate;
+            let { rows, headers } = await axios.get(`${getDHIS2Url()}/events/query.json`, {
+                params: {
+                    skipPaging: true,
+                    programStage: id,
+                    startDate: minDate,
+                    endDate: maxDate,
+                },
+                auth: createDHIS2Auth()
+            });
+            headers = headers.map(h => h['name']);
+            let response = rows.map(r => {
+                return Object.assign.apply({}, headers.map((v, i) => ({
+                    [v]: r[i]
+                })));
+            });
+
+            const gp = _.groupBy(response, (v => {
+                const element = elements.map(e => v[e]).join('@')
+                const date = moment(v.eventDate).format('YYYY-MM-DD');
+                return `${date}${v.orgUnit}${element}`;
+            }));
+
+            let pp = []
+            _.forOwn(gp, (v, k) => {
+                const events = convertRows2Events(v, programStageDataElements);
+                const event = events[0];
+                pp = [...pp, [k, { event, many: events.length > 1 }]]
+            });
+            processed = [...processed, ...pp];
+
+        } else if (values && elements) {
+            const chunked = _.chunk(values, 250);
+            const all = chunked.map(value => {
+                const flattened = _.flatten(value);
+                const grouped = _.groupBy(flattened, 'de');
+                const elements = _.keys(grouped)
+                const filter = elements.map(de => {
+                    const vals = grouped[de].map(v => {
+                        const val = v.value;
+                        if (val && Object.prototype.toString.call(val) === "[object Date]" && !isNaN(val)) {
+                            return '';
+                        }
+                        return val;
+                    }).join(';');
+                    return `filter=${de}:IN:${vals}`
+                }).join('&');
+
+
+                return axios.get(`${getDHIS2Url()}/events/query.json?programStage=${id}&skipPaging=true&${filter}`, {
+                    params: {},
+                    auth: createDHIS2Auth()
+                });
+            });
+
+            const response = await Promise.all(all);
+            const processedData = response.map(({ data: { headers, rows } }) => {
+                headers = headers.map(h => h['name']);
+                const dd = rows.map(r => {
+                    return Object.assign.apply({}, headers.map((v, i) => ({
+                        [v]: r[i]
+                    })));
+                });
+
+                const gp = _.groupBy(dd, (v => {
+                    return elements.map(e => v[e]).join('@')
+                }));
+
+                let pp = []
+
+                _.forOwn(gp, (v, k) => {
+                    const events = convertRows2Events(v, programStageDataElements);
+                    const event = events[0];
+                    pp = [...pp, [k, { event, many: events.length > 1 }]]
+                })
+
+                return pp
+            });
+            processed = _.flatten(processedData)
+
+        } else if (eventDates) {
+            const minDate = _.min(eventDates).eventDate;
+            const maxDate = _.max(eventDates).eventDate;
+            let { rows, headers } = await axios.get(`${getDHIS2Url()}/events/query.json?programStage=${id}&skipPaging=true&startDate=${minDate}&endDate=${maxDate}`, {
+                auth: createDHIS2Auth()
+            });
+            headers = headers.map(h => h['name']);
+            let response = rows.map(r => {
+                return Object.assign.apply({}, headers.map((v, i) => ({
+                    [v]: r[i]
+                })));
+            });
+
+            const gp = _.groupBy(response, (v => {
+                const date = moment(v.eventDate).format('YYYY-MM-DD');
+                return `${date}${v.orgUnit}`;
+            }));
+
+            let pp = []
+            _.forOwn(gp, (v, k) => {
+                const events = convertRows2Events(v, programStageDataElements);
+                const event = events[0];
+                pp = [...pp, [k, { event, many: events.length > 1 }]]
+            });
+            processed = [...processed, ...pp];
+        }
+    };
+    return _.fromPairs(processed);
+
+}
 
 
 export const whatToComplete = (processed, dataSet) => {

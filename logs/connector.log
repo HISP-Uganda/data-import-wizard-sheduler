@@ -18985,3 +18985,471 @@
 2019-11-06 12:51:01 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
 2019-11-06 12:51:01 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
 2019-11-06 12:51:01 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-12-12 05:33:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:34:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:35:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:36:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:37:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:38:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:39:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:40:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:41:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:42:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:43:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:44:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:45:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:46:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:47:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:48:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:49:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:50:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:51:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:52:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:53:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:54:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:55:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:56:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:57:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:58:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 05:59:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:00:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:01:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:02:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:03:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:04:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:05:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:06:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:07:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:08:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:09:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:10:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:11:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:12:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:13:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:14:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:15:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:16:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:17:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:18:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:19:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:20:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 06:21:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:22 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:13:23 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:41:05 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:56:51 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:56:51 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:56:51 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:56:51 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:56:51 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:56:51 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:56:51 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:56:51 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:56:51 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:56:51 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:56:51 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:56:51 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:56:51 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:56:51 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:56:51 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 08:57:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:13:53 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:13:53 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:13:53 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:13:53 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:13:53 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:13:53 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:13:53 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:13:53 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:13:53 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:13:53 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:13:53 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:13:53 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:13:53 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:13:53 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:13:53 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:13:53 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:14:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:15:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:16:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:17:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:18:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:19:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:20:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:21:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:22:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:23:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:24:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:25:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:26:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:27:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:28:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:29:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:30:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:31:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:32:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:33:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:34:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:35:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:36:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:37:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:38:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:39:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:40:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:41:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:42:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:43:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:44:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:45:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:46:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:47:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:48:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:49:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:50:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:51:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:52:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:53:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:54:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:55:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:56:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 09:57:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:08:01 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:08:01 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:08:01 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:08:01 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:08:01 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:08:01 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:08:01 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:08:01 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:08:01 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:08:01 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:08:01 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:23:50 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:23:50 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:23:50 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:23:50 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:23:50 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:23:50 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:23:50 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:23:50 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:23:50 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:23:50 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:23:50 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:23:50 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:23:50 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:23:50 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:23:50 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:47:20 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:48:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:49:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:50:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:51:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:52:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:53:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:54:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:55:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:56:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:57:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:58:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 10:59:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 11:00:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 11:01:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 11:02:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 11:03:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 11:04:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 11:05:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 11:06:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 11:07:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 11:08:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 11:09:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 11:10:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 11:11:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 11:12:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-12 11:13:00 error: connect ECONNREFUSED 127.0.0.1:8080
+2019-12-15 09:57:02 info:  imported: 0, updated: 0, deleted: 0
+2019-12-15 09:57:02 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-12-15 09:57:02 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-12-15 09:57:02 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-12-15 09:58:01 info:  imported: 0, updated: 0, deleted: 0
+2019-12-15 09:58:01 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-12-15 09:58:01 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-12-15 09:58:01 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-12-15 09:59:01 info:  imported: 0, updated: 0, deleted: 0
+2019-12-15 09:59:01 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-12-15 09:59:01 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-12-15 09:59:01 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-12-15 10:00:01 info:  imported: 0, updated: 0, deleted: 0
+2019-12-15 10:00:01 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-12-15 10:00:01 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-12-15 10:00:01 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-12-15 10:01:01 info:  imported: 0, updated: 0, deleted: 0
+2019-12-15 10:01:01 warn: conflict found, object: V6L425pT3A0, message: Category option combo not found or not accessible for writing data
+2019-12-15 10:01:01 warn: conflict found, object: Prlt0C1RF0s, message: Category option combo not found or not accessible for writing data
+2019-12-15 10:01:01 warn: conflict found, object: psbwp3CQEhs, message: Category option combo not found or not accessible for writing data
+2019-12-15 20:46:00 error: flatten is not defined
+2019-12-15 20:55:04 info: events with id, vutGOmGpPk0 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, lWBie8dVIp3 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, rt5zfHnDaQG imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, Y5gsaD4W8Fk imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, SKDVtCRZh3P imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, khh3eh1sFvz imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, DqhnSlpDlGx imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, BXqcOSw6PSe imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, ckG7qugdR93 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, OFLrAjM63WJ imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, ua1ggsjw83G imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, ykzHzBtOIpm imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, Q2ATVhPQ6cZ imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, XiSNuaG2F69 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, MXPRxgGctHl imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, eYVxn1Pa6rA imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, odRZAmbC4u8 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, TOzzyZBpYAv imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, INksw8wls1m imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, yT7emxUShOn imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, oizg0AcOTeT imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, y1C36fMHswc imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, JdSDREh64mZ imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, TYlm8enquFa imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, j4cUAyaachs imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, XncyehTVlQ3 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, SdXewpK0l1Q imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, WFArw2zo8Zx imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, Gt8Wzzm1cg4 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, Or9m16JUk60 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, J8XZPiVIhPB imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, h0vdZmoSDKI imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, Sk2h58wjAqd imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, z1tr49ebxdS imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, GX5PnX18UtB imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, R1DJf5ZWLHO imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, bIbKsiCVPYn imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, NFZyCQ1EwXg imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, pqQOea48f15 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, CN96dEmKqIB imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, LONm90IXbCQ imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, f8MpHLOokGS imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, O1yfxGlc8tL imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, Gxw0Vt7eiHi imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, voSkIqBCPq9 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, kKg9MmXlL3Z imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, uToLVCPf3po imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, L3yc4Re3lrG imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, w4UTaULH4MG imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, MTkd9fcKfrR imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, BUy8QLro8rd imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, TCdlAhmSZuL imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, lAO4z1D0b5M imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, kQcYOq724Bn imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, q2OtrGewuul imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, lcCG14az0lI imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, A97KneqwRlZ imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, AJOZJF7mqb3 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, NWvYumj8iJi imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, rUQrkDoCbO7 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, VEzBu1VCxWp imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, SAjCGeVVC32 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, aMVKGsMLdGZ imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, fKjmIBrsjlL imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, p01kD7HNlbw imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, IetNhl64rCn imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, ltgREM32Dvl imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, pfuAUtwZEy7 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, UHPe7GTuRax imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, Tw503IPQ8ds imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, LilzDbm62PM imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, hbNgIDc73Us imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, yvoxe9aGwOJ imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, TBG5ggSZJyL imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, xhG7YIJIGS2 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, Do9ASuFeRao imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, eJ4b6hiq6F5 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, dEW16HRX4B5 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, zPmeE7dPYql imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, ie5bJVVwmeq imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, JZMPLy50HFG imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, NAoLYUfzWhc imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, mwFKlaSWeEX imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, vlViJDYrIuY imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, jOcsGXBSRHK imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, OFaBsfqgnWT imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, vZAY3djpbFt imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, of4pFFOHBoA imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, ZPBl0wi0NAX imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, kGK5YKLPKqV imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, t6slNYH0yrA imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, CuXrNSsiFUk imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, EUyXDWFvPLW imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, X6qiudFAq0Q imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, zfRU97pwtNC imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, x3091OSmXhn imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, HA8n8krJZrR imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, HAc0yNhRIU0 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, UWvzXAGWVE0 imported: 1, updated: 0, deleted: 0
+2019-12-15 20:55:04 info: events with id, CauWpb8dhEr imported: 1, updated: 0, deleted: 0
+2019-12-15 20:56:00 error: convertRows2Events is not defined
+2019-12-15 20:57:00 error: convertRows2Events is not defined
+2019-12-16 09:06:42 error: read ECONNRESET
+2019-12-16 09:06:42 error: read ECONNRESET
+2019-12-16 09:06:42 error: read ECONNRESET
+2019-12-16 11:08:00 error: isTracker is not defined
