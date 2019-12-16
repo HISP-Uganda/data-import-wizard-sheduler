@@ -143,6 +143,15 @@ export const postData = (url, data) => {
     return rq(options);
 };
 
+export const getPaceData = async (params) => {
+    return await axios.get('http://sara.dmarkmobile.com/api/v1/referrals', {
+        params,
+        headers: {
+            "Authorization": "Token 31a07b66b4d2f78c81fddc333139dc7728550064"
+        }
+    })
+};
+
 
 export const postAxios = async (url, query) => {
     return axios.post(url, query, {
@@ -178,22 +187,9 @@ export const getUpstreamData = async (url, params, login) => {
 
 export const getData = async (mapping, params) => {
     try {
-        const auth = {};
-        if (mapping.username && mapping.password) {
-            auth.username = mapping.username;
-            auth.password = mapping.password;
-        }
-        const reachable = await isReachable(mapping.url, {
-            timeout: 15000
+        return await axios.get(mapping.url, {
+            params
         });
-        if (reachable) {
-            return await axios.get(mapping.url, {
-                params,
-                auth
-            });
-        } else {
-            winston.log('error', 'Url specified in the mapping not reachable');
-        }
     } catch (e) {
         winston.log('error', e.message);
     }
@@ -203,16 +199,11 @@ export const searchedInstances = (uniqueAttribute, trackedEntityInstances) => {
     return groupEntities(uniqueAttribute, trackedEntityInstances)
 };
 
-export const updateDHISEvents = (eventsUpdate) => {
-    const events = eventsUpdate.map(event => {
-        return event.dataValues.map(dataValue => {
-            return { event: { ...event, dataValues: [dataValue] }, dataElement: dataValue.dataElement };
-        });
+export const updateDHISEvents = async (eventsUpdate) => {
+    return eventsUpdate.map(event => {
+        const eventUrl = getDHIS2Url() + '/events/' + event.event;
+        return putAxios(eventUrl, event)
     });
-    return _.flatten(events).map(ev => {
-        const eventUrl = getDHIS2Url() + '/events/' + ev.event.event + '/' + ev.dataElement;
-        return putAxios(eventUrl, ev.event)
-    })
 };
 
 export const createProgram = async (processed) => {

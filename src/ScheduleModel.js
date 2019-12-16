@@ -23,7 +23,8 @@ import {
     searchTrackedEntities,
     whatToComplete,
     findEvents,
-    withoutDuplicates
+    withoutDuplicates,
+    getPaceData
 } from "./data-utils";
 import {
     isTracker,
@@ -106,21 +107,21 @@ class Schedule {
 
                         if (current && startParam && endParam) {
                             const start = current.last;
-                            const end = moment().format('YYYY-MM-DD HH:mm:ss');
+                            const end = moment().format('YYYY-MM-DD');
 
                             currentParam = { ...currentParam, [startParam.param]: start, [endParam.param]: end };
                         } else if (startParam && endParam && !_.isEmpty(startParam.value) && !_.isEmpty(endParam.value)) {
-                            const start = moment(startParam.value).format('YYYY-MM-DD HH:mm:ss');
-                            const end = moment(endParam.value).format('YYYY-MM-DD HH:mm:ss');
+                            const start = moment(startParam.value).format('YYYY-MM-DD');
+                            const end = moment(endParam.value).format('YYYY-MM-DD');
 
                             currentParam = { ...currentParam, [startParam.param]: start, [endParam.param]: end };
                         } else if (startParam && !_.isEmpty(startParam.value)) {
-                            const start = moment(startParam.value).format('YYYY-MM-DD HH:mm:ss');
+                            const start = moment(startParam.value).format('YYYY-MM-DD');
                             currentParam = { ...currentParam, [startParam.param]: start };
 
 
                         } else if (endParam && !_.isEmpty(endParam.value)) {
-                            const end = moment(endParam.value).format('YYYY-MM-DD HH:mm:ss');
+                            const end = moment(endParam.value).format('YYYY-MM-DD');
                             currentParam = { ...currentParam, [endParam.param]: end };
                         }
                         let { data } = await getData(program, currentParam);
@@ -295,6 +296,10 @@ class Schedule {
 
     getData(url, params, username, password) {
         return getUpstreamData(url, params, { username, password })
+    }
+
+    getData2(params) {
+        return getPaceData(params)
     }
 }
 

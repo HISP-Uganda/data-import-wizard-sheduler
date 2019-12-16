@@ -349,7 +349,6 @@ export const processDataSet = (data, dataSet) => {
         dataValues,
         errors
     }
-
 };
 
 export const programUniqueColumn = (program) => {
@@ -436,7 +435,7 @@ export const validateValue = (dataType, value, optionSet) => {
         }
     } else if (validText(dataType, value)) {
         if (dataType === 'DATETIME') {
-            return moment(value).format('YYYY-MM-DD HH:mm:ss');
+            return moment(value).format('YYYY-MM-DDTHH:mm');
         } else if (dataType === 'DATE') {
             return moment(value).format('YYYY-MM-DD');
         } else if (dataType === 'TIME') {
@@ -537,7 +536,7 @@ export const removeDuplicates = (evs, stageEventFilters) => {
             }
         });
 
-    } else if (stageEventFilters && stageEventFilters.elements) {
+    } else if (stageEventFilters && stageEventFilters.elements && stageEventFilters.elements.length > 0) {
 
         evs = _.uniqBy(evs, v => {
             const filteredAndSame = stageEventFilters.elements.map(se => {
@@ -765,7 +764,7 @@ export const processProgramData = (data, program, uniqueColumn, instances) => {
                                     dataElement: e.dataElement.id,
                                     value: validatedValue
                                 }];
-                            } else if (value !== undefined) {
+                            } else if (value !== undefined && value !== null) {
                                 conflicts = [...conflicts, {
                                     error: optionsSet === null ? 'Invalid value ' + value + ' for value type ' + type : 'Invalid value: ' + value + ', expected: ' + _.map(optionsSet.options, o => {
                                         return o.code
@@ -1057,7 +1056,6 @@ export const processProgramData = (data, program, uniqueColumn, instances) => {
                             newEnrollments = [...newEnrollments, enrollment];
 
                         }
-
                         _.forOwn(groupedEvents, (evs, stage) => {
                             const stageEventFilters = identifierElements[stage];
                             const stageInfo = _.find(programStages, {
@@ -1140,8 +1138,9 @@ export const searchSavedEvent = (programStages, event, eventsData) => {
                     return {
                         ...ev2,
                         update: true,
+                        eventDate: moment(ev2['eventDate']).format('YYYY-MM-DD'),
                         duplicates: false,
-                        dataValues: differingElements
+                        dataValues: _.unionBy(event['dataValues'], ev2['dataValues'], 'dataElement')
                     };
                 }
                 return null;
@@ -1168,8 +1167,9 @@ export const searchSavedEvent = (programStages, event, eventsData) => {
                     return {
                         ...ev1,
                         update: true,
+                        eventDate: moment(ev1['eventDate']).format('YYYY-MM-DD'),
                         duplicates: false,
-                        dataValues: differingElements
+                        dataValues: _.unionBy(event['dataValues'], ev1['dataValues'], 'dataElement')
                     };
                 }
                 return null;
@@ -1195,9 +1195,10 @@ export const searchSavedEvent = (programStages, event, eventsData) => {
                 if (differingElements.length > 0) {
                     return {
                         ...ev2,
+                        eventDate: moment(ev2['eventDate']).format('YYYY-MM-DD'),
                         update: true,
                         duplicates: false,
-                        dataValues: differingElements
+                        dataValues: _.unionBy(event['dataValues'], ev2['dataValues'], 'dataElement')
                     };
                 }
                 return null;
@@ -1275,7 +1276,7 @@ export const processEvents = (program, data, eventsData) => {
                         dataElement: e.dataElement.id,
                         value: validatedValue
                     }
-                } else if (value !== undefined) {
+                } else if (value !== undefined && value !== null) {
                     conflicts = [...conflicts, {
                         error: optionsSet === null ? 'Invalid value ' + value + ' for value type ' + type : 'Invalid value: ' + value + ', expected: ' + _.map(optionsSet.options, o => {
                             return o.code

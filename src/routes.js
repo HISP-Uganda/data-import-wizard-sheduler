@@ -1,4 +1,5 @@
 import ScheduleModel from './ScheduleModel';
+import moment from 'moment';
 
 export const routes = (app, io) => {
     app.post('/schedules', async (req, res) => {
@@ -29,6 +30,63 @@ export const routes = (app, io) => {
     app.post('/stop', (req, res) => {
         return res.status(201).send(ScheduleModel.stop(req.body.id));
     });
+
+    app.get('/data', async (req, res) => {
+
+
+        let params = {};
+        if (req.query.voucher_type) {
+            params = { ...params, voucher_type: req.query.voucher_type }
+        }
+
+        if (req.query.from) {
+            params = { ...params, from: req.query.from }
+        }
+
+        if (req.query.to) {
+            params = { ...params, to: req.query.to }
+        }
+
+        if (req.query.limit) {
+            params = { ...params, limit: req.query.limit }
+        }
+
+        let currentData = [];
+
+        try {
+            let { data: { results, ...rest } } = await ScheduleModel.getData2(params);
+            let next = rest.next;
+
+            let currentResults = results.map(r => {
+                return {
+                    ...r,
+                    orgUnit: 'XVi4D1VcRN6',
+                    name: `${r.first_name ? r.first_name : ''} ${r.maiden_name ? r.maiden_name : ''} ${r.last_name ? r.last_name : ''}`.replace(/\s{2,}/g, ' '),
+                    created_at: moment(r.created_at).format('YYYY-MM-DDTHH:mm')
+                }
+            });
+
+            currentData = [...currentData, ...currentResults]
+            while (next !== null) {
+                const currentURL = new URL(next);
+                let { data: { results, ...rest } } = await ScheduleModel.getData2(currentURL.searchParams);
+                next = rest.next;
+                let currentResults = results.map(r => {
+                    return {
+                        ...r,
+                        orgUnit: 'XVi4D1VcRN6',
+                        name: `${r.first_name ? r.first_name : ''} ${r.maiden_name ? r.maiden_name : ''} ${r.last_name ? r.last_name : ''}`.replace(/\s{2,}/g, ' '),
+                        created_at: moment(r.created_at).format('YYYY-MM-DDTHH:mm')
+                    }
+                });
+                currentData = [...currentData, ...currentResults]
+            }
+            return res.status(200).send(currentData);
+        } catch (e) {
+            return res.status(500).send({ message: e.message });
+        }
+    });
+
 
     app.get('/schedules/:id', (req, res) => {
         return res.status(201).send(ScheduleModel.findOne(req.params.id));
