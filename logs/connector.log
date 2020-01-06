@@ -19515,3 +19515,141 @@
 2019-12-16 13:29:00 error: Cannot read property 'data' of undefined
 2019-12-16 13:52:00 error: socket hang up
 2019-12-16 13:52:00 error: Cannot read property 'data' of undefined
+2019-12-16 13:57:00 error: socket hang up
+2019-12-16 13:57:00 error: Cannot read property 'data' of undefined
+2019-12-16 14:00:05 info: events with id, hLbqAgsEjne imported: 14, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, seRLqGRzIqT imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, MfVhbDjFUZl imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, p2JvHwRDGUE imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, pw4qnjdnzPd imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, JRQYZLFYQgO imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, Hs13PfkTry0 imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, Gsot6sfz8YU imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, tUUPlHJqaBF imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, TIs47i7MZHv imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, CkxXpoZTFRQ imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, cSu3HPzN1fL imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, JhVJrhdCSdh imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, il5If6WpqQv imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, kd6iTqjhA1Z imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, GI2YZzDLNk7 imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, zm2W5A7i5e4 imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, cGu2iESJR0N imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, BXAXQwr3gu0 imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, uSfnOP0RiIh imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, WhSu7VVlnUi imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, nmrjGSYkhsR imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, fxN6leY9PjS imported: 7, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, UlR3u5rLXDQ imported: 7, updated: 0, deleted: 0
+2019-12-16 14:00:05 info: events with id, UrhPucfWZsw imported: 11, updated: 0, deleted: 0
+2019-12-16 14:00:05 error: object is not iterable (cannot read property Symbol(Symbol.iterator))
+2019-12-16 14:05:09 info: events with id, qeBIqQGPSyl imported: 11, updated: 0, deleted: 0
+2019-12-16 14:05:09 info: events with id, PfLak7Xtw2q imported: 11, updated: 0, deleted: 0
+2019-12-16 14:05:09 error: object is not iterable (cannot read property Symbol(Symbol.iterator))
+2019-12-16 14:10:04 error: object is not iterable (cannot read property Symbol(Symbol.iterator))
+2019-12-16 14:15:05 info: events with id, oW3zIrcJQQo imported: 11, updated: 0, deleted: 0
+2019-12-16 14:15:05 error: object is not iterable (cannot read property Symbol(Symbol.iterator))
+2020-01-06 15:22:00 error: socket hang up
+2020-01-06 15:22:00 error: Cannot read property 'data' of undefined
+2020-01-06 15:27:00 error: socket hang up
+2020-01-06 15:27:00 error: Cannot read property 'data' of undefined
+2020-01-06 15:30:23 info: events with id, orrmvtAP93C imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, h2mfTzETmXd imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, QcY8Cc7Yq9C imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, COM9zzq6gXy imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, yifw9z04jTH imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, UocI0ZEkuIO imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, k3LwVFFtKuE imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, BFLWGK92nWi imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, gnHAXg5Hqyb imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, AkCZ3uGNoRj imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, B10s16vvzip imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, e4FQSWPF4vT imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, gBY3aIx9c3x imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, BOiqzvXUdkX imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, TgKoQtwFHaC imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, DY6gDYLWP5a imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, nZT7cVELvwQ imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, h4PduRuOMkm imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, fqus26I6XIX imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, fuzZ8zlqcbY imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, dZpheaJgksm imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, TCYqPzzDKsA imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, LjTTOxkdWK4 imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, yauT72JA5fP imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, tNeq4HM1ciM imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, rqiv0elD1BA imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, vUeW4EeFSQQ imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, ied2aGfKlE8 imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, mnnR9OnB8s6 imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, a8HwT0xEDGn imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, a3uVFuSdB88 imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, unjw5Zk5AJo imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, MWBk3AJ2bwT imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, USrLQDMjnAI imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, EWH6bc2omtu imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, XYPowjiUDz1 imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, VVmEHIx0foS imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, hSadST0nXJc imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, NKLcaV2HXsD imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, a1EBjDNYfqv imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, XXPigLxlqo0 imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, UqA3KiElzOE imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, eBi03rd07hA imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, Nff9Lgp6FuY imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, vdi7bE795YR imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, RgcjMlTZa1Q imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, L6GgE8vE2jp imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, FY1Ca1QT7pc imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, qHUafb12tPo imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, YVer72yGkto imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, u099tdUECsk imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, Wm5ii1E6x1Y imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, rWgNaKvVtIM imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, R2kbBJHpdHv imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, HeEmb6oHWYK imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, MWxRSWx5MDP imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, JHwangPTmvB imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, gXUIj0CVQs0 imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, PqTIfjV2oyg imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, kxXCO9GbeZs imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, y2j4m3nQNlg imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, d9dwxw7zdyq imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, DDoBp0PkwX6 imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, Bdue6RqQczM imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, NgeRuozMz1a imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, FV7dBaRRknA imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, MKv12Wv059v imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, j1knrxDoC8k imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, eKRBaWYee7H imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, bfuGMmFylxI imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, UETuLRIj2qI imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, nBxkxEQJX5e imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, JcaU8jSXqky imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, BGgPoawVjTS imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, ZG4fsJg95Fs imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, GA4p1KETeVW imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, Q8dqbvR9qiE imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, SEuBqMF144n imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, hDVK3WDQVFN imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, UBV2msP8bdW imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, imeinpMMIGu imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, V7X04xNcI1Q imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, eUPA7T2WZlv imported: 10, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, z0h3HifCbKP imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, PCXucRReOZ3 imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, bFRtSmAuyJc imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, Xzg7Kxh2byx imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, NKe1jJN4J5D imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, mRS13RuokQO imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, dmx370JX1VT imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, x8oc9mtAViX imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, ag4vWk2Qy6S imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, z5txQgt7OZq imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, huiSltoJSKG imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, XXAPP3J0LPr imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, ts1hfDG1HOH imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, R2bv2DzsNId imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, urXQsHheDz5 imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, Vx9wD3PijBZ imported: 14, updated: 0, deleted: 0
+2020-01-06 15:30:23 info: events with id, JTsR4VHwTEq imported: 14, updated: 0, deleted: 0

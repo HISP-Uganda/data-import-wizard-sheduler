@@ -199,7 +199,7 @@ export const searchedInstances = (uniqueAttribute, trackedEntityInstances) => {
     return groupEntities(uniqueAttribute, trackedEntityInstances)
 };
 
-export const updateDHISEvents = async (eventsUpdate) => {
+export const updateDHISEvents = (eventsUpdate) => {
     return eventsUpdate.map(event => {
         const eventUrl = getDHIS2Url() + '/events/' + event.event;
         return putAxios(eventUrl, event)

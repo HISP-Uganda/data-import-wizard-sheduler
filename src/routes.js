@@ -33,7 +33,7 @@ export const routes = (app, io) => {
 
     app.get('/data', async (req, res) => {
 
-
+        console.log(req.query)
         let params = {};
         if (req.query.voucher_type) {
             params = { ...params, voucher_type: req.query.voucher_type }
@@ -65,12 +65,11 @@ export const routes = (app, io) => {
                     created_at: moment(r.created_at).format('YYYY-MM-DDTHH:mm')
                 }
             });
-
-            currentData = [...currentData, ...currentResults]
-            while (next !== null) {
+            currentData = [...currentData, ...currentResults];
+            while (next && next !== null) {
                 const currentURL = new URL(next);
-                let { data: { results, ...rest } } = await ScheduleModel.getData2(currentURL.searchParams);
-                next = rest.next;
+                const params = Object.fromEntries(currentURL.searchParams);
+                let { data: { results, ...rest } } = await ScheduleModel.getData2(params);
                 let currentResults = results.map(r => {
                     return {
                         ...r,
@@ -79,7 +78,8 @@ export const routes = (app, io) => {
                         created_at: moment(r.created_at).format('YYYY-MM-DDTHH:mm')
                     }
                 });
-                currentData = [...currentData, ...currentResults]
+                currentData = [...currentData, ...currentResults];
+                next = rest.next;
             }
             return res.status(200).send(currentData);
         } catch (e) {
