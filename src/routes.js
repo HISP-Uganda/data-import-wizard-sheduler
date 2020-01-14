@@ -33,7 +33,6 @@ export const routes = (app, io) => {
 
     app.get('/data', async (req, res) => {
 
-        console.log(req.query)
         let params = {};
         if (req.query.voucher_type) {
             params = { ...params, voucher_type: req.query.voucher_type }
@@ -61,7 +60,7 @@ export const routes = (app, io) => {
                 return {
                     ...r,
                     orgUnit: 'XVi4D1VcRN6',
-                    name: `${r.first_name ? r.first_name : ''} ${r.maiden_name ? r.maiden_name : ''} ${r.last_name ? r.last_name : ''}`.replace(/\s{2,}/g, ' '),
+                    name: String(`${r.first_name ? r.first_name : ''} ${r.maiden_name ? r.maiden_name : ''} ${r.last_name ? r.last_name : ''}`.replace(/\s{2,}/g, ' ')).trim(),
                     created_at: moment(r.created_at).format('YYYY-MM-DDTHH:mm')
                 }
             });
@@ -74,7 +73,7 @@ export const routes = (app, io) => {
                     return {
                         ...r,
                         orgUnit: 'XVi4D1VcRN6',
-                        name: `${r.first_name ? r.first_name : ''} ${r.maiden_name ? r.maiden_name : ''} ${r.last_name ? r.last_name : ''}`.replace(/\s{2,}/g, ' '),
+                        name: String(`${r.first_name ? r.first_name : ''} ${r.maiden_name ? r.maiden_name : ''} ${r.last_name ? r.last_name : ''}`.replace(/\s{2,}/g, ' ')).trim(),
                         created_at: moment(r.created_at).format('YYYY-MM-DDTHH:mm')
                     }
                 });
