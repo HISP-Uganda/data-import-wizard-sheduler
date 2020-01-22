@@ -52,10 +52,23 @@ export const routes = (app, io) => {
 
         let currentData = [];
 
-        try {
-            let { data: { results, ...rest } } = await ScheduleModel.getData2(params);
-            let next = rest.next;
+        // try {
+        let { data: { results, ...rest } } = await ScheduleModel.getData2(params);
+        let next = rest.next;
 
+        let currentResults = results.map(r => {
+            return {
+                ...r,
+                orgUnit: 'XVi4D1VcRN6',
+                name: String(`${r.first_name ? r.first_name : ''} ${r.maiden_name ? r.maiden_name : ''} ${r.last_name ? r.last_name : ''}`.replace(/\s{2,}/g, ' ')).trim(),
+                created_at: moment(r.created_at).format('YYYY-MM-DDTHH:mm')
+            }
+        });
+        currentData = [...currentData, ...currentResults];
+        while (next && next !== null) {
+            const currentURL = new URL(next);
+            const params = Object.fromEntries(currentURL.searchParams);
+            let { data: { results, ...rest } } = await ScheduleModel.getData2(params);
             let currentResults = results.map(r => {
                 return {
                     ...r,
@@ -65,25 +78,12 @@ export const routes = (app, io) => {
                 }
             });
             currentData = [...currentData, ...currentResults];
-            while (next && next !== null) {
-                const currentURL = new URL(next);
-                const params = Object.fromEntries(currentURL.searchParams);
-                let { data: { results, ...rest } } = await ScheduleModel.getData2(params);
-                let currentResults = results.map(r => {
-                    return {
-                        ...r,
-                        orgUnit: 'XVi4D1VcRN6',
-                        name: String(`${r.first_name ? r.first_name : ''} ${r.maiden_name ? r.maiden_name : ''} ${r.last_name ? r.last_name : ''}`.replace(/\s{2,}/g, ' ')).trim(),
-                        created_at: moment(r.created_at).format('YYYY-MM-DDTHH:mm')
-                    }
-                });
-                currentData = [...currentData, ...currentResults];
-                next = rest.next;
-            }
-            return res.status(200).send(currentData);
-        } catch (e) {
-            return res.status(500).send({ message: e.message });
+            next = rest.next;
         }
+        return res.status(200).send(currentData);
+        // } catch (e) {
+        //     return res.status(500).send({ message: e.message });
+        // }
     });
 
 
