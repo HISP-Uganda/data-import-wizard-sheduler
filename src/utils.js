@@ -379,7 +379,7 @@ export const validText = (dataType, value) => {
     switch (dataType) {
         case 'TEXT':
         case 'LONG_TEXT':
-            return value !== null && value !== undefined;
+            return !!value;
         case 'NUMBER':
             return !isNaN(value);
         case 'EMAIL':
@@ -429,7 +429,7 @@ export const validateValue = (dataType, value, optionSet) => {
         const coded = _.find(options, o => {
             return String(value).toLowerCase() === String(o.code).toLowerCase() || String(value).toLowerCase() === String(o.value).toLowerCase();
         });
-        if (coded !== undefined && coded !== null) {
+        if (!!coded) {
             return coded.code;
         }
     } else if (validText(dataType, value)) {
@@ -1129,19 +1129,31 @@ export const searchSavedEvent = (programStages, event, eventsData) => {
         if (currentEvent && updateEvents) {
             const { event: ev2, many: many1 } = currentEvent;
             if (ev2 && !many1) {
-                const differingElements = _.differenceWith(event['dataValues'], ev2['dataValues'], (a, b) => {
-                    return a.dataElement === b.dataElement && a.value + '' === b.value + '';
-                }).filter(v => {
-                    return v.value !== 'null';
+
+                const difference = event['dataValues'].filter(x => {
+                    const search = ev2['dataValues'].find(v => v.dataElement === x.dataElement);
+                    return (search && String(search.value) !== String(x.value));
                 });
 
-                if (differingElements.length > 0 && updateEvents) {
+                const missing = event['dataValues'].filter(x => {
+                    const search = ev2['dataValues'].find(v => v.dataElement === x.dataElement);
+                    return !search;
+                });
+                if (difference.length > 0) {
+                    const updatedDataValues = ev2['dataValues'].map(dv => {
+                        const search = difference.find(v => v.dataElement === dv.dataElement);
+                        if (search) {
+                            dv = { ...dv, value: search.value }
+                        }
+
+                        return dv;
+                    });
                     return {
                         ...ev2,
-                        update: true,
                         eventDate: moment(ev2['eventDate']).format('YYYY-MM-DD'),
+                        update: true,
                         duplicates: false,
-                        dataValues: _.unionBy(ev2['dataValues'].filter(e => e.value !== ''), event['dataValues'], 'dataElement')
+                        dataValues: [...updatedDataValues.filter(e => e.value !== ''), ...missing]
                     };
                 }
                 return null;
@@ -1160,22 +1172,33 @@ export const searchSavedEvent = (programStages, event, eventsData) => {
         if (currentEvent && updateEvents) {
             const { event: ev1, many: many1 } = currentEvent;
             if (ev1 && !many1) {
-                const differingElements = _.differenceWith(event['dataValues'], ev1['dataValues'], (a, b) => {
-                    return a.dataElement === b.dataElement && a.value + '' === b.value + '';
-                }).filter(v => {
-                    return v.value !== 'null';
+                const difference = event['dataValues'].filter(x => {
+                    const search = ev1['dataValues'].find(v => v.dataElement === x.dataElement);
+                    return (search && String(search.value) !== String(x.value));
                 });
 
-                if (differingElements.length > 0) {
+                const missing = event['dataValues'].filter(x => {
+                    const search = ev1['dataValues'].find(v => v.dataElement === x.dataElement);
+                    return !search;
+                });
+
+                if (difference.length > 0) {
+                    const updatedDataValues = ev1['dataValues'].map(dv => {
+                        const search = difference.find(v => v.dataElement === dv.dataElement);
+                        if (search) {
+                            dv = { ...dv, value: search.value }
+                        }
+
+                        return dv;
+                    });
                     return {
                         ...ev1,
-                        update: true,
                         eventDate: moment(ev1['eventDate']).format('YYYY-MM-DD'),
+                        update: true,
                         duplicates: false,
-                        dataValues: _.unionBy(ev1['dataValues'].filter(e => e.value !== ''), event['dataValues'], 'dataElement')
+                        dataValues: [...updatedDataValues.filter(e => e.value !== ''), ...missing]
                     };
                 }
-                return null;
             } else if (ev1 && many1) {
                 return { ...event, duplicates: true, value: date, update: false };
             } else {
@@ -1189,23 +1212,32 @@ export const searchSavedEvent = (programStages, event, eventsData) => {
     } else if (identifiesEvents.length > 0) {
         const currentEvent = eventsData[value];
         if (currentEvent && updateEvents) {
-            const { event: ev2, many: many1 } = currentEvent;
+            let { event: ev2, many: many1 } = currentEvent;
             if (ev2 && !many1) {
-                const differingElements = _.differenceWith(event['dataValues'], ev2['dataValues'], (a, b) => {
-                    return a.dataElement === b.dataElement && a.value && b.value && a.value + '' === b.value + '';
-                }).filter(v => {
-                    return v.value !== 'null';
+                const difference = event['dataValues'].filter(x => {
+                    const search = ev2['dataValues'].find(v => v.dataElement === x.dataElement);
+                    return (search && String(search.value) !== String(x.value));
+                });
+                const missing = event['dataValues'].filter(x => {
+                    const search = ev2['dataValues'].find(v => v.dataElement === x.dataElement);
+                    return !search;
                 });
 
-                if (differingElements.length > 0) {
+                if (difference.length > 0) {
+                    const updatedDataValues = ev2['dataValues'].map(dv => {
+                        const search = difference.find(v => v.dataElement === dv.dataElement);
+                        if (search) {
+                            dv = { ...dv, value: search.value }
+                        }
+
+                        return dv;
+                    });
                     return {
                         ...ev2,
                         eventDate: moment(ev2['eventDate']).format('YYYY-MM-DD'),
                         update: true,
                         duplicates: false,
-                        dataValues: _.unionWith(ev2['dataValues'].filter(e => e.value !== ''), event['dataValues'], (a, b) => {
-                            return a.dataElement === b.dataElement;
-                        })
+                        dataValues: [...updatedDataValues.filter(e => e.value !== ''), ...missing]
                     };
                 }
                 return null;
@@ -1275,17 +1307,14 @@ export const processEvents = (program, data, eventsData) => {
             const dataValues = mapped.map(e => {
                 let value = d[e.column.value];
                 const type = e.dataElement.valueType;
-                if (type === 'TEXT') {
-                    value = String(value).trim();
-                }
                 const optionsSet = e.dataElement.optionSet;
                 const validatedValue = validateValue(type, value, optionsSet);
-                if (value !== '' && validatedValue !== null) {
+                if (value !== '' && validatedValue) {
                     return {
                         dataElement: e.dataElement.id,
                         value: validatedValue
                     }
-                } else if (value !== undefined && value !== null && value !== '') {
+                } else if (!!value) {
                     conflicts = [...conflicts, {
                         error: optionsSet === null ? 'Invalid value ' + value + ' for value type ' + type : 'Invalid value: ' + value + ', expected: ' + _.map(optionsSet.options, o => {
                             return o.code
