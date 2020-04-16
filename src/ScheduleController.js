@@ -82,8 +82,10 @@ const ScheduleController = {
 
     async getData(req, res) {
         const {url, username, password, params} = req.body;
+        console.log(params);
         try {
             const {data} = await Schedule.getData(url, params, username, password);
+            console.log(data)
             return res.status(200).send(data);
         } catch (e) {
             console.log(e.message)

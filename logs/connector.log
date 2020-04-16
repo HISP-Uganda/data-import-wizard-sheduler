@@ -19453,3 +19453,13 @@
 2019-12-16 09:06:42 error: read ECONNRESET
 2019-12-16 09:06:42 error: read ECONNRESET
 2019-12-16 11:08:00 error: isTracker is not defined
+2020-04-16 13:04:40 info: trackedEntityInstance with id, XJgOhJJpEzR imported: 1, updated: 0, deleted: 0
+2020-04-16 13:04:40 info: trackedEntityInstance with id, DSMtpgvE6K6 imported: 1, updated: 0, deleted: 0
+2020-04-16 13:04:40 info: trackedEntityInstance with id, iXKZGQQwtus imported: 1, updated: 0, deleted: 0
+2020-04-16 13:04:40 info: trackedEntityInstance with id, oAASPaSXMcx imported: 1, updated: 0, deleted: 0
+2020-04-16 13:04:40 info: trackedEntityInstance with id, SD9rdMuHzfq imported: 1, updated: 0, deleted: 0
+2020-04-16 13:04:41 info: enrollment with id, KtGyF3iiy21 imported: 1, updated: 0, deleted: 0
+2020-04-16 13:04:41 info: enrollment with id, h0lmDtQ1yAa imported: 1, updated: 0, deleted: 0
+2020-04-16 13:04:41 info: enrollment with id, GvYfnws3sfJ imported: 1, updated: 0, deleted: 0
+2020-04-16 13:04:41 info: enrollment with id, TlSolxYKQ1h imported: 1, updated: 0, deleted: 0
+2020-04-16 13:04:41 info: enrollment with id, vOG1ChUf4uA imported: 1, updated: 0, deleted: 0
