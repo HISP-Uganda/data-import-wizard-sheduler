@@ -387,6 +387,8 @@ export const programUniqueColumn = (program) => {
     return a.trackedEntityAttribute.unique && a.column;
   });
 
+  console.log(unique);
+
   if (unique.length > 0) {
     return unique[0]['column']['value'];
   }
@@ -398,6 +400,8 @@ export const programUniqueAttribute = (program) => {
   const unique = program.programTrackedEntityAttributes.filter(a => {
     return a.trackedEntityAttribute.unique && a.column;
   });
+
+  console.log(unique);
 
   if (unique.length > 0) {
     return unique[0]['trackedEntityAttribute']['id'];
@@ -1042,7 +1046,7 @@ export const processProgramData = (data, program, uniqueColumn, instances) => {
             });
           }
         });
-      } else {
+      } else if (createEntities){
         orgUnits = _.uniq(orgUnits);
         let orgUnit;
         if (orgUnits.length > 1) {
@@ -1055,27 +1059,24 @@ export const processProgramData = (data, program, uniqueColumn, instances) => {
           if (orgUnit && orgUnit.mapping) {
             const foundOrgUnitId = orgUnit.mapping.value;
             const trackedEntityInstance = generateUid();
+            let tei = {
+              orgUnit: foundOrgUnitId,
+              attributes: allAttributes[0],
+              trackedEntityInstance
+            };
 
-            if (createEntities) {
-              let tei = {
-                orgUnit: foundOrgUnitId,
-                attributes: allAttributes[0],
-                trackedEntityInstance
-              };
-
-              if (trackedEntityType) {
-                tei = {
-                  ...tei,
-                  trackedEntityType: trackedEntityType.id
-                }
-              } else if (trackedEntity && trackedEntity.id) {
-                tei = {
-                  ...tei,
-                  trackedEntity: trackedEntity.id
-                }
+            if (trackedEntityType) {
+              tei = {
+                ...tei,
+                trackedEntityType: trackedEntityType.id
               }
-              newTrackedEntityInstances = [...newTrackedEntityInstances, tei];
+            } else if (trackedEntity && trackedEntity.id) {
+              tei = {
+                ...tei,
+                trackedEntity: trackedEntity.id
+              }
             }
+            newTrackedEntityInstances = [...newTrackedEntityInstances, tei];
 
             if (createNewEnrollments && enrollmentDates.length > 0) {
               let enrollment = {
@@ -1106,7 +1107,6 @@ export const processProgramData = (data, program, uniqueColumn, instances) => {
                   trackedEntityInstance
                 }
               });
-
               evs = removeDuplicates(evs, stageEventFilters);
 
               if (createNewEvents) {
