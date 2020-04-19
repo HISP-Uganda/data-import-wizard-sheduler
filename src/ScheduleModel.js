@@ -101,7 +101,9 @@ class Schedule {
             const startParam = params.find(p => p.isPeriod && p.periodType === '1');
             const endParam = params.find(p => p.isPeriod && p.periodType === '2');
 
-            let currentParam = {};
+            let currentParam = _.fromPairs(params.filter(p => !p.isPeriod).map(param => {
+              return [param.param, param.value];
+            })) || {};
 
             const current = this.data[name];
 

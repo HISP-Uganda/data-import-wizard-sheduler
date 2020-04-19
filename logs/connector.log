@@ -19463,3 +19463,24 @@
 2020-04-16 13:04:41 info: enrollment with id, GvYfnws3sfJ imported: 1, updated: 0, deleted: 0
 2020-04-16 13:04:41 info: enrollment with id, TlSolxYKQ1h imported: 1, updated: 0, deleted: 0
 2020-04-16 13:04:41 info: enrollment with id, vOG1ChUf4uA imported: 1, updated: 0, deleted: 0
+2020-04-19 13:36:46 error: data.filter is not a function
+2020-04-19 13:36:50 error: data.filter is not a function
+2020-04-19 13:36:55 error: data.filter is not a function
+2020-04-19 13:37:00 error: data.filter is not a function
+2020-04-19 13:37:05 error: data.filter is not a function
+2020-04-19 13:37:10 error: data.filter is not a function
+2020-04-19 13:37:15 error: data.filter is not a function
+2020-04-19 13:37:20 error: data.filter is not a function
+2020-04-19 13:37:25 error: data.filter is not a function
+2020-04-19 13:37:30 error: data.filter is not a function
+2020-04-19 13:37:35 error: data.filter is not a function
+2020-04-19 13:37:40 error: data.filter is not a function
+2020-04-19 13:37:45 error: data.filter is not a function
+2020-04-19 13:37:50 error: data.filter is not a function
+2020-04-19 13:37:55 error: data.filter is not a function
+2020-04-19 13:38:00 error: data.filter is not a function
+2020-04-19 13:38:05 error: data.filter is not a function
+2020-04-19 13:38:10 error: data.filter is not a function
+2020-04-19 13:38:15 error: data.filter is not a function
+2020-04-19 14:17:35 error: connect ECONNREFUSED 127.0.0.1:8080
+2020-04-19 14:17:40 error: connect ECONNREFUSED 127.0.0.1:8080
