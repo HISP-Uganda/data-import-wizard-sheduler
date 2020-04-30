@@ -23,7 +23,9 @@ import {
   searchTrackedEntities,
   whatToComplete,
   findEvents,
-  withoutDuplicates
+  withoutDuplicates,
+  getFrequency,
+  pullTrackedEntities, postAxios1
 } from "./data-utils";
 import {
   isTracker,
@@ -150,8 +152,6 @@ class Schedule {
           const dataSet = mapping.value;
           const templateType = dataSet.templateType.value + '';
           const currentDate = moment().subtract(daysToAdd, 'days');
-
-
           if (!format) {
             format = getPeriodFormat(dataSet.periodType);
           }
@@ -208,6 +208,56 @@ class Schedule {
           } else if (templateType === '6') {
             winston.log('info', 'We are here');
             console.log('We are here');
+          }
+        } else if (data.type === 'attributes') {
+          const program = data.value.value;
+          const frequency = getFrequency(data.schedule);
+          const entities = await pullTrackedEntities(program, frequency);
+
+          const all = entities.map(e => {
+            const attributes = _.fromPairs(e.attributes.map(({attribute, value}) => {
+              return [attribute, value];
+            }));
+
+            let units = 'Years';
+            let years = moment().diff(attributes.g4LJbkM0R24, 'years');
+
+            if (years < 1) {
+              years = moment().diff(attributes.g4LJbkM0R24, 'months');
+              units = 'Months';
+
+              if (years < 1) {
+                years = moment().diff(attributes.g4LJbkM0R24, 'weeks');
+                units = 'Weeks';
+
+                if (years < 1) {
+                  years = moment().diff(attributes.g4LJbkM0R24, 'days');
+                  units = 'Days';
+                }
+              }
+            }
+
+            const result = {
+              "case_id": attributes.PVXhTjVdB92,
+              "sample_id": "",
+              "age": Number(years).toFixed(0),
+              "sex": attributes.FZzQbW8AWVd,
+              "age_units": units,
+              "name": attributes.sB1IHYu2xQT,
+              "nationality": attributes.XvETY1aTxuB,
+              "sample_type": attributes.SI7jnNQpEQM,
+              "temperature": attributes.QhDKRe2QDA7,
+              "telephone_number": attributes.E7u9XdW24SP,
+              'vehicle_number': attributes.h6aZFN4DLcR,
+              'date_of_entry': attributes.UJiu0P8GvHt
+            }
+            return postAxios1('http://216.104.201.69/case_details', result);
+          });
+
+          try {
+            await Promise.all(all);
+          } catch (e) {
+            winston.log('error', e.message);
           }
         }
       }
