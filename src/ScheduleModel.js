@@ -23,7 +23,8 @@ import {
   searchedInstances,
   searchTrackedEntities,
   whatToComplete,
-  withoutDuplicates
+  withoutDuplicates,
+  createProgram
 } from "./data-utils";
 import {
   isTracker,
