@@ -261,7 +261,7 @@ class Schedule {
               'sampleCollected': data.NuRldDwq0AJ,
               'request_date': data.enrollmentDate
             }
-            console.log(JSON.stringify(result));
+            winston.log('info', JSON.stringify(result));
             return postAxios1('http://216.104.201.69/case_details', result);
           });
 
