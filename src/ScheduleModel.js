@@ -3,29 +3,27 @@ import {scheduleJob} from "node-schedule";
 import parser from "cron-parser";
 import _ from 'lodash';
 import DataStore from 'nedb-promises';
-// import crypto from 'crypto';
-
 import {
-  createProgram,
+  findEvents,
   getData,
   getDHIS2Url,
+  getFrequency,
   getPeriodFormat,
   getSchedule,
   getUniqueIds,
   getUpstreamData,
   postAxios,
+  postAxios1,
   processDataSetResponses,
   pullData,
   pullOrganisationUnits,
+  pullTrackedEntities,
   replaceParam,
   replaceParamByValue,
   searchedInstances,
   searchTrackedEntities,
   whatToComplete,
-  findEvents,
-  withoutDuplicates,
-  getFrequency,
-  pullTrackedEntities, postAxios1
+  withoutDuplicates
 } from "./data-utils";
 import {
   isTracker,
@@ -36,6 +34,7 @@ import {
   programUniqueColumn
 } from "./utils";
 import winston from './winston';
+// import crypto from 'crypto';
 
 // const ALGORITHM = 'aes-256-cbc';
 // const password = 'Password used to generate key';
@@ -138,13 +137,12 @@ class Schedule {
               const instances = await searchTrackedEntities(uniqueIds, uniqueAttribute);
               const trackedEntityInstances = searchedInstances(uniqueAttribute, instances);
               processed = processProgramData(data, program, uniqueColumn, trackedEntityInstances);
-              console.log(processed);
             } else {
               data = withoutDuplicates(program, data);
               const previous = await findEvents(program, data);
               processed = processEvents(program, data, previous);
             }
-            await createProgram(processed);
+            // await createProgram(processed);
           } catch (e) {
             winston.log('error', e.message);
           }
@@ -214,10 +212,17 @@ class Schedule {
           const frequency = getFrequency(data.schedule);
           const entities = await pullTrackedEntities(program, frequency);
 
-          const all = entities.map(e => {
-            const attributes = _.fromPairs(e.attributes.map(({attribute, value}) => {
+          const all = entities.map(({attributes, enrollments}) => {
+            let data = _.fromPairs(attributes.map(({attribute, value}) => {
               return [attribute, value];
             }));
+
+            const enrollment = enrollments.find(e => e.program === program);
+
+            if (enrollment) {
+              const {events, ...others} = enrollment;
+              data = {data, ...others};
+            }
 
             let units = 'Years';
             let years = moment().diff(attributes.g4LJbkM0R24, 'years');
@@ -238,18 +243,23 @@ class Schedule {
             }
 
             const result = {
-              "case_id": attributes.PVXhTjVdB92,
+              "case_id": data.PVXhTjVdB92,
               "sample_id": "",
               "age": Number(years).toFixed(0),
-              "sex": attributes.FZzQbW8AWVd,
+              "sex": data.FZzQbW8AWVd,
               "age_units": units,
-              "name": attributes.sB1IHYu2xQT,
-              "nationality": attributes.XvETY1aTxuB,
-              "sample_type": attributes.SI7jnNQpEQM,
-              "temperature": attributes.QhDKRe2QDA7,
-              "telephone_number": attributes.E7u9XdW24SP,
-              'vehicle_number': attributes.h6aZFN4DLcR,
-              'date_of_entry': attributes.UJiu0P8GvHt
+              "name": data.sB1IHYu2xQT,
+              "nationality": data.XvETY1aTxuB,
+              "sample_type": data.SI7jnNQpEQM,
+              "temperature": data.QhDKRe2QDA7,
+              "telephone_number": data.E7u9XdW24SP,
+              'vehicle_number': data.h6aZFN4DLcR,
+              'date_of_entry': data.UJiu0P8GvHt,
+              'truckDestination': data.pxcXhmjJeMv,
+              'pointOfEntry': data.orgUnitName,
+              'passportNo': data.oUqWGeHjj5C,
+              'sampleCollected': data.NuRldDwq0AJ,
+              'request_date': data.enrollmentDate
             }
             return postAxios1('http://216.104.201.69/case_details', result);
           });

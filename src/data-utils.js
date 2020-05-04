@@ -340,7 +340,8 @@ export const pullTrackedEntities = async (program, lastUpdatedDuration) => {
         params: {
           ouMode: 'ALL',
           program,
-          lastUpdatedDuration
+          lastUpdatedDuration,
+          fields:'*'
         }
       });
       if (data) {
