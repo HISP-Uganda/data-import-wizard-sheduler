@@ -221,22 +221,22 @@ class Schedule {
 
             if (enrollment) {
               const {events, ...others} = enrollment;
-              data = {data, ...others};
+              data = {...data, ...others};
             }
 
             let units = 'Years';
-            let years = moment().diff(attributes.g4LJbkM0R24, 'years');
+            let years = moment().diff(data.g4LJbkM0R24, 'years');
 
             if (years < 1) {
-              years = moment().diff(attributes.g4LJbkM0R24, 'months');
+              years = moment().diff(data.g4LJbkM0R24, 'months');
               units = 'Months';
 
               if (years < 1) {
-                years = moment().diff(attributes.g4LJbkM0R24, 'weeks');
+                years = moment().diff(data.g4LJbkM0R24, 'weeks');
                 units = 'Weeks';
 
                 if (years < 1) {
-                  years = moment().diff(attributes.g4LJbkM0R24, 'days');
+                  years = moment().diff(data.g4LJbkM0R24, 'days');
                   units = 'Days';
                 }
               }
