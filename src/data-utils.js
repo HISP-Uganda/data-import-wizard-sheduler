@@ -4,7 +4,7 @@ import rq from "request-promise-native";
 import axios from 'axios';
 
 import dotenv from "dotenv";
-import {encodeData, groupEntities, nest, searchOrgUnit, isTracker} from "./utils";
+import {encodeData, groupEntities, isTracker, nest, searchOrgUnit} from "./utils";
 import winston from './winston';
 import moment from "moment";
 
@@ -16,12 +16,13 @@ if (result.error) {
   throw result.error
 }
 
-export const searchTrackedEntities = async (uniqueIds, uniqueAttribute) => {
+export const searchTrackedEntities = async (program, uniqueIds, uniqueAttribute) => {
   let foundEntities = [];
   const all = uniqueIds.map(uniqueId => {
     const params = {
       paging: false,
       ouMode: 'ALL',
+      program,
       filter: uniqueAttribute + ':IN:' + uniqueId,
       fields: 'trackedEntityInstance'
     };

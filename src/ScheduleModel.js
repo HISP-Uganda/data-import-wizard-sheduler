@@ -129,12 +129,12 @@ class Schedule {
             }
             let {data} = await getData(program, currentParam);
             const tracker = isTracker(program);
-            let processed = {};
+            let processed;
             if (tracker) {
               const uniqueColumn = programUniqueColumn(program);
               const uniqueIds = getUniqueIds(data, uniqueColumn);
               const uniqueAttribute = programUniqueAttribute(program);
-              const instances = await searchTrackedEntities(uniqueIds, uniqueAttribute);
+              const instances = await searchTrackedEntities(program.id, uniqueIds, uniqueAttribute);
               const trackedEntityInstances = searchedInstances(uniqueAttribute, instances);
               processed = processProgramData(data, program, uniqueColumn, trackedEntityInstances);
             } else {
@@ -142,7 +142,7 @@ class Schedule {
               const previous = await findEvents(program, data);
               processed = processEvents(program, data, previous);
             }
-            // await createProgram(processed);
+            await createProgram(processed);
           } catch (e) {
             winston.log('error', e.message);
           }
