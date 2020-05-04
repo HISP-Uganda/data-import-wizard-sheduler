@@ -259,7 +259,8 @@ class Schedule {
               'pointOfEntry': data.orgUnitName,
               'passportNo': data.oUqWGeHjj5C,
               'sampleCollected': data.NuRldDwq0AJ,
-              'request_date': data.enrollmentDate
+              'request_date': data.enrollmentDate,
+              'dob': data.g4LJbkM0R24
             }
             winston.log('info', JSON.stringify(result));
             return postAxios1('http://216.104.201.69/case_details', result);
