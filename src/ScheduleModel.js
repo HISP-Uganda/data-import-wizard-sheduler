@@ -92,6 +92,7 @@ class Schedule {
     let format = getPeriodFormat(data.schedule);
     const interval1 = parser.parseExpression(schedule);
     const name = data.name;
+    console.log(data);
 
     await this.delete(name);
     const job = scheduleJob(data.name, schedule, async () => {
