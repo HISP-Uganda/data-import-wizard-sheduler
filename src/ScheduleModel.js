@@ -92,7 +92,6 @@ class Schedule {
     let format = getPeriodFormat(data.schedule);
     const interval1 = parser.parseExpression(schedule);
     const name = data.name;
-    console.log(data);
 
     await this.delete(name);
     const job = scheduleJob(data.name, schedule, async () => {
@@ -271,6 +270,7 @@ class Schedule {
           const program = data.value.value;
           const frequency = getFrequency(data.schedule);
           const entities = await pullTrackedEntities(program, frequency);
+          const upstream = data.upstream;
 
           const all = entities.map(({ attributes, enrollments }) => {
             let data = _.fromPairs(
@@ -325,10 +325,7 @@ class Schedule {
               dob: data.g4LJbkM0R24,
             };
             winston.log("info", "successfully sent");
-            return postAxios1(
-              "https://cphl.cphluganda.org/case_details",
-              result
-            );
+            return postAxios1(upstream, result);
           });
 
           try {
