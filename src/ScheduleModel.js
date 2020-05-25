@@ -324,6 +324,7 @@ class Schedule {
               request_date: data.enrollmentDate,
               dob: data.g4LJbkM0R24,
             };
+            console.log(JSON.stringify(result));
             return postAxios1(upstream, result);
           });
 
