@@ -324,12 +324,12 @@ class Schedule {
               request_date: data.enrollmentDate,
               dob: data.g4LJbkM0R24,
             };
-            winston.log("info", "successfully sent");
             return postAxios1(upstream, result);
           });
 
           try {
-            await Promise.all(all);
+            const results = await Promise.all(all);
+            console.log(results);
           } catch (e) {
             winston.log("error", e.message);
           }
