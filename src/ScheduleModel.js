@@ -271,8 +271,9 @@ class Schedule {
           const frequency = getFrequency(data.schedule);
           const entities = await pullTrackedEntities(program, frequency);
           const upstream = data.upstream;
+          console.log(upstream);
 
-          const all = entities.map(({ attributes, enrollments }) => {
+          const all = entities.map(async ({ attributes, enrollments }) => {
             let data = _.fromPairs(
               attributes.map(({ attribute, value }) => {
                 return [attribute, value];
@@ -340,15 +341,12 @@ class Schedule {
               interviewer_name: null,
               interviewer_phone: null,
             };
-            winston.log("info", JSON.stringify(result));
-            return postAxios1(upstream, result);
+            try {
+              return await postAxios1(upstream, result);
+            } catch (error) {
+              return error.message;
+            }
           });
-          // try {
-          const results = await Promise.all(all);
-          // console.log(results);
-          // } catch (e) {
-          //   winston.log("error", e.message);
-          // }
         }
       }
       this.data = {
