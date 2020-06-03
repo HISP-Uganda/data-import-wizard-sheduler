@@ -340,16 +340,16 @@ class Schedule {
               interviewer_name: null,
               interviewer_phone: null,
             };
-            console.log(JSON.stringify(result));
+            console.log(result);
             return postAxios1(upstream, result);
           });
 
-          try {
-            const results = await Promise.all(all);
-            console.log(results);
-          } catch (e) {
-            winston.log("error", e.message);
-          }
+          // try {
+          const results = await Promise.all(all);
+          console.log(results);
+          // } catch (e) {
+          //   winston.log("error", e.message);
+          // }
         }
       }
       this.data = {
