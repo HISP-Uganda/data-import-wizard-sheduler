@@ -347,6 +347,8 @@ class Schedule {
               return error.message;
             }
           });
+
+          console.log(all);
         }
       }
       this.data = {
