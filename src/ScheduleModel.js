@@ -342,7 +342,8 @@ class Schedule {
               interviewer_phone: null,
             };
             try {
-              return await postAxios1(upstream, result);
+              const response = await postAxios1(upstream, [result]);
+              return response.status;
             } catch (error) {
               return error.message;
             }
