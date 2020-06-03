@@ -341,13 +341,15 @@ class Schedule {
               interviewer_name: null,
               interviewer_phone: null,
             };
-            try {
-              const response = await postAxios1(upstream, [result]);
-              return response.status;
-            } catch (error) {
-              return error.message;
-            }
+            return postAxios1(upstream, [result]);
           });
+
+          try {
+            const responses = await Promise.all(all);
+            console.log(responses.map((r) => r.status));
+          } catch (error) {
+            winston.log("error", e.message);
+          }
 
           console.log(all);
         }
