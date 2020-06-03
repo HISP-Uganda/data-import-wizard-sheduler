@@ -350,7 +350,7 @@ class Schedule {
             console.log(responses);
             console.log(responses.map((r) => r.status));
           } catch (error) {
-            winston.log("error", e.message);
+            winston.log("error", error.message);
           }
 
           console.log(all);
