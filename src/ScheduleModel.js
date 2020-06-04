@@ -343,12 +343,12 @@ class Schedule {
             return postAxios1(upstream, [result]);
           });
 
-          try {
-            await Promise.all(all);
-            winston.log("info", "record sent");
-          } catch (error) {
-            winston.log("error", error.message);
-          }
+          // try {
+          await Promise.all(all);
+          winston.log("info", "record sent");
+          // } catch (error) {
+          //   winston.log("error", error.message);
+          // }
         }
       }
       this.data = {
