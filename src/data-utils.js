@@ -162,7 +162,7 @@ export const postAxios = async (url, query) => {
 };
 
 export const postAxios1 = async (url, query) => {
-  return await axios.post(url, query, {});
+  return axios.post(url, query, {});
 };
 
 export const updateData = (url, data) => {
