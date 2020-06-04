@@ -340,7 +340,7 @@ class Schedule {
               interviewer_name: null,
               interviewer_phone: null,
             };
-            return postAxios1(upstream, [result]);
+            return await postAxios1(upstream, [result]);
           });
 
           // try {
