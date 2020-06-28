@@ -25,6 +25,7 @@ import {
   whatToComplete,
   withoutDuplicates,
   createProgram,
+  pullOrgUnits
 } from "./data-utils";
 import {
   isTracker,
@@ -272,118 +273,132 @@ class Schedule {
           const entities = await pullTrackedEntities(program, frequency);
           const upstream = data.upstream;
 
-          const all = entities.map(async ({ attributes, enrollments }) => {
-            let data = _.fromPairs(
-              attributes.map(({ attribute, value }) => {
-                return [attribute, value];
-              })
-            );
+          if (entities.length > 0) {
 
-            const enrollment = enrollments.find((e) => e.program === program);
+            const orgUnits = await pullOrgUnits(entities.map(instance => {
+              return instance.orgUnit;
+            }));
 
-            if (enrollment) {
-              const { events, ...others } = enrollment;
-              data = { ...data, ...others };
-            }
+            const organisations = _.fromPairs(orgUnits.map(o => {
+              return [o.id, o.name];
+            }));
 
-            let units = "Years";
-            let years = moment().diff(data.g4LJbkM0R24, "years");
 
-            if (years < 1) {
-              years = moment().diff(data.g4LJbkM0R24, "months");
-              units = "Months";
+            const all = entities.map(async ({ attributes, enrollments }) => {
+              let data = _.fromPairs(
+                attributes.map(({ attribute, value }) => {
+                  return [attribute, value];
+                })
+              );
+
+              const enrollment = enrollments.find((e) => e.program === program);
+
+              if (enrollment) {
+                const { events, ...others } = enrollment;
+                data = { ...data, ...others };
+              }
+
+              let units = "Years";
+              let years = moment().diff(data.g4LJbkM0R24, "years");
 
               if (years < 1) {
-                years = moment().diff(data.g4LJbkM0R24, "weeks");
-                units = "Weeks";
+                years = moment().diff(data.g4LJbkM0R24, "months");
+                units = "Months";
 
                 if (years < 1) {
-                  years = moment().diff(data.g4LJbkM0R24, "days");
-                  units = "Days";
+                  years = moment().diff(data.g4LJbkM0R24, "weeks");
+                  units = "Weeks";
+
+                  if (years < 1) {
+                    years = moment().diff(data.g4LJbkM0R24, "days");
+                    units = "Days";
+                  }
                 }
               }
+
+              const results = {
+                screenerName: data.TU0Jteb9H7F,
+                organisation: organisations[data.orgUnit],
+                organisationId: data.orgUnit,
+                sampleCollectionDate: data.enrollmentDate,
+                sampleCollectionLocation: data.cRRJ9fsIYYz,
+                typeOfPersonTested: data.xwvCR3dis60,
+                fullName: data.sB1IHYu2xQT,
+                formId: data.PVXhTjVdB92,
+                barcode: data.rSKAr1Ho7rI,
+                poeId: data.CLzIR1Ye97b,
+                dob: data.g4LJbkM0R24,
+                sex: data.FZzQbW8AWVd,
+                passportOrNInNo: data.oUqWGeHjj5C,
+                casePhoneContact: data.E7u9XdW24SP,
+                nationality: data.XvETY1aTxuB,
+                entryDate: data.UJiu0P8GvHt,
+                truckOrFlightNo: data.h6aZFN4DLcR,
+                seatNo: data.XX8NZilra7b,
+                departure: data.cW0UPEANS5t,
+                destination: data.pxcXhmjJeMv,
+                addressInUganda: data.ooK7aSiAaGq,
+                plannedDuration: data.eH7YTWgoHgo,
+                needForIsolation: data.Ep6evsVocKY,
+                underQuarantine: data.oVFYcqtwPY9,
+                referredForFurtherInvestigation: data.EZwIFcKvSes,
+                nokName: data.fik9qo8iHeo,
+                nokPhone: data.j6sEr8EcULP,
+                temperature: data.QhDKRe2QDA7,
+                freeFromSymptoms: data.EWWNozu6TVd,
+                selectSymptoms: data.lByQFYSVb2Z,
+                knownUnderlyingConditions: data.VS4GY78XPaH,
+                sampleType: data.SI7jnNQpEQM,
+                reasonsForHWTesting: data.kwNWq4drD2G,
+                age: Number(years).toFixed(0),
+                ageUnits: units
+              }
+
+              // const result = {
+              //   caseID: data.CLzIR1Ye97b,
+              //   sample_id: "",
+              //   age: Number(years).toFixed(0),
+              //   sex: data.FZzQbW8AWVd,
+              //   age_units: units,
+              //   patient_surname: data.sB1IHYu2xQT,
+              //   nationality: data.XvETY1aTxuB,
+              //   sample_type: data.SI7jnNQpEQM,
+              //   temperature: data.QhDKRe2QDA7,
+              //   telephone_number: data.E7u9XdW24SP,
+              //   truckNo: data.h6aZFN4DLcR,
+              //   truckEntryDate: data.UJiu0P8GvHt,
+              //   truckDestination: data.pxcXhmjJeMv,
+              //   nameWhere_sample_collected_from: data.orgUnitName,
+              //   passportNo: data.oUqWGeHjj5C,
+              //   sampleCollected: data.NuRldDwq0AJ,
+              //   request_date: data.enrollmentDate,
+              //   dob: data.g4LJbkM0R24,
+              //   where_sample_collected_from: "POE",
+              //   createdby: 100000,
+              //   patient_village: null,
+              //   patient_parish: null,
+              //   patient_subcounty: null,
+              //   patient_NOK: data.fik9qo8iHeo,
+              //   nok_contact: data.j6sEr8EcULP,
+              //   interviewer_facility: null,
+              //   tempReading: null,
+              //   interviewer_email: null,
+              //   patient_contact: data.E7u9XdW24SP,
+              //   epidNo: data.PVXhTjVdB92,
+              //   serial_number: null,
+              //   UgArrivalDate: data.UJiu0P8GvHt,
+              //   interviewer_name: null,
+              //   interviewer_phone: null,
+              // };
+              return postAxios1(upstream, results);
+            });
+
+            try {
+              await Promise.all(all);
+              winston.log("info", "record sent");
+            } catch (error) {
+              winston.log("error", error.message);
             }
-
-            const results = {
-              screenerName: data.TU0Jteb9H7F,
-              sampleCollectionDate: data.enrollmentDate,
-              sampleCollectionLocation: data.cRRJ9fsIYYz,
-              typeOfPersonTested: data.xwvCR3dis60,
-              fullName: data.sB1IHYu2xQT,
-              formId: data.PVXhTjVdB92,
-              barcode: data.rSKAr1Ho7rI,
-              poeId: data.CLzIR1Ye97b,
-              dob: data.g4LJbkM0R24,
-              sex: data.FZzQbW8AWVd,
-              passportOrNInNo: data.oUqWGeHjj5C,
-              casePhoneContact: data.E7u9XdW24SP,
-              nationality: data.XvETY1aTxuB,
-              entryDate: data.UJiu0P8GvHt,
-              truckOrFlightNo: data.h6aZFN4DLcR,
-              seatNo: data.XX8NZilra7b,
-              departure: data.cW0UPEANS5t,
-              destination: data.pxcXhmjJeMv,
-              addressInUganda: data.ooK7aSiAaGq,
-              plannedDuration: data.eH7YTWgoHgo,
-              needForIsolation: data.Ep6evsVocKY,
-              underQuarantine: data.oVFYcqtwPY9,
-              referredForFurtherInvestigation: data.EZwIFcKvSes,
-              nokName: data.fik9qo8iHeo,
-              nokPhone: data.j6sEr8EcULP,
-              temperature: data.QhDKRe2QDA7,
-              freeFromSymptoms: data.EWWNozu6TVd,
-              selectSymptoms: data.lByQFYSVb2Z,
-              knownUnderlyingConditions: data.VS4GY78XPaH,
-              sampleType: data.SI7jnNQpEQM,
-              reasonsForHWTesting: data.kwNWq4drD2G,
-              age: Number(years).toFixed(0),
-              ageUnits: units
-            }
-
-            // const result = {
-            //   caseID: data.CLzIR1Ye97b,
-            //   sample_id: "",
-            //   age: Number(years).toFixed(0),
-            //   sex: data.FZzQbW8AWVd,
-            //   age_units: units,
-            //   patient_surname: data.sB1IHYu2xQT,
-            //   nationality: data.XvETY1aTxuB,
-            //   sample_type: data.SI7jnNQpEQM,
-            //   temperature: data.QhDKRe2QDA7,
-            //   telephone_number: data.E7u9XdW24SP,
-            //   truckNo: data.h6aZFN4DLcR,
-            //   truckEntryDate: data.UJiu0P8GvHt,
-            //   truckDestination: data.pxcXhmjJeMv,
-            //   nameWhere_sample_collected_from: data.orgUnitName,
-            //   passportNo: data.oUqWGeHjj5C,
-            //   sampleCollected: data.NuRldDwq0AJ,
-            //   request_date: data.enrollmentDate,
-            //   dob: data.g4LJbkM0R24,
-            //   where_sample_collected_from: "POE",
-            //   createdby: 100000,
-            //   patient_village: null,
-            //   patient_parish: null,
-            //   patient_subcounty: null,
-            //   patient_NOK: data.fik9qo8iHeo,
-            //   nok_contact: data.j6sEr8EcULP,
-            //   interviewer_facility: null,
-            //   tempReading: null,
-            //   interviewer_email: null,
-            //   patient_contact: data.E7u9XdW24SP,
-            //   epidNo: data.PVXhTjVdB92,
-            //   serial_number: null,
-            //   UgArrivalDate: data.UJiu0P8GvHt,
-            //   interviewer_name: null,
-            //   interviewer_phone: null,
-            // };
-            return postAxios1(upstream, result);
-          });
-
-          try {
-            await Promise.all(all);
-            winston.log("info", "record sent");
-          } catch (error) {
-            winston.log("error", error.message);
           }
         }
       }

@@ -343,6 +343,31 @@ export const pullOrganisationUnits = async (mapping) => {
   return [];
 };
 
+export const pullOrgUnits = async (ids) => {
+  try {
+    const baseUrl = getDHIS2Url();
+    if (baseUrl && ids.length > 0) {
+      const url = baseUrl + "/organisationUnits.json";
+      const { data } = await axios.get(url, {
+        auth: createDHIS2Auth(),
+        params: {
+          filter: `id:in:[${ids.join(',')}]`,
+          fields: "id,name,code",
+          paging: false,
+        },
+      });
+      if (data) {
+        return data.organisationUnits;
+      }
+    }
+    return [];
+  } catch (e) {
+    winston.log("error", e.message);
+  }
+
+  return [];
+}
+
 export const pullTrackedEntities = async (program, lastUpdatedDuration) => {
   try {
     const baseUrl = getDHIS2Url();
@@ -445,11 +470,11 @@ export const processDataSetResponses = (response) => {
     winston.log(
       "info",
       " imported: " +
-        imported +
-        ", updated: " +
-        updated +
-        ", deleted: " +
-        deleted
+      imported +
+      ", updated: " +
+      updated +
+      ", deleted: " +
+      deleted
     );
     if (response["conflicts"]) {
       response["conflicts"].forEach((c) => {
@@ -473,14 +498,14 @@ export const processResponse = (response, type) => {
         winston.log(
           "info",
           type +
-            " with id, " +
-            reference +
-            " imported: " +
-            importCount.imported +
-            ", updated: " +
-            importCount.updated +
-            ", deleted: " +
-            importCount.deleted
+          " with id, " +
+          reference +
+          " imported: " +
+          importCount.imported +
+          ", updated: " +
+          importCount.updated +
+          ", deleted: " +
+          importCount.deleted
         );
       });
     } else if (response["httpStatusCode"] === 409) {
@@ -489,10 +514,10 @@ export const processResponse = (response, type) => {
           winston.log(
             "warn",
             type +
-              " conflict found, object: " +
-              conflict.object +
-              ", message: " +
-              conflict.value
+            " conflict found, object: " +
+            conflict.object +
+            ", message: " +
+            conflict.value
           );
         });
       });
@@ -705,7 +730,7 @@ export const findEventsByElements = async (program, uploadedData) => {
           .join("&");
         return axios.get(
           `${getDHIS2Url()}/events.json?program=${id}&orgUnit=${
-            e[0].orgUnit
+          e[0].orgUnit
           }&pageSize=1&fields=event,eventDate,program,programStage,orgUnit,dataValues[dataElement,value]&${filter}`,
           {
             params,
