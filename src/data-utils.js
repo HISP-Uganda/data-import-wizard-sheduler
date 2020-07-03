@@ -352,7 +352,7 @@ export const pullOrgUnits = async (ids) => {
         auth: createDHIS2Auth(),
         params: {
           filter: `id:in:[${ids.join(',')}]`,
-          fields: "id,name,code",
+          fields: "id,name,code,path",
           paging: false,
         },
       });
@@ -406,6 +406,21 @@ export const syncTrackedEntityInstances = async (program, upstream, other) => {
       return [o.id, o.name];
     }));
 
+    const districts = orgUnits.map(o => {
+      const paths = String(o.path).split('/');
+      return paths[3]
+    });
+
+    const districtData = await pullOrgUnits(uniq(districts));
+
+    const realDistricts = _.fromPairs(districtData.map(o => {
+      return [o.id, o.name];
+    }));
+
+    const calculatedDistricts = _.fromPairs(orgUnits.map(o => {
+      const paths = String(o.path).split('/');
+      return [o.id, realDistricts[paths[3]]]
+    }));
 
     const all = entities.map(async ({ attributes, enrollments }) => {
       let data = _.fromPairs(
@@ -475,48 +490,9 @@ export const syncTrackedEntityInstances = async (program, upstream, other) => {
         reasonsForHWTesting: data.kwNWq4drD2G,
         age: Number(years).toFixed(0),
         ageUnits: units,
-        eacDriverId: data.x2mmRJ3TOXQ
+        eacDriverId: data.x2mmRJ3TOXQ,
+        district: calculatedDistricts[data.orgUnit]
       }
-
-      console.log(results);
-
-      // const result = {
-      //   caseID: data.CLzIR1Ye97b,
-      //   sample_id: "",
-      //   age: Number(years).toFixed(0),
-      //   sex: data.FZzQbW8AWVd,
-      //   age_units: units,
-      //   patient_surname: data.sB1IHYu2xQT,
-      //   nationality: data.XvETY1aTxuB,
-      //   sample_type: data.SI7jnNQpEQM,
-      //   temperature: data.QhDKRe2QDA7,
-      //   telephone_number: data.E7u9XdW24SP,
-      //   truckNo: data.h6aZFN4DLcR,
-      //   truckEntryDate: data.UJiu0P8GvHt,
-      //   truckDestination: data.pxcXhmjJeMv,
-      //   nameWhere_sample_collected_from: data.orgUnitName,
-      //   passportNo: data.oUqWGeHjj5C,
-      //   sampleCollected: data.NuRldDwq0AJ,
-      //   request_date: data.enrollmentDate,
-      //   dob: data.g4LJbkM0R24,
-      //   where_sample_collected_from: "POE",
-      //   createdby: 100000,
-      //   patient_village: null,
-      //   patient_parish: null,
-      //   patient_subcounty: null,
-      //   patient_NOK: data.fik9qo8iHeo,
-      //   nok_contact: data.j6sEr8EcULP,
-      //   interviewer_facility: null,
-      //   tempReading: null,
-      //   interviewer_email: null,
-      //   patient_contact: data.E7u9XdW24SP,
-      //   epidNo: data.PVXhTjVdB92,
-      //   serial_number: null,
-      //   UgArrivalDate: data.UJiu0P8GvHt,
-      //   interviewer_name: null,
-      //   interviewer_phone: null,
-      // };
-      // console.log(results);
       return postAxios1(upstream, results);
     });
 
