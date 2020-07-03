@@ -402,8 +402,6 @@ export const syncTrackedEntityInstances = async (program, upstream, other) => {
       return instance.orgUnit;
     })));
 
-    console.log(entities.length);
-
     const organisations = _.fromPairs(orgUnits.map(o => {
       return [o.id, o.name];
     }));
@@ -480,7 +478,7 @@ export const syncTrackedEntityInstances = async (program, upstream, other) => {
         eacDriverId: data.x2mmRJ3TOXQ
       }
 
-      console.log(result);
+      console.log(results);
 
       // const result = {
       //   caseID: data.CLzIR1Ye97b,
