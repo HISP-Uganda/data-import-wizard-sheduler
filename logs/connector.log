@@ -19533,3 +19533,14 @@
 2020-05-04 11:46:25 info: {"sample_id":"","age":"0","age_units":"Days","pointOfEntry":"1 Test Facility","request_date":"2020-05-04T00:00:00.000"}
 2020-05-04 11:47:35 info: {"case_id":"9898984","sample_id":"","age":"56","sex":"Male","age_units":"Years","name":"Traveller Emma","nationality":"UG","sample_type":"Oropharengeal Swab","temperature":"37","telephone_number":"4553454","vehicle_number":"UOO 000R","date_of_entry":"2020-05-04T11:30","pointOfEntry":"1 Test Facility","passportNo":"345454355","sampleCollected":"Yes","request_date":"2020-05-04T00:00:00.000"}
 2020-05-04 11:47:40 info: {"case_id":"B2930305","sample_id":"","age":"36","sex":"Male","age_units":"Years","name":"BENJAMIN  MAFIA MULANDI","nationality":"KE","sample_type":"Oropharengeal Swab","temperature":"36.4","telephone_number":"0712960597","vehicle_number":"KBW 545K","date_of_entry":"2020-05-04T11:45:31","truckDestination":"UG","pointOfEntry":"Malaba POE","passportNo":"TPAAACANP","sampleCollected":"Yes","request_date":"2020-05-04T00:00:00.000"}
+2020-07-02 10:59:17 error: socket hang up
+2020-07-02 11:01:52 error: socket hang up
+2020-07-02 11:03:07 error: socket hang up
+2020-07-02 11:04:16 error: socket hang up
+2020-07-02 11:05:21 error: socket hang up
+2020-07-02 11:06:50 error: socket hang up
+2020-07-02 11:07:55 error: Request failed with status code 414
+2020-07-02 11:07:59 error: Request failed with status code 500
+2020-07-02 11:10:11 error: connect ETIMEDOUT 216.104.201.69:443
+2020-07-02 11:46:57 info: record sent
+2020-07-02 13:51:10 error: Request failed with status code 500
