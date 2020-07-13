@@ -493,7 +493,7 @@ export const syncTrackedEntityInstances = async (program, upstream, other) => {
         eacDriverId: data.x2mmRJ3TOXQ,
         district: calculatedDistricts[data.orgUnit]
       }
-      console.log(JSON.stringify(results));
+      console.log(`This is cripy-- ${data.x2mmRJ3TOXQ}`);
       return postAxios1(upstream, results);
     });
 
