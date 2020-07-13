@@ -494,6 +494,7 @@ export const syncTrackedEntityInstances = async (program, upstream, other) => {
         district: calculatedDistricts[data.orgUnit]
       }
       console.log(`This is cripy-- ${data.x2mmRJ3TOXQ}`);
+      console.log(JSON.stringify(results))
       return postAxios1(upstream, results);
     });
 
