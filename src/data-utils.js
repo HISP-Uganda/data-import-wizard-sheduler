@@ -493,6 +493,7 @@ export const syncTrackedEntityInstances = async (program, upstream, other) => {
         eacDriverId: data.x2mmRJ3TOXQ,
         district: calculatedDistricts[data.orgUnit]
       }
+      console.log(JSON.stringify(results));
       return postAxios1(upstream, results);
     });
 
