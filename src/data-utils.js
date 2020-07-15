@@ -422,7 +422,7 @@ export const syncTrackedEntityInstances = async (program, upstream, other) => {
       return [o.id, realDistricts[paths[3]]]
     }));
 
-    const all = entities.map(async ({ attributes, enrollments }) => {
+    entities.forEach(async ({ attributes, enrollments }) => {
       let data = _.fromPairs(
         attributes.map(({ attribute, value }) => {
           return [attribute, value];
@@ -493,16 +493,13 @@ export const syncTrackedEntityInstances = async (program, upstream, other) => {
         eacDriverId: data.x2mmRJ3TOXQ || '',
         district: calculatedDistricts[data.orgUnit]
       }
-      console.log(JSON.stringify(results))
-      return postAxios1(upstream, results);
+      try {
+        const response = await postAxios1(upstream, results);
+        winston.log("info", JSON.stringify(response.data));
+      } catch (error) {
+        winston.log("error", error.message);
+      }
     });
-
-    try {
-      await Promise.all(all);
-      winston.log("info", "record sent");
-    } catch (error) {
-      winston.log("error", error.message);
-    }
   }
 }
 
