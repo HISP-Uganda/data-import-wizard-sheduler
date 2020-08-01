@@ -474,6 +474,8 @@ export const syncTrackedEntityInstances = async (program, upstream, other) => {
         }
       }
 
+      console.log(eacDriverId);
+
       const results = {
         screenerName: data.TU0Jteb9H7F,
         organisation: organisations[data.orgUnit],
