@@ -351,7 +351,7 @@ export const pullOrgUnits = async (ids) => {
       const { data } = await axios.get(url, {
         auth: createDHIS2Auth(),
         params: {
-          filter: `id:in:[${ids.join(',')}]`,
+          filter: `id:in:[${ids.join(",")}]`,
           fields: "id,name,code,path",
           paging: false,
         },
@@ -366,7 +366,7 @@ export const pullOrgUnits = async (ids) => {
   }
 
   return [];
-}
+};
 
 export const pullTrackedEntities = async (program, others) => {
   try {
@@ -397,30 +397,39 @@ export const pullTrackedEntities = async (program, others) => {
 export const syncTrackedEntityInstances = async (program, upstream, other) => {
   const entities = await pullTrackedEntities(program, other);
   if (entities.length > 0) {
+    const orgUnits = await pullOrgUnits(
+      uniq(
+        entities.map((instance) => {
+          return instance.orgUnit;
+        })
+      )
+    );
 
-    const orgUnits = await pullOrgUnits(uniq(entities.map(instance => {
-      return instance.orgUnit;
-    })));
+    const organisations = _.fromPairs(
+      orgUnits.map((o) => {
+        return [o.id, o.name];
+      })
+    );
 
-    const organisations = _.fromPairs(orgUnits.map(o => {
-      return [o.id, o.name];
-    }));
-
-    const districts = orgUnits.map(o => {
-      const paths = String(o.path).split('/');
-      return paths[3]
+    const districts = orgUnits.map((o) => {
+      const paths = String(o.path).split("/");
+      return paths[3];
     });
 
     const districtData = await pullOrgUnits(uniq(districts));
 
-    const realDistricts = _.fromPairs(districtData.map(o => {
-      return [o.id, o.name];
-    }));
+    const realDistricts = _.fromPairs(
+      districtData.map((o) => {
+        return [o.id, o.name];
+      })
+    );
 
-    const calculatedDistricts = _.fromPairs(orgUnits.map(o => {
-      const paths = String(o.path).split('/');
-      return [o.id, realDistricts[paths[3]]]
-    }));
+    const calculatedDistricts = _.fromPairs(
+      orgUnits.map((o) => {
+        const paths = String(o.path).split("/");
+        return [o.id, realDistricts[paths[3]]];
+      })
+    );
 
     entities.forEach(async ({ attributes, enrollments }) => {
       let data = _.fromPairs(
@@ -454,45 +463,56 @@ export const syncTrackedEntityInstances = async (program, upstream, other) => {
         }
       }
 
+      let eacDriverId = "";
+
+      if (data.x2mmRJ3TOXQ !== undefined && data.x2mmRJ3TOXQ !== null) {
+        const chunks = String(data.x2mmRJ3TOXQ).split("|");
+        if (chunks.length > 2) {
+          eacDriverId = chunks[2];
+        } else if (chunks.length > 0) {
+          eacDriverId = chunks[0];
+        }
+      }
+
       const results = {
         screenerName: data.TU0Jteb9H7F,
         organisation: organisations[data.orgUnit],
         organisationId: data.orgUnit,
         sampleCollectionDate: data.enrollmentDate,
         sampleCollectionLocation: data.cRRJ9fsIYYz,
-        typeOfPersonTested: data.xwvCR3dis60 || '',
-        fullName: data.sB1IHYu2xQT || '',
-        formId: data.PVXhTjVdB92 || '',
-        barcode: data.rSKAr1Ho7rI || '',
-        poeId: data.CLzIR1Ye97b || '',
-        dob: data.g4LJbkM0R24 || '',
-        sex: data.FZzQbW8AWVd || '',
-        passportOrNInNo: data.oUqWGeHjj5C || '',
-        casePhoneContact: data.E7u9XdW24SP || '',
-        nationality: data.XvETY1aTxuB || '',
-        entryDate: data.UJiu0P8GvHt || '',
-        truckOrFlightNo: data.h6aZFN4DLcR || '',
-        seatNo: data.XX8NZilra7b || '',
-        departure: data.cW0UPEANS5t || '',
-        destination: data.pxcXhmjJeMv || '',
-        addressInUganda: data.ooK7aSiAaGq || '',
-        plannedDuration: data.eH7YTWgoHgo || '',
-        needForIsolation: data.Ep6evsVocKY || '',
-        underQuarantine: data.oVFYcqtwPY9 || '',
-        referredForFurtherInvestigation: data.EZwIFcKvSes || '',
-        nokName: data.fik9qo8iHeo || '',
-        nokPhone: data.j6sEr8EcULP || '',
-        temperature: data.QhDKRe2QDA7 || '',
-        freeFromSymptoms: data.EWWNozu6TVd || '',
-        selectSymptoms: data.lByQFYSVb2Z || '',
-        knownUnderlyingConditions: data.VS4GY78XPaH || '',
-        sampleType: data.SI7jnNQpEQM || '',
-        reasonsForHWTesting: data.kwNWq4drD2G || '',
+        typeOfPersonTested: data.xwvCR3dis60 || "",
+        fullName: data.sB1IHYu2xQT || "",
+        formId: data.PVXhTjVdB92 || "",
+        barcode: data.rSKAr1Ho7rI || "",
+        poeId: data.CLzIR1Ye97b || "",
+        dob: data.g4LJbkM0R24 || "",
+        sex: data.FZzQbW8AWVd || "",
+        passportOrNInNo: data.oUqWGeHjj5C || "",
+        casePhoneContact: data.E7u9XdW24SP || "",
+        nationality: data.XvETY1aTxuB || "",
+        entryDate: data.UJiu0P8GvHt || "",
+        truckOrFlightNo: data.h6aZFN4DLcR || "",
+        seatNo: data.XX8NZilra7b || "",
+        departure: data.cW0UPEANS5t || "",
+        destination: data.pxcXhmjJeMv || "",
+        addressInUganda: data.ooK7aSiAaGq || "",
+        plannedDuration: data.eH7YTWgoHgo || "",
+        needForIsolation: data.Ep6evsVocKY || "",
+        underQuarantine: data.oVFYcqtwPY9 || "",
+        referredForFurtherInvestigation: data.EZwIFcKvSes || "",
+        nokName: data.fik9qo8iHeo || "",
+        nokPhone: data.j6sEr8EcULP || "",
+        temperature: data.QhDKRe2QDA7 || "",
+        freeFromSymptoms: data.EWWNozu6TVd || "",
+        selectSymptoms: data.lByQFYSVb2Z || "",
+        knownUnderlyingConditions: data.VS4GY78XPaH || "",
+        sampleType: data.SI7jnNQpEQM || "",
+        reasonsForHWTesting: data.kwNWq4drD2G || "",
         age: Number(years).toFixed(0),
         ageUnits: units,
-        eacDriverId: data.x2mmRJ3TOXQ || '',
-        district: calculatedDistricts[data.orgUnit]
-      }
+        eacDriverId,
+        district: calculatedDistricts[data.orgUnit],
+      };
       try {
         const response = await postAxios1(upstream, results);
         winston.log("info", JSON.stringify(response.data));
@@ -501,7 +521,7 @@ export const syncTrackedEntityInstances = async (program, upstream, other) => {
       }
     });
   }
-}
+};
 
 export const replaceParam = (params, p) => {
   const foundParam = _.findIndex(params, {
@@ -580,11 +600,11 @@ export const processDataSetResponses = (response) => {
     winston.log(
       "info",
       " imported: " +
-      imported +
-      ", updated: " +
-      updated +
-      ", deleted: " +
-      deleted
+        imported +
+        ", updated: " +
+        updated +
+        ", deleted: " +
+        deleted
     );
     if (response["conflicts"]) {
       response["conflicts"].forEach((c) => {
@@ -608,14 +628,14 @@ export const processResponse = (response, type) => {
         winston.log(
           "info",
           type +
-          " with id, " +
-          reference +
-          " imported: " +
-          importCount.imported +
-          ", updated: " +
-          importCount.updated +
-          ", deleted: " +
-          importCount.deleted
+            " with id, " +
+            reference +
+            " imported: " +
+            importCount.imported +
+            ", updated: " +
+            importCount.updated +
+            ", deleted: " +
+            importCount.deleted
         );
       });
     } else if (response["httpStatusCode"] === 409) {
@@ -624,10 +644,10 @@ export const processResponse = (response, type) => {
           winston.log(
             "warn",
             type +
-            " conflict found, object: " +
-            conflict.object +
-            ", message: " +
-            conflict.value
+              " conflict found, object: " +
+              conflict.object +
+              ", message: " +
+              conflict.value
           );
         });
       });
@@ -840,7 +860,7 @@ export const findEventsByElements = async (program, uploadedData) => {
           .join("&");
         return axios.get(
           `${getDHIS2Url()}/events.json?program=${id}&orgUnit=${
-          e[0].orgUnit
+            e[0].orgUnit
           }&pageSize=1&fields=event,eventDate,program,programStage,orgUnit,dataValues[dataElement,value]&${filter}`,
           {
             params,
