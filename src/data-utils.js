@@ -1,9 +1,8 @@
-import _, { uniq } from "lodash";
+import _, { uniq, keys } from "lodash";
 import isReachable from "is-reachable";
 import rq from "request-promise-native";
 import axios from "axios";
 
-import dotenv from "dotenv";
 import {
   encodeData,
   groupEntities,
@@ -15,12 +14,6 @@ import winston from "./winston";
 import moment from "moment";
 
 const URL = require("url").URL;
-
-const result = dotenv.config();
-
-if (result.error) {
-  throw result.error;
-}
 
 export const searchTrackedEntities = async (
   program,
@@ -341,6 +334,107 @@ export const pullOrganisationUnits = async (mapping) => {
   }
 
   return [];
+};
+
+export const queryAnalytics = async (
+  dx,
+  pe,
+  ou,
+  filterByOus,
+  filterByPeriods
+) => {
+  let url = `dimension=dx:${dx.join(";")}`;
+
+  if (filterByOus) {
+    url = `${url}&filter=ou:${ou.join(";")}`;
+  } else {
+    url = `${url}&dimension=ou:${ou.join(";")}`;
+  }
+  if (filterByPeriods) {
+    url = `${url}&filter=pe:${pe.join(";")}`;
+  } else {
+    url = `${url}&dimension=pe:${pe.join(";")}`;
+  }
+
+  url = `${url}&skipData=false&skipRounding=false`;
+  try {
+    const baseUrl = getDHIS2Url();
+    if (baseUrl) {
+      const urlx = `${baseUrl}/analytics.json?${url}`;
+      const { data } = await axios.get(urlx, {
+        auth: createDHIS2Auth(),
+      });
+      return data;
+    }
+  } catch (e) {
+    console.log(e);
+    winston.log("error", e);
+  }
+  return [];
+};
+
+export const queryGeoJson = async () => {
+  try {
+    const baseUrl = getDHIS2Url();
+    if (baseUrl) {
+      const urlx = `${baseUrl}/organisationUnits.json`;
+      const {
+        data: { organisationUnits },
+      } = await axios.get(urlx, {
+        auth: createDHIS2Auth(),
+        params: {
+          level: 3,
+          paging: false,
+          fields: "id,name,geometry",
+        },
+      });
+      const features = organisationUnits
+        .map((child) => {
+          if (!child.geometry || child.geometry.type === "Point") {
+            return null;
+          }
+          return {
+            properties: {
+              id: child.id,
+              name: child.name,
+            },
+            type: "Feature",
+            geometry: child.geometry,
+          };
+        })
+        .filter((x) => {
+          return !!x;
+        });
+      return {
+        ous: organisationUnits.map((c) => c.id),
+        geoJson: {
+          type: "FeatureCollection",
+          features,
+        },
+      };
+    }
+  } catch (e) {
+    console.log(e);
+    winston.log("error", e);
+  }
+};
+
+export const queryDHIS2 = async (path, params) => {
+  try {
+    const baseUrl = getDHIS2Url();
+    if (baseUrl) {
+      const urlx = `${baseUrl}/${path}`;
+      const { data } = await axios.get(urlx, {
+        auth: createDHIS2Auth(),
+        params,
+      });
+
+      return data;
+    }
+  } catch (e) {
+    console.log(e);
+    winston.log("error", e);
+  }
 };
 
 export const pullOrgUnits = async (ids) => {

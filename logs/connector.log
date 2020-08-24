@@ -19544,3 +19544,186 @@
 2020-07-02 11:10:11 error: connect ETIMEDOUT 216.104.201.69:443
 2020-07-02 11:46:57 info: record sent
 2020-07-02 13:51:10 error: Request failed with status code 500
+2020-08-24 13:10:45 error: Request failed with status code 400
+2020-08-24 13:11:31 error: Request failed with status code 400
+2020-08-24 13:13:13 error: Request failed with status code 400
+2020-08-24 13:24:15 error: Request failed with status code 409
+2020-08-24 13:24:35 error: Request failed with status code 409
+2020-08-24 13:24:55 error: Request failed with status code 409
+2020-08-24 13:24:58 error: Request failed with status code 409
+2020-08-24 13:25:17 error: Request failed with status code 409
+2020-08-24 13:25:48 error: Request failed with status code 409
+2020-08-24 13:26:08 error: Request failed with status code 409
+2020-08-24 13:26:28 error: Request failed with status code 409
+2020-08-24 13:26:48 error: Request failed with status code 409
+2020-08-24 13:27:08 error: Request failed with status code 409
+2020-08-24 13:27:14 error: Request failed with status code 409
+2020-08-24 13:27:33 error: Request failed with status code 409
+2020-08-24 13:27:53 error: Request failed with status code 409
+2020-08-24 13:28:14 error: Request failed with status code 409
+2020-08-24 13:28:34 error: Request failed with status code 409
+2020-08-24 13:28:53 error: Request failed with status code 409
+2020-08-24 13:29:13 error: Request failed with status code 409
+2020-08-24 13:29:33 error: Request failed with status code 409
+2020-08-24 13:29:54 error: Request failed with status code 409
+2020-08-24 13:30:14 error: Request failed with status code 409
+2020-08-24 13:30:34 error: Request failed with status code 409
+2020-08-24 13:30:53 error: Request failed with status code 409
+2020-08-24 13:31:13 error: Request failed with status code 409
+2020-08-24 13:31:34 error: Request failed with status code 409
+2020-08-24 13:31:54 error: Request failed with status code 409
+2020-08-24 13:32:14 error: Request failed with status code 409
+2020-08-24 13:32:34 error: Request failed with status code 409
+2020-08-24 13:32:54 error: Request failed with status code 409
+2020-08-24 13:33:14 error: Request failed with status code 409
+2020-08-24 13:33:35 error: Request failed with status code 409
+2020-08-24 13:33:54 error: Request failed with status code 409
+2020-08-24 13:34:14 error: Request failed with status code 409
+2020-08-24 13:34:34 error: Request failed with status code 409
+2020-08-24 13:34:54 error: Request failed with status code 409
+2020-08-24 13:35:07 error: Request failed with status code 409
+2020-08-24 13:35:27 error: Request failed with status code 409
+2020-08-24 13:35:47 error: Request failed with status code 409
+2020-08-24 13:36:07 error: Request failed with status code 409
+2020-08-24 13:36:27 error: Request failed with status code 409
+2020-08-24 13:37:04 error: Request failed with status code 409
+2020-08-24 13:37:23 error: Request failed with status code 409
+2020-08-24 13:37:43 error: Request failed with status code 409
+2020-08-24 13:38:03 error: Request failed with status code 409
+2020-08-24 13:38:23 error: Request failed with status code 409
+2020-08-24 13:38:43 error: Request failed with status code 409
+2020-08-24 13:39:03 error: Request failed with status code 409
+2020-08-24 13:39:23 error: Request failed with status code 409
+2020-08-24 13:39:44 error: Request failed with status code 409
+2020-08-24 13:40:03 error: Request failed with status code 409
+2020-08-24 13:40:23 error: undefined
+2020-08-24 13:40:43 error: undefined
+2020-08-24 13:41:04 error: undefined
+2020-08-24 13:41:23 error: undefined
+2020-08-24 13:41:43 error: Request failed with status code 409
+2020-08-24 13:42:03 error: Request failed with status code 409
+2020-08-24 13:42:23 error: Request failed with status code 409
+2020-08-24 13:42:43 error: Request failed with status code 409
+2020-08-24 13:43:03 error: Request failed with status code 409
+2020-08-24 13:43:23 error: Request failed with status code 409
+2020-08-24 13:43:43 error: Request failed with status code 409
+2020-08-24 13:44:03 error: Request failed with status code 409
+2020-08-24 13:44:23 error: Request failed with status code 409
+2020-08-24 13:44:44 error: Request failed with status code 409
+2020-08-24 13:45:03 error: Request failed with status code 409
+2020-08-24 13:45:23 error: Request failed with status code 409
+2020-08-24 13:45:43 error: Request failed with status code 409
+2020-08-24 13:46:04 error: Request failed with status code 409
+2020-08-24 13:46:23 error: Request failed with status code 409
+2020-08-24 13:46:43 error: Request failed with status code 409
+2020-08-24 13:47:04 error: Request failed with status code 409
+2020-08-24 13:47:23 error: Request failed with status code 409
+2020-08-24 13:47:43 error: Request failed with status code 409
+2020-08-24 13:48:03 error: Request failed with status code 409
+2020-08-24 13:48:23 error: Request failed with status code 409
+2020-08-24 13:48:43 error: Request failed with status code 409
+2020-08-24 13:49:03 error: Request failed with status code 409
+2020-08-24 13:49:23 error: Request failed with status code 409
+2020-08-24 13:49:43 error: Request failed with status code 409
+2020-08-24 13:50:03 error: Request failed with status code 409
+2020-08-24 13:50:23 error: Request failed with status code 409
+2020-08-24 13:50:43 error: Request failed with status code 409
+2020-08-24 13:51:03 error: Request failed with status code 409
+2020-08-24 13:51:24 error: Request failed with status code 409
+2020-08-24 13:51:43 error: Request failed with status code 409
+2020-08-24 13:52:03 error: Request failed with status code 409
+2020-08-24 13:52:24 error: Request failed with status code 409
+2020-08-24 13:52:43 error: Request failed with status code 409
+2020-08-24 13:53:04 error: Request failed with status code 409
+2020-08-24 13:53:24 error: Request failed with status code 409
+2020-08-24 13:53:43 error: Request failed with status code 409
+2020-08-24 13:54:03 error: Request failed with status code 409
+2020-08-24 13:54:24 error: Request failed with status code 409
+2020-08-24 13:54:43 error: Request failed with status code 409
+2020-08-24 13:55:03 error: Request failed with status code 409
+2020-08-24 13:55:23 error: Request failed with status code 409
+2020-08-24 13:55:43 error: Request failed with status code 409
+2020-08-24 13:56:03 error: Request failed with status code 409
+2020-08-24 13:56:23 error: Request failed with status code 409
+2020-08-24 13:56:43 error: Request failed with status code 409
+2020-08-24 13:57:04 error: Request failed with status code 409
+2020-08-24 13:57:23 error: Request failed with status code 409
+2020-08-24 13:57:44 error: Request failed with status code 409
+2020-08-24 13:58:03 error: Request failed with status code 409
+2020-08-24 13:58:23 error: Request failed with status code 409
+2020-08-24 15:37:13 error: socket hang up
+2020-08-24 15:37:20 error: socket hang up
+2020-08-24 15:37:35 error: Client network socket disconnected before secure TLS connection was established
+2020-08-24 15:38:21 error: socket hang up
+2020-08-24 15:38:27 error: Client network socket disconnected before secure TLS connection was established
+2020-08-24 15:39:39 error: Client network socket disconnected before secure TLS connection was established
+2020-08-24 15:40:01 error: socket hang up
+2020-08-24 15:40:07 error: socket hang up
+2020-08-24 15:40:10 error: socket hang up
+2020-08-24 15:40:10 error: Client network socket disconnected before secure TLS connection was established
+2020-08-24 15:42:12 error: Client network socket disconnected before secure TLS connection was established
+2020-08-24 15:45:28 error: socket hang up
+2020-08-24 15:45:51 error: Client network socket disconnected before secure TLS connection was established
+2020-08-24 15:46:01 error: socket hang up
+2020-08-24 15:47:33 error: Client network socket disconnected before secure TLS connection was established
+2020-08-24 15:48:02 error: Client network socket disconnected before secure TLS connection was established
+2020-08-24 15:48:02 error: Client network socket disconnected before secure TLS connection was established
+2020-08-24 15:48:30 error: socket hang up
+2020-08-24 15:48:51 error: socket hang up
+2020-08-24 15:49:33 error: Client network socket disconnected before secure TLS connection was established
+2020-08-24 16:05:34 error: Request failed with status code 409
+2020-08-24 16:05:34 error: Request failed with status code 409
+2020-08-24 16:05:34 error: Request failed with status code 409
+2020-08-24 16:05:34 error: Request failed with status code 409
+2020-08-24 16:05:34 error: Request failed with status code 409
+2020-08-24 16:05:34 error: Request failed with status code 409
+2020-08-24 16:05:34 error: Request failed with status code 409
+2020-08-24 16:05:34 error: Request failed with status code 409
+2020-08-24 16:05:55 error: Request failed with status code 409
+2020-08-24 16:05:55 error: Request failed with status code 409
+2020-08-24 16:05:55 error: Request failed with status code 409
+2020-08-24 16:05:55 error: Request failed with status code 409
+2020-08-24 16:05:55 error: Request failed with status code 409
+2020-08-24 16:05:55 error: Request failed with status code 409
+2020-08-24 16:05:55 error: Request failed with status code 409
+2020-08-24 16:05:55 error: Request failed with status code 409
+2020-08-24 16:06:14 error: Request failed with status code 409
+2020-08-24 16:06:14 error: Request failed with status code 409
+2020-08-24 16:06:14 error: Request failed with status code 409
+2020-08-24 16:06:14 error: Request failed with status code 409
+2020-08-24 16:06:14 error: Request failed with status code 409
+2020-08-24 16:06:14 error: Request failed with status code 409
+2020-08-24 16:06:15 error: Request failed with status code 409
+2020-08-24 16:06:15 error: Request failed with status code 409
+2020-08-24 16:06:35 error: Request failed with status code 409
+2020-08-24 16:06:35 error: Request failed with status code 409
+2020-08-24 16:06:35 error: Request failed with status code 409
+2020-08-24 16:06:35 error: Request failed with status code 409
+2020-08-24 16:06:35 error: Request failed with status code 409
+2020-08-24 16:06:35 error: Request failed with status code 409
+2020-08-24 16:06:35 error: Request failed with status code 409
+2020-08-24 16:06:35 error: Request failed with status code 409
+2020-08-24 16:06:54 error: Request failed with status code 409
+2020-08-24 16:06:54 error: Request failed with status code 409
+2020-08-24 16:06:54 error: Request failed with status code 409
+2020-08-24 16:06:54 error: Request failed with status code 409
+2020-08-24 16:06:54 error: Request failed with status code 409
+2020-08-24 16:06:54 error: Request failed with status code 409
+2020-08-24 16:06:54 error: Request failed with status code 409
+2020-08-24 16:06:54 error: Request failed with status code 409
+2020-08-24 16:07:14 error: Request failed with status code 409
+2020-08-24 16:07:14 error: Request failed with status code 409
+2020-08-24 16:07:14 error: Request failed with status code 409
+2020-08-24 16:07:14 error: Request failed with status code 409
+2020-08-24 16:07:14 error: Request failed with status code 409
+2020-08-24 16:07:14 error: Request failed with status code 409
+2020-08-24 16:07:14 error: Request failed with status code 409
+2020-08-24 16:07:14 error: Request failed with status code 409
+2020-08-24 16:07:34 error: Request failed with status code 409
+2020-08-24 16:07:34 error: Request failed with status code 409
+2020-08-24 16:07:34 error: Request failed with status code 409
+2020-08-24 16:07:34 error: Request failed with status code 409
+2020-08-24 16:07:34 error: Request failed with status code 409
+2020-08-24 16:07:34 error: Request failed with status code 409
+2020-08-24 16:07:34 error: Request failed with status code 409
+2020-08-24 16:07:34 error: Request failed with status code 409

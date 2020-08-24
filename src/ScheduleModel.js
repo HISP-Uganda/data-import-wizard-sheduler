@@ -13,11 +13,11 @@ import {
   getUniqueIds,
   getUpstreamData,
   postAxios,
-  postAxios1,
+  // postAxios1,
   processDataSetResponses,
   pullData,
   pullOrganisationUnits,
-  pullTrackedEntities,
+  // pullTrackedEntities,
   replaceParam,
   replaceParamByValue,
   searchedInstances,
@@ -25,8 +25,11 @@ import {
   whatToComplete,
   withoutDuplicates,
   createProgram,
-  pullOrgUnits,
-  syncTrackedEntityInstances
+  // pullOrgUnits,
+  syncTrackedEntityInstances,
+  queryAnalytics,
+  queryGeoJson,
+  queryDHIS2,
 } from "./data-utils";
 import {
   isTracker,
@@ -272,8 +275,9 @@ class Schedule {
           const program = data.value.value;
           const lastUpdatedDuration = getFrequency(data.schedule);
           const upstream = data.upstream;
-          await syncTrackedEntityInstances(program, upstream, { lastUpdatedDuration });
-
+          await syncTrackedEntityInstances(program, upstream, {
+            lastUpdatedDuration,
+          });
         }
       }
       this.data = {
@@ -364,6 +368,16 @@ class Schedule {
 
   getData(url, params, username, password) {
     return getUpstreamData(url, params, { username, password });
+  }
+  getAnalysis(dx, pe, ou, filterByOus, filterByPeriods) {
+    return queryAnalytics(dx, pe, ou, filterByOus, filterByPeriods);
+  }
+
+  getMap() {
+    return queryGeoJson();
+  }
+  getDHIS2Data(path, params) {
+    return queryDHIS2(path, params);
   }
 }
 
