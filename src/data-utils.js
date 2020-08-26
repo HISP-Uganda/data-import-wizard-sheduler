@@ -432,7 +432,6 @@ export const queryDHIS2 = async (path, params) => {
       return data;
     }
   } catch (e) {
-    console.log(e);
     winston.log("error", e);
   }
 };
