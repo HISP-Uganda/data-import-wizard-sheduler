@@ -343,34 +343,35 @@ export const queryAnalytics = async (
   filterByOus,
   filterByPeriods
 ) => {
-  let url = `dimension=dx:${dx.join(";")}`;
+  if (dx.length > 0 && pe.length > 0 && ou.length > 0) {
+    let url = `dimension=dx:${dx.join(";")}`;
 
-  if (filterByOus) {
-    url = `${url}&filter=ou:${ou.join(";")}`;
-  } else {
-    url = `${url}&dimension=ou:${ou.join(";")}`;
-  }
-  if (filterByPeriods) {
-    url = `${url}&filter=pe:${pe.join(";")}`;
-  } else {
-    url = `${url}&dimension=pe:${pe.join(";")}`;
-  }
-
-  url = `${url}&skipData=false&skipRounding=false`;
-  try {
-    const baseUrl = getDHIS2Url();
-    if (baseUrl) {
-      const urlx = `${baseUrl}/analytics.json?${url}`;
-      const { data } = await axios.get(urlx, {
-        auth: createDHIS2Auth(),
-      });
-      return data;
+    if (filterByOus) {
+      url = `${url}&filter=ou:${ou.join(";")}`;
+    } else {
+      url = `${url}&dimension=ou:${ou.join(";")}`;
     }
-  } catch (e) {
-    console.log(e);
-    winston.log("error", e);
+    if (filterByPeriods) {
+      url = `${url}&filter=pe:${pe.join(";")}`;
+    } else {
+      url = `${url}&dimension=pe:${pe.join(";")}`;
+    }
+
+    url = `${url}&skipData=false&skipRounding=false`;
+    try {
+      const baseUrl = getDHIS2Url();
+      if (baseUrl) {
+        const urlx = `${baseUrl}/analytics.json?${url}`;
+        const { data } = await axios.get(urlx, {
+          auth: createDHIS2Auth(),
+        });
+        return data;
+      }
+    } catch (e) {
+      winston.log("error", e);
+    }
+    return [];
   }
-  return [];
 };
 
 export const queryGeoJson = async () => {
