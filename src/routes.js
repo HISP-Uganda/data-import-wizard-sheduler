@@ -18,7 +18,15 @@ export const routes = (app, io, d2) => {
   });
 
   app.post("/proxy", async (req, res) => {
-    const { url, username, password, params } = req.body;
+    const {
+      url,
+      username,
+      password,
+      params,
+      isDHIS2 = false,
+      attributes = false,
+      events = false,
+    } = req.body;
     try {
       const { data } = await ScheduleModel.getData(
         url,
@@ -26,6 +34,13 @@ export const routes = (app, io, d2) => {
         username,
         password
       );
+
+      if (isDHIS2) {
+        if (attributes) {
+          console.log(data);
+        }
+      }
+
       return res.status(200).send(data);
     } catch (e) {
       return res.status(500).send({ message: e.message });
@@ -67,7 +82,9 @@ export const routes = (app, io, d2) => {
       req.body.pe,
       req.body.ou,
       req.body.filterByOus,
-      req.body.filterByPeriods
+      req.body.filterByPeriods,
+      req.body.otherDimension,
+      req.body.otherDimensionDx
     );
     return res.status(200).send(data);
   });
@@ -80,6 +97,12 @@ export const routes = (app, io, d2) => {
   app.get("/query", async (req, res) => {
     const { path, ...params } = req.query;
     const data = await ScheduleModel.getDHIS2Data(path, params);
+    return res.status(200).send(data);
+  });
+
+  app.get("/attributes", async (req, res) => {
+    const { program } = req.query;
+    const data = await ScheduleModel.getAttributes(program);
     return res.status(200).send(data);
   });
 };

@@ -30,6 +30,7 @@ import {
   queryAnalytics,
   queryGeoJson,
   queryDHIS2,
+  queryTrackedEntities,
 } from "./data-utils";
 import {
   isTracker,
@@ -66,6 +67,7 @@ const db = {
 class Schedule {
   schedules = [];
   data = {};
+  io = undefined;
 
   /**
    * class constructor
@@ -76,11 +78,15 @@ class Schedule {
     this.loadPreviousSchedules();
   }
 
+  loadIO = (io) => {
+    this.io = io;
+  };
+
   loadPreviousSchedules = async () => {
-    const s = await db.schedules.find({});
-    this.schedules = s.map((schedule) => {
-      return this.create(schedule);
-    });
+    // const s = await db.schedules.find({});
+    // this.schedules = s.map((schedule) => {
+    //   return this.create(schedule);
+    // });
   };
 
   /**
@@ -88,26 +94,34 @@ class Schedule {
    * @returns {object} reflection object
    */
 
-  async create(data) {
-    const daysToAdd =
-      data.additionalDays === 0 && data.schedule !== "Weekly"
-        ? 1
-        : data.additionalDays;
-    let schedule = getSchedule(data.schedule, daysToAdd);
-    let format = getPeriodFormat(data.schedule);
-    const interval1 = parser.parseExpression(schedule);
-    const name = data.name;
+  async insert(data) {}
 
-    await this.delete(name);
-    const job = scheduleJob(data.name, schedule, async () => {
-      const mapping = data.value;
+  async create(data) {
+    let daysToAdd = 0;
+    let schedule = undefined;
+    let format = undefined;
+    const name = data.name;
+    const immidiate = data.immediate || false;
+    const mapping = data.value;
+    const params = mapping.params;
+
+    if (immidiate) {
+      console.log("What is going on");
+    } else {
+      await this.delete(name);
+      daysToAdd =
+        data.additionalDays === 0 && data.schedule !== "Weekly"
+          ? 1
+          : data.additionalDays;
+      schedule = getSchedule(data.schedule, daysToAdd);
+      format = getPeriodFormat(data.schedule);
+    }
+
+    const job = scheduleJob(name, schedule, async () => {
       const interval = parser.parseExpression(schedule);
       if (mapping) {
         if (data.type === "tracker") {
           try {
-            const program = mapping.value;
-            const params = program.params;
-
             const startParam = params.find(
               (p) => p.isPeriod && p.periodType === "1"
             );
@@ -205,7 +219,7 @@ class Schedule {
             const orgUnits = await pullOrganisationUnits(dataSet);
             const param = { param: "orgUnit" };
             if (dataSet.multiplePeriods) {
-              winston.log("info", "Multiple periods not supported");
+              console.log(_.keys(dataSet));
             } else {
               const all = orgUnits.map((ou) => {
                 param.value = ou.id;
@@ -290,16 +304,18 @@ class Schedule {
       };
     });
 
-    job.type = data.type;
-    job.createdDate = moment.now();
-    job.next = interval1.next().toString();
-    job.last = "";
-    this.schedules = [...this.schedules, job];
-    const searched = await db.schedules.findOne({ name }).exec();
-    if (!searched) {
-      await db.schedules.insert(data);
-    }
-    return job;
+    // job.type = data.type;
+    // job.createdDate = moment.now();
+    // job.next = interval1.next().toString();
+    // job.last = "";
+    // this.schedules = [...this.schedules, job];
+    // if (!immidiate) {
+    //   const searched = await db.schedules.findOne({ name }).exec();
+    //   if (!searched) {
+    //     await db.schedules.insert(data);
+    //   }
+    // }
+    // return job;
   }
 
   /**
@@ -369,8 +385,26 @@ class Schedule {
   getData(url, params, username, password) {
     return getUpstreamData(url, params, { username, password });
   }
-  getAnalysis(dx, pe, ou, filterByOus, filterByPeriods) {
-    return queryAnalytics(dx, pe, ou, filterByOus, filterByPeriods);
+  getAnalysis(
+    dx,
+    pe,
+    ou,
+    filterByOus,
+    filterByPeriods,
+    filterByDxs,
+    otherDimension,
+    otherDimensionDx
+  ) {
+    return queryAnalytics(
+      dx,
+      pe,
+      ou,
+      filterByOus,
+      filterByPeriods,
+      filterByDxs,
+      otherDimension,
+      otherDimensionDx
+    );
   }
 
   getMap() {
@@ -378,6 +412,9 @@ class Schedule {
   }
   getDHIS2Data(path, params) {
     return queryDHIS2(path, params);
+  }
+  getAttributes(program) {
+    return queryTrackedEntities(program);
   }
 }
 

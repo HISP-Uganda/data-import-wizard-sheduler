@@ -1,17 +1,17 @@
-import _, { uniq, keys } from "lodash";
-import isReachable from "is-reachable";
-import rq from "request-promise-native";
 import axios from "axios";
-
+import isReachable from "is-reachable";
+import _, { flatten, uniq } from "lodash";
+import moment from "moment";
+import rq from "request-promise-native";
 import {
   encodeData,
   groupEntities,
   isTracker,
   nest,
-  searchOrgUnit,
+  searchOrgUnit
 } from "./utils";
 import winston from "./winston";
-import moment from "moment";
+
 
 const URL = require("url").URL;
 
@@ -341,10 +341,23 @@ export const queryAnalytics = async (
   pe,
   ou,
   filterByOus,
-  filterByPeriods
+  filterByPeriods,
+  filterByDxs,
+  otherDimension,
+  otherDimensionDx
 ) => {
   if (dx.length > 0 && pe.length > 0 && ou.length > 0) {
-    let url = `dimension=dx:${dx.join(";")}`;
+    let url = "";
+
+    if (filterByDxs) {
+      url = `filter=dx:${dx.join(";")}`;
+    } else {
+      url = `dimension=dx:${dx.join(";")}`;
+    }
+
+    if (otherDimension && otherDimensionDx.length > 0) {
+      url = `${url}&dimension=${otherDimension}:${otherDimensionDx.join(";")}`;
+    }
 
     if (filterByOus) {
       url = `${url}&filter=ou:${ou.join(";")}`;
@@ -437,6 +450,16 @@ export const queryDHIS2 = async (path, params) => {
   }
 };
 
+export const queryTrackedEntities = async (program) => {
+  const { attributes } = queryDHIS2("trackedEntityInstances.json", {
+    program,
+    ouMode: "ALL",
+    fields: "attributes[name,value]",
+  });
+
+  return flatten(attributes);
+};
+
 export const pullOrgUnits = async (ids) => {
   try {
     const baseUrl = getDHIS2Url();
@@ -484,7 +507,6 @@ export const pullTrackedEntities = async (program, others) => {
   } catch (e) {
     winston.log("error", e.message);
   }
-
   return [];
 };
 
@@ -567,8 +589,6 @@ export const syncTrackedEntityInstances = async (program, upstream, other) => {
           eacDriverId = chunks[0];
         }
       }
-
-      console.log(eacDriverId);
 
       const results = {
         screenerName: data.TU0Jteb9H7F,
