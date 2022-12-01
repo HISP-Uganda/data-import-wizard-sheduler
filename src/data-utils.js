@@ -616,7 +616,7 @@ export const syncTrackedEntityInstances = async (program, upstream, other) => {
         barcode: data.rSKAr1Ho7rI || "",
         poeId: data.HAZ7VQ730yn || "",
         dob: data.g4LJbkM0R24 || "",
-        sex: data.FZzQbW8AWVd || "",
+        sex: data.Rq4qM2wKYFL || "",
         passportOrNInNo: data.oUqWGeHjj5C || "",
         casePhoneContact: data.E7u9XdW24SP || "",
         nationality: data.XvETY1aTxuB || "",
