@@ -8,10 +8,9 @@ import {
   groupEntities,
   isTracker,
   nest,
-  searchOrgUnit
+  searchOrgUnit,
 } from "./utils";
 import winston from "./winston";
-
 
 const URL = require("url").URL;
 
@@ -494,9 +493,11 @@ export const pullTrackedEntities = async (program, others) => {
         auth: createDHIS2Auth(),
         params: {
           ouMode: "ALL",
-          paging: false,
+          // paging: false,
           program,
-          ...others,
+          // ...others,
+          lastUpdatedDuration: "10m",
+          pageSize: 10,
           fields: "*",
         },
       });
@@ -558,29 +559,42 @@ export const syncTrackedEntityInstances = async (program, upstream, other) => {
 
       if (enrollment) {
         const { events, ...others } = enrollment;
-        data = { ...data, ...others };
+        const allEvents = events.map(({ dataValues, ...rest }) => {
+          const elements = _.fromPairs(
+            dataValues.map(({ dataElement, value }) => [dataElement, value])
+          );
+          return { ...rest, ...elements };
+        });
+        data = { ...data, ...others, ..._.groupBy(allEvents, "programStage") };
       }
 
       let units = "Years";
-      let years = moment().diff(data.g4LJbkM0R24, "years");
+      let years = data.UezutfURtQG;
 
-      if (years < 1) {
-        years = moment().diff(data.g4LJbkM0R24, "months");
-        units = "Months";
+      // if (years.length >= 10) {
+      //   years = moment().diff(moment(data.g4LJbkM0R24), "years");
 
-        if (years < 1) {
-          years = moment().diff(data.g4LJbkM0R24, "weeks");
-          units = "Weeks";
+      //   if (years < 1) {
+      //     years = moment().diff(moment(data.g4LJbkM0R24), "months");
+      //     units = "Months";
+      //     if (years < 1) {
+      //       years = moment().diff(moment(data.g4LJbkM0R24), "weeks");
+      //       units = "Weeks";
+      //       if (years < 1) {
+      //         years = moment().diff(moment(data.g4LJbkM0R24), "days");
+      //         units = "Days";
+      //       }
+      //     }
+      //   }
+      // }
 
-          if (years < 1) {
-            years = moment().diff(data.g4LJbkM0R24, "days");
-            units = "Days";
-          }
-        }
+      let labRequests = {};
+
+      if (data.zKFHLSj6Wd1 && data.zKFHLSj6Wd1.length > 0) {
+        labRequests = data.zKFHLSj6Wd1[data.zKFHLSj6Wd1.length - 1];
       }
 
       let eacDriverId = "";
-
       if (data.x2mmRJ3TOXQ !== undefined && data.x2mmRJ3TOXQ !== null) {
         const chunks = String(data.x2mmRJ3TOXQ).split("|");
         if (chunks.length > 2) {
@@ -600,7 +614,7 @@ export const syncTrackedEntityInstances = async (program, upstream, other) => {
         fullName: data.sB1IHYu2xQT || "",
         formId: data.PVXhTjVdB92 || "",
         barcode: data.rSKAr1Ho7rI || "",
-        poeId: data.CLzIR1Ye97b || "",
+        poeId: data.HAZ7VQ730yn || "",
         dob: data.g4LJbkM0R24 || "",
         sex: data.FZzQbW8AWVd || "",
         passportOrNInNo: data.oUqWGeHjj5C || "",
@@ -622,12 +636,14 @@ export const syncTrackedEntityInstances = async (program, upstream, other) => {
         freeFromSymptoms: data.EWWNozu6TVd || "",
         selectSymptoms: data.lByQFYSVb2Z || "",
         knownUnderlyingConditions: data.VS4GY78XPaH || "",
-        sampleType: data.SI7jnNQpEQM || "",
+        // sampleType: data.SI7jnNQpEQM || "",
         reasonsForHWTesting: data.kwNWq4drD2G || "",
         age: Number(years).toFixed(0),
         ageUnits: units,
         eacDriverId,
         district: calculatedDistricts[data.orgUnit],
+        sampleType: labRequests["PaCUNfho8eD"] || "",
+        testType: labRequests["Iwiv0W39Yqq"] || "",
       };
       try {
         const response = await postAxios1(upstream, results);
